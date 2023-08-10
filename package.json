@@ -18,17 +18,18 @@
 	},
 	"files": [
 		"dist",
-		"cmake"
+		"cmake",
+		"common"
 	],
 	"bin": {
 		"protobuf_ts_compile_config": "./config_compile"
 	},
 	"scripts": {
-		"configure": "if command -v ninja > /dev/null; then export CMAKE_FLAGS=\"$CMAKE_FLAGS -G Ninja\"; fi; cmake -S . -B build $CMAKE_FLAGS",
-		"build": "if [ ! -d build/CMakeCache.txt ]; then npm run configure; fi; cmake --build build",
-		"clean": "cmake -E remove_directory build && rm -rf dist",
+		"configure": "cmake-js configure",
+		"build": "cmake-js",
+		"clean": "cmake-js clean && rm -rf dist",
 		"cleanall": "npm run clean && rm -rf node_modules yarn.lock package-lock.json protos/generated/*",
-		"prepare": "npm run clean && npm run build && cp -r build/protos dist/",
+		"prepare": "npm run clean && npm run build && cp -r build/protos build/common && mv build/common .",
 		"git-publish": "git-publish -b dist"
 	}
 }
