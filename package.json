@@ -1,0 +1,34 @@
+{
+	"name": "protobuf-ts",
+	"version": "0.0.1",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"dependencies": {
+		"js-common": "https://github.com/davidzeng0/js-common.git#dist",
+		"yargs": "^17.7.1"
+	},
+	"devDependencies": {
+		"@types/node": "^18.14.0",
+		"@types/yargs": "^17.0.24",
+		"cmake-js": "^7.2.1",
+		"git-publish": "^2.0.0",
+		"ts-proto": "^1.156.2",
+		"tsup": "^6.7.0",
+		"typescript": "^4.9.5"
+	},
+	"files": [
+		"dist",
+		"cmake"
+	],
+	"bin": {
+		"protobuf_ts_compile_config": "./config_compile"
+	},
+	"scripts": {
+		"configure": "if command -v ninja > /dev/null; then export CMAKE_FLAGS=\"$CMAKE_FLAGS -G Ninja\"; fi; cmake -S . -B build $CMAKE_FLAGS",
+		"build": "if [ ! -d build/CMakeCache.txt ]; then npm run configure; fi; cmake --build build",
+		"clean": "cmake -E remove_directory build && rm -rf dist",
+		"cleanall": "npm run clean && rm -rf node_modules yarn.lock package-lock.json protos/generated/*",
+		"prepare": "npm run clean && npm run build && cp -r build/protos dist/",
+		"git-publish": "git-publish -b dist"
+	}
+}
