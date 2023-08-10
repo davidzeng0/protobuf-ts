@@ -1,0 +1,15 @@
+'use strict';
+
+var jsCommon = require('js-common');
+var promises = require('fs/promises');
+var fs = require('fs');
+var path = require('path');
+var helpers = require('yargs/helpers');
+var k = require('yargs');
+
+function _interopDefault (e) { return e && e.__esModule ? e : { default: e }; }
+
+var k__default = /*#__PURE__*/_interopDefault(k);
+
+var S=Object.defineProperty;var C=(r,t,e)=>t in r?S(r,t,{enumerable:!0,configurable:!0,writable:!0,value:e}):r[t]=e;var u=(r,t)=>S(r,"name",{value:t,configurable:!0});var v=(r,t,e)=>(C(r,typeof t!="symbol"?t+"":t,e),e);var c=class{path;data;constructor(t,e){this.path=t,this.data=e;}static async read(t){let e;try{e=await promises.readFile(t,"utf8");}catch(i){throw i.code=="ENOENT"?new jsCommon.NotFoundError(`File not found: ${t}`):i}return jsCommon.Yaml.decode(e)}static readSync(t){let e;try{e=fs.readFileSync(t,"utf8");}catch(i){throw i.code=="ENOENT"?new jsCommon.NotFoundError(`File not found: ${t}`):i}return jsCommon.Yaml.decode(e)}static async write(t,e){await promises.writeFile(t,e===void 0?"":jsCommon.Yaml.encode(e));}static async loadConfig(t){return new c(t,await this.read(t))}static loadConfigSync(t){return new c(t,this.readSync(t))}static use(t){this.config=this.loadConfigSync(t);}static get(t){return this.config||this.use("config.yaml"),this.config?.get(t)}get(t){let e=this.data,i=t.split("/");for(;i.length;){if(e===void 0)return;if(typeof e!="object"||e===null)throw new jsCommon.ParseError(`Could not read config '${t}'`);e=e[i.shift()];}return e}set(t,e){let i=this.data,o=t.split("/");for(i==null&&(this.data=i={});o.length>1;){let n=o.shift();if(i[n]===void 0||i[n]===null){i=i[n]={};continue}if(typeof i[n]!="object")throw new jsCommon.ParseError(`Could not set config '${t}'`);i=i[n];}i[o.shift()]=e;}save(){return c.write(this.path,this.data)}},f=c;u(f,"Config"),v(f,"config");var b=k__default.default(helpers.hideBin(process.argv)).parseSync(),[s,a]=b._;if(!s)throw new jsCommon.InvalidArgumentError("Specify an input");if(!a)throw new jsCommon.InvalidArgumentError("Specify an output directory");var h=new Map,p=b.base??process.cwd();a=path.relative(p,path.resolve(p,a));s=path.relative(p,path.resolve(p,s));a=path.join(a,path.dirname(s),`${path.basename(s,"yaml")}ts`);a=path.resolve(p,a);s=path.resolve(p,s);function B(r){let t=r.split("/");t[0]=="."&&(t[0]=`${path.relative(path.dirname(a),path.dirname(s))}`);let e=t.pop().split(".");t.push(e.shift());let i=t.join("/");return h.has(i)||h.set(i,[]),h.get(i).push(e),`!impl:${e[e.length-1]}`}u(B,"resolveImport");(async function(){let r=await f.read(s),t=JSON.stringify(r,(n,l)=>n!="implementation"?l:B(l),"	");t=t.replaceAll(/"\!impl:([^"]+)"/g,(n,l)=>l);let e=[],i=[];for(let[n,l]of h){let $=path.basename(n);for(let g of l)i.push(`import ${g[g.length-1]} = ${[$,...g].join(".")};`);e.push(`import * as ${$} from '${n}';`);}let o=[];o.push(...e),e.length&&o.push(""),o.push(...i),i.length&&o.push(""),o.push(`export default ${t};`),await promises.writeFile(a,o.join(`
+`),"utf8");})();

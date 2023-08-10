@@ -1,3 +1,0 @@
-[submodule "protos/protobuf-common"]
-	path = protos/protobuf-common
-	url = https://github.com/davidzeng0/protobuf-common.git
