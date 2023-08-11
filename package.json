@@ -19,7 +19,8 @@
   "files": [
     "dist",
     "cmake",
-    "common"
+    "include",
+    "protos/google"
   ],
   "bin": {
     "protobuf_ts_compile_config": "./config_compile"
