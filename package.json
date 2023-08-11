@@ -19,7 +19,8 @@
 	"files": [
 		"dist",
 		"cmake",
-		"common"
+		"include",
+		"protos/google"
 	],
 	"bin": {
 		"protobuf_ts_compile_config": "./config_compile"
@@ -29,7 +30,7 @@
 		"build": "cmake-js",
 		"clean": "cmake-js clean && rm -rf dist",
 		"cleanall": "npm run clean && rm -rf node_modules yarn.lock package-lock.json protos/generated/*",
-		"prepare": "npm run clean && npm run build && cp -r build/protos build/common && mv build/common .",
+		"prepare": "npm run clean && npm run build && cp -r build/protos protos/ && mkdir include && cp protos/protobuf-common include",
 		"git-publish": "git-publish -b dist"
 	}
 }
