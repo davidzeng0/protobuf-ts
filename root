@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-console.log(require('./dist/index').PROTOBUF_TS_ROOT);
+process.stdout.write(require('./dist/index').PROTOBUF_TS_ROOT);
