@@ -23,12 +23,13 @@
     "protos/google"
   ],
   "bin": {
-    "protobuf_ts_compile_config": "./config_compile"
+    "protobuf_ts_compile_config": "./config_compile",
+    "protobuf_ts_root": "./root"
   },
   "scripts": {
     "configure": "cmake-js configure",
     "build": "cmake-js",
-    "clean": "cmake-js clean && rm -rf dist",
+    "clean": "cmake-js clean && rm -rf dist include",
     "cleanall": "npm run clean && rm -rf node_modules yarn.lock package-lock.json protos/generated/*",
     "git-publish": "git-publish -b dist"
   }

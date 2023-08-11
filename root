@@ -1,0 +1,2 @@
+#!/usr/bin/env node
+console.log(require('./dist/index').PROTOBUF_TS_ROOT);
