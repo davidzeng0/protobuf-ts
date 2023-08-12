@@ -10,7 +10,7 @@ foreach(FILE ${CONFIG_SOURCES})
 
 	add_custom_command(
 		OUTPUT ${OUTPUT}
-		COMMAND npx
+		COMMAND yarn
 		ARGS
 			protobuf_ts_compile_config
 			--base ${CMAKE_CURRENT_SOURCE_DIR}
