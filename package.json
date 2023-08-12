@@ -13,8 +13,8 @@
 		"cmake-js": "^7.2.1",
 		"git-publish": "^2.0.0",
 		"ts-proto": "^1.156.2",
-		"tsup": "^6.7.0",
-		"typescript": "^4.9.5"
+		"tsup": "^7.2.0",
+		"typescript": "^5.1.6"
 	},
 	"files": [
 		"dist",
