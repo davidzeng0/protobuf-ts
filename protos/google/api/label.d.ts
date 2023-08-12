@@ -14,15 +14,16 @@ export interface LabelDescriptor {
 /** Value types that can be used as label values. */
 export declare enum LabelDescriptor_ValueType {
     /** STRING - A variable-length string. This is the default. */
-    STRING = 0,
+    STRING = "STRING",
     /** BOOL - Boolean; true or false. */
-    BOOL = 1,
+    BOOL = "BOOL",
     /** INT64 - A 64-bit signed integer. */
-    INT64 = 2,
-    UNRECOGNIZED = -1
+    INT64 = "INT64",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function labelDescriptor_ValueTypeFromJSON(object: any): LabelDescriptor_ValueType;
 export declare function labelDescriptor_ValueTypeToJSON(object: LabelDescriptor_ValueType): string;
+export declare function labelDescriptor_ValueTypeToNumber(object: LabelDescriptor_ValueType): number;
 export declare const LabelDescriptor: {
     encode(message: LabelDescriptor, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): LabelDescriptor;

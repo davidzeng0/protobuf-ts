@@ -12,7 +12,7 @@
  */
 export declare enum ErrorReason {
     /** ERROR_REASON_UNSPECIFIED - Do not use this default value. */
-    ERROR_REASON_UNSPECIFIED = 0,
+    ERROR_REASON_UNSPECIFIED = "ERROR_REASON_UNSPECIFIED",
     /**
      * SERVICE_DISABLED - The request is calling a disabled service for a consumer.
      *
@@ -30,7 +30,7 @@ export declare enum ErrorReason {
      * This response indicates the "pubsub.googleapis.com" has been disabled in
      * "projects/123".
      */
-    SERVICE_DISABLED = 1,
+    SERVICE_DISABLED = "SERVICE_DISABLED",
     /**
      * BILLING_DISABLED - The request whose associated billing account is disabled.
      *
@@ -48,7 +48,7 @@ export declare enum ErrorReason {
      *
      * This response indicates the billing account associated has been disabled.
      */
-    BILLING_DISABLED = 2,
+    BILLING_DISABLED = "BILLING_DISABLED",
     /**
      * API_KEY_INVALID - The request is denied because the provided [API
      * key](https://cloud.google.com/docs/authentication/api-keys) is invalid. It
@@ -64,7 +64,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    API_KEY_INVALID = 3,
+    API_KEY_INVALID = "API_KEY_INVALID",
     /**
      * API_KEY_SERVICE_BLOCKED - The request is denied because it violates [API key API
      * restrictions](https://cloud.google.com/docs/authentication/api-keys#adding_api_restrictions).
@@ -81,7 +81,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    API_KEY_SERVICE_BLOCKED = 4,
+    API_KEY_SERVICE_BLOCKED = "API_KEY_SERVICE_BLOCKED",
     /**
      * API_KEY_HTTP_REFERRER_BLOCKED - The request is denied because it violates [API key HTTP
      * restrictions](https://cloud.google.com/docs/authentication/api-keys#adding_http_restrictions).
@@ -98,7 +98,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    API_KEY_HTTP_REFERRER_BLOCKED = 7,
+    API_KEY_HTTP_REFERRER_BLOCKED = "API_KEY_HTTP_REFERRER_BLOCKED",
     /**
      * API_KEY_IP_ADDRESS_BLOCKED - The request is denied because it violates [API key IP address
      * restrictions](https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions).
@@ -115,7 +115,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    API_KEY_IP_ADDRESS_BLOCKED = 8,
+    API_KEY_IP_ADDRESS_BLOCKED = "API_KEY_IP_ADDRESS_BLOCKED",
     /**
      * API_KEY_ANDROID_APP_BLOCKED - The request is denied because it violates [API key Android application
      * restrictions](https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions).
@@ -132,7 +132,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    API_KEY_ANDROID_APP_BLOCKED = 9,
+    API_KEY_ANDROID_APP_BLOCKED = "API_KEY_ANDROID_APP_BLOCKED",
     /**
      * API_KEY_IOS_APP_BLOCKED - The request is denied because it violates [API key iOS application
      * restrictions](https://cloud.google.com/docs/authentication/api-keys#adding_application_restrictions).
@@ -149,7 +149,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    API_KEY_IOS_APP_BLOCKED = 13,
+    API_KEY_IOS_APP_BLOCKED = "API_KEY_IOS_APP_BLOCKED",
     /**
      * RATE_LIMIT_EXCEEDED - The request is denied because there is not enough rate quota for the
      * consumer.
@@ -185,7 +185,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    RATE_LIMIT_EXCEEDED = 5,
+    RATE_LIMIT_EXCEEDED = "RATE_LIMIT_EXCEEDED",
     /**
      * RESOURCE_QUOTA_EXCEEDED - The request is denied because there is not enough resource quota for the
      * consumer.
@@ -220,7 +220,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    RESOURCE_QUOTA_EXCEEDED = 6,
+    RESOURCE_QUOTA_EXCEEDED = "RESOURCE_QUOTA_EXCEEDED",
     /**
      * LOCATION_TAX_POLICY_VIOLATED - The request whose associated billing account address is in a tax restricted
      * location, violates the local tax restrictions when creating resources in
@@ -242,7 +242,7 @@ export declare enum ErrorReason {
      * This response indicates creating the Cloud Storage Bucket in
      * "locations/asia-northeast3" violates the location tax restriction.
      */
-    LOCATION_TAX_POLICY_VIOLATED = 10,
+    LOCATION_TAX_POLICY_VIOLATED = "LOCATION_TAX_POLICY_VIOLATED",
     /**
      * USER_PROJECT_DENIED - The request is denied because the caller does not have required permission
      * on the user project "projects/123" or the user project is invalid. For more
@@ -260,7 +260,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    USER_PROJECT_DENIED = 11,
+    USER_PROJECT_DENIED = "USER_PROJECT_DENIED",
     /**
      * CONSUMER_SUSPENDED - The request is denied because the consumer "projects/123" is suspended due
      * to Terms of Service(Tos) violations. Check [Project suspension
@@ -278,7 +278,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    CONSUMER_SUSPENDED = 12,
+    CONSUMER_SUSPENDED = "CONSUMER_SUSPENDED",
     /**
      * CONSUMER_INVALID - The request is denied because the associated consumer is invalid. It may be
      * in a bad format, cannot be found, or have been deleted.
@@ -294,7 +294,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    CONSUMER_INVALID = 14,
+    CONSUMER_INVALID = "CONSUMER_INVALID",
     /**
      * SECURITY_POLICY_VIOLATED - The request is denied because it violates [VPC Service
      * Controls](https://cloud.google.com/vpc-service-controls/docs/overview).
@@ -316,7 +316,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    SECURITY_POLICY_VIOLATED = 15,
+    SECURITY_POLICY_VIOLATED = "SECURITY_POLICY_VIOLATED",
     /**
      * ACCESS_TOKEN_EXPIRED - The request is denied because the provided access token has expired.
      *
@@ -331,7 +331,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    ACCESS_TOKEN_EXPIRED = 16,
+    ACCESS_TOKEN_EXPIRED = "ACCESS_TOKEN_EXPIRED",
     /**
      * ACCESS_TOKEN_SCOPE_INSUFFICIENT - The request is denied because the provided access token doesn't have at
      * least one of the acceptable scopes required for the API. Please check
@@ -351,7 +351,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    ACCESS_TOKEN_SCOPE_INSUFFICIENT = 17,
+    ACCESS_TOKEN_SCOPE_INSUFFICIENT = "ACCESS_TOKEN_SCOPE_INSUFFICIENT",
     /**
      * ACCOUNT_STATE_INVALID - The request is denied because the account associated with the provided
      * access token is in an invalid state, such as disabled or deleted.
@@ -374,7 +374,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    ACCOUNT_STATE_INVALID = 18,
+    ACCOUNT_STATE_INVALID = "ACCOUNT_STATE_INVALID",
     /**
      * ACCESS_TOKEN_TYPE_UNSUPPORTED - The request is denied because the type of the provided access token is not
      * supported by the API being called.
@@ -390,7 +390,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    ACCESS_TOKEN_TYPE_UNSUPPORTED = 19,
+    ACCESS_TOKEN_TYPE_UNSUPPORTED = "ACCESS_TOKEN_TYPE_UNSUPPORTED",
     /**
      * CREDENTIALS_MISSING - The request is denied because the request doesn't have any authentication
      * credentials. For more information regarding the supported authentication
@@ -408,7 +408,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    CREDENTIALS_MISSING = 20,
+    CREDENTIALS_MISSING = "CREDENTIALS_MISSING",
     /**
      * RESOURCE_PROJECT_INVALID - The request is denied because the provided project owning the resource
      * which acts as the [API
@@ -428,7 +428,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    RESOURCE_PROJECT_INVALID = 21,
+    RESOURCE_PROJECT_INVALID = "RESOURCE_PROJECT_INVALID",
     /**
      * SESSION_COOKIE_INVALID - The request is denied because the provided session cookie is missing,
      * invalid or failed to decode.
@@ -445,7 +445,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    SESSION_COOKIE_INVALID = 23,
+    SESSION_COOKIE_INVALID = "SESSION_COOKIE_INVALID",
     /**
      * USER_BLOCKED_BY_ADMIN - The request is denied because the user is from a Google Workspace customer
      * that blocks their users from accessing a particular service.
@@ -463,7 +463,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    USER_BLOCKED_BY_ADMIN = 24,
+    USER_BLOCKED_BY_ADMIN = "USER_BLOCKED_BY_ADMIN",
     /**
      * RESOURCE_USAGE_RESTRICTION_VIOLATED - The request is denied because the resource service usage is restricted
      * by administrators according to the organization policy constraint.
@@ -481,7 +481,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    RESOURCE_USAGE_RESTRICTION_VIOLATED = 25,
+    RESOURCE_USAGE_RESTRICTION_VIOLATED = "RESOURCE_USAGE_RESTRICTION_VIOLATED",
     /**
      * SYSTEM_PARAMETER_UNSUPPORTED - Unimplemented. Do not use.
      *
@@ -500,7 +500,7 @@ export declare enum ErrorReason {
      *       }
      *     }
      */
-    SYSTEM_PARAMETER_UNSUPPORTED = 26,
+    SYSTEM_PARAMETER_UNSUPPORTED = "SYSTEM_PARAMETER_UNSUPPORTED",
     /**
      * ORG_RESTRICTION_VIOLATION - The request is denied because it violates Org Restriction: the requested
      * resource does not belong to allowed organizations specified in
@@ -518,7 +518,7 @@ export declare enum ErrorReason {
      *   }
      * }
      */
-    ORG_RESTRICTION_VIOLATION = 27,
+    ORG_RESTRICTION_VIOLATION = "ORG_RESTRICTION_VIOLATION",
     /**
      * ORG_RESTRICTION_HEADER_INVALID - The request is denied because "X-Goog-Allowed-Resources" header is in a bad
      * format.
@@ -536,8 +536,9 @@ export declare enum ErrorReason {
      *   }
      * }
      */
-    ORG_RESTRICTION_HEADER_INVALID = 28,
-    UNRECOGNIZED = -1
+    ORG_RESTRICTION_HEADER_INVALID = "ORG_RESTRICTION_HEADER_INVALID",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function errorReasonFromJSON(object: any): ErrorReason;
 export declare function errorReasonToJSON(object: ErrorReason): string;
+export declare function errorReasonToNumber(object: ErrorReason): number;

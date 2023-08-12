@@ -7,37 +7,39 @@ import { LaunchStage } from "./launch_stage";
  */
 export declare enum ClientLibraryOrganization {
     /** CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED - Not useful. */
-    CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED = 0,
+    CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED = "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED",
     /** CLOUD - Google Cloud Platform Org. */
-    CLOUD = 1,
+    CLOUD = "CLOUD",
     /** ADS - Ads (Advertising) Org. */
-    ADS = 2,
+    ADS = "ADS",
     /** PHOTOS - Photos Org. */
-    PHOTOS = 3,
+    PHOTOS = "PHOTOS",
     /** STREET_VIEW - Street View Org. */
-    STREET_VIEW = 4,
-    UNRECOGNIZED = -1
+    STREET_VIEW = "STREET_VIEW",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function clientLibraryOrganizationFromJSON(object: any): ClientLibraryOrganization;
 export declare function clientLibraryOrganizationToJSON(object: ClientLibraryOrganization): string;
+export declare function clientLibraryOrganizationToNumber(object: ClientLibraryOrganization): number;
 /** To where should client libraries be published? */
 export declare enum ClientLibraryDestination {
     /**
      * CLIENT_LIBRARY_DESTINATION_UNSPECIFIED - Client libraries will neither be generated nor published to package
      * managers.
      */
-    CLIENT_LIBRARY_DESTINATION_UNSPECIFIED = 0,
+    CLIENT_LIBRARY_DESTINATION_UNSPECIFIED = "CLIENT_LIBRARY_DESTINATION_UNSPECIFIED",
     /**
      * GITHUB - Generate the client library in a repo under github.com/googleapis,
      * but don't publish it to package managers.
      */
-    GITHUB = 10,
+    GITHUB = "GITHUB",
     /** PACKAGE_MANAGER - Publish the library to package managers like nuget.org and npmjs.com. */
-    PACKAGE_MANAGER = 20,
-    UNRECOGNIZED = -1
+    PACKAGE_MANAGER = "PACKAGE_MANAGER",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function clientLibraryDestinationFromJSON(object: any): ClientLibraryDestination;
 export declare function clientLibraryDestinationToJSON(object: ClientLibraryDestination): string;
+export declare function clientLibraryDestinationToNumber(object: ClientLibraryDestination): number;
 /** Required information for every language. */
 export interface CommonLanguageSettings {
     /**

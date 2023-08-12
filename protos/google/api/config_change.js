@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Advice = exports.ConfigChange = exports.changeTypeToJSON = exports.changeTypeFromJSON = exports.ChangeType = void 0;
+exports.Advice = exports.ConfigChange = exports.changeTypeToNumber = exports.changeTypeToJSON = exports.changeTypeFromJSON = exports.ChangeType = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 /**
@@ -13,23 +13,23 @@ const minimal_1 = __importDefault(require("protobufjs/minimal"));
 var ChangeType;
 (function (ChangeType) {
     /** CHANGE_TYPE_UNSPECIFIED - No value was provided. */
-    ChangeType[ChangeType["CHANGE_TYPE_UNSPECIFIED"] = 0] = "CHANGE_TYPE_UNSPECIFIED";
+    ChangeType["CHANGE_TYPE_UNSPECIFIED"] = "CHANGE_TYPE_UNSPECIFIED";
     /**
      * ADDED - The changed object exists in the 'new' service configuration, but not
      * in the 'old' service configuration.
      */
-    ChangeType[ChangeType["ADDED"] = 1] = "ADDED";
+    ChangeType["ADDED"] = "ADDED";
     /**
      * REMOVED - The changed object exists in the 'old' service configuration, but not
      * in the 'new' service configuration.
      */
-    ChangeType[ChangeType["REMOVED"] = 2] = "REMOVED";
+    ChangeType["REMOVED"] = "REMOVED";
     /**
      * MODIFIED - The changed object exists in both service configurations, but its value
      * is different.
      */
-    ChangeType[ChangeType["MODIFIED"] = 3] = "MODIFIED";
-    ChangeType[ChangeType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    ChangeType["MODIFIED"] = "MODIFIED";
+    ChangeType["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(ChangeType || (exports.ChangeType = ChangeType = {}));
 function changeTypeFromJSON(object) {
     switch (object) {
@@ -68,6 +68,22 @@ function changeTypeToJSON(object) {
     }
 }
 exports.changeTypeToJSON = changeTypeToJSON;
+function changeTypeToNumber(object) {
+    switch (object) {
+        case ChangeType.CHANGE_TYPE_UNSPECIFIED:
+            return 0;
+        case ChangeType.ADDED:
+            return 1;
+        case ChangeType.REMOVED:
+            return 2;
+        case ChangeType.MODIFIED:
+            return 3;
+        case ChangeType.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.changeTypeToNumber = changeTypeToNumber;
 function createBaseConfigChange() {
     return {};
 }
@@ -82,8 +98,8 @@ exports.ConfigChange = {
         if (message.new_value !== undefined && message.new_value !== "") {
             writer.uint32(26).string(message.new_value);
         }
-        if (message.change_type !== undefined && message.change_type !== 0) {
-            writer.uint32(32).int32(message.change_type);
+        if (message.change_type !== undefined && message.change_type !== ChangeType.CHANGE_TYPE_UNSPECIFIED) {
+            writer.uint32(32).int32(changeTypeToNumber(message.change_type));
         }
         if (message.advices !== undefined && message.advices.length !== 0) {
             for (const v of message.advices) {
@@ -130,7 +146,7 @@ exports.ConfigChange = {
                     if (tag !== 32) {
                         break;
                     }
-                    message.change_type = reader.int32();
+                    message.change_type = changeTypeFromJSON(reader.int32());
                     continue;
                 case 5:
                     if (tag !== 42) {
@@ -181,7 +197,7 @@ exports.ConfigChange = {
         if (message.new_value !== undefined && message.new_value !== "") {
             obj.new_value = message.new_value;
         }
-        if (message.change_type !== undefined && message.change_type !== 0) {
+        if (message.change_type !== undefined && message.change_type !== ChangeType.CHANGE_TYPE_UNSPECIFIED) {
             obj.change_type = changeTypeToJSON(message.change_type);
         }
         if (message.advices?.length) {

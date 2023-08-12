@@ -1,7 +1,7 @@
 "use strict";
 /* eslint-disable */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.codeToJSON = exports.codeFromJSON = exports.Code = void 0;
+exports.codeToNumber = exports.codeToJSON = exports.codeFromJSON = exports.Code = void 0;
 /**
  * The canonical error codes for gRPC APIs.
  *
@@ -17,13 +17,13 @@ var Code;
      *
      * HTTP Mapping: 200 OK
      */
-    Code[Code["OK"] = 0] = "OK";
+    Code["OK"] = "OK";
     /**
      * CANCELLED - The operation was cancelled, typically by the caller.
      *
      * HTTP Mapping: 499 Client Closed Request
      */
-    Code[Code["CANCELLED"] = 1] = "CANCELLED";
+    Code["CANCELLED"] = "CANCELLED";
     /**
      * UNKNOWN - Unknown error.  For example, this error may be returned when
      * a `Status` value received from another address space belongs to
@@ -33,7 +33,7 @@ var Code;
      *
      * HTTP Mapping: 500 Internal Server Error
      */
-    Code[Code["UNKNOWN"] = 2] = "UNKNOWN";
+    Code["UNKNOWN"] = "UNKNOWN";
     /**
      * INVALID_ARGUMENT - The client specified an invalid argument.  Note that this differs
      * from `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments
@@ -42,7 +42,7 @@ var Code;
      *
      * HTTP Mapping: 400 Bad Request
      */
-    Code[Code["INVALID_ARGUMENT"] = 3] = "INVALID_ARGUMENT";
+    Code["INVALID_ARGUMENT"] = "INVALID_ARGUMENT";
     /**
      * DEADLINE_EXCEEDED - The deadline expired before the operation could complete. For operations
      * that change the state of the system, this error may be returned
@@ -52,7 +52,7 @@ var Code;
      *
      * HTTP Mapping: 504 Gateway Timeout
      */
-    Code[Code["DEADLINE_EXCEEDED"] = 4] = "DEADLINE_EXCEEDED";
+    Code["DEADLINE_EXCEEDED"] = "DEADLINE_EXCEEDED";
     /**
      * NOT_FOUND - Some requested entity (e.g., file or directory) was not found.
      *
@@ -64,14 +64,14 @@ var Code;
      *
      * HTTP Mapping: 404 Not Found
      */
-    Code[Code["NOT_FOUND"] = 5] = "NOT_FOUND";
+    Code["NOT_FOUND"] = "NOT_FOUND";
     /**
      * ALREADY_EXISTS - The entity that a client attempted to create (e.g., file or directory)
      * already exists.
      *
      * HTTP Mapping: 409 Conflict
      */
-    Code[Code["ALREADY_EXISTS"] = 6] = "ALREADY_EXISTS";
+    Code["ALREADY_EXISTS"] = "ALREADY_EXISTS";
     /**
      * PERMISSION_DENIED - The caller does not have permission to execute the specified
      * operation. `PERMISSION_DENIED` must not be used for rejections
@@ -84,21 +84,21 @@ var Code;
      *
      * HTTP Mapping: 403 Forbidden
      */
-    Code[Code["PERMISSION_DENIED"] = 7] = "PERMISSION_DENIED";
+    Code["PERMISSION_DENIED"] = "PERMISSION_DENIED";
     /**
      * UNAUTHENTICATED - The request does not have valid authentication credentials for the
      * operation.
      *
      * HTTP Mapping: 401 Unauthorized
      */
-    Code[Code["UNAUTHENTICATED"] = 16] = "UNAUTHENTICATED";
+    Code["UNAUTHENTICATED"] = "UNAUTHENTICATED";
     /**
      * RESOURCE_EXHAUSTED - Some resource has been exhausted, perhaps a per-user quota, or
      * perhaps the entire file system is out of space.
      *
      * HTTP Mapping: 429 Too Many Requests
      */
-    Code[Code["RESOURCE_EXHAUSTED"] = 8] = "RESOURCE_EXHAUSTED";
+    Code["RESOURCE_EXHAUSTED"] = "RESOURCE_EXHAUSTED";
     /**
      * FAILED_PRECONDITION - The operation was rejected because the system is not in a state
      * required for the operation's execution.  For example, the directory
@@ -119,7 +119,7 @@ var Code;
      *
      * HTTP Mapping: 400 Bad Request
      */
-    Code[Code["FAILED_PRECONDITION"] = 9] = "FAILED_PRECONDITION";
+    Code["FAILED_PRECONDITION"] = "FAILED_PRECONDITION";
     /**
      * ABORTED - The operation was aborted, typically due to a concurrency issue such as
      * a sequencer check failure or transaction abort.
@@ -129,7 +129,7 @@ var Code;
      *
      * HTTP Mapping: 409 Conflict
      */
-    Code[Code["ABORTED"] = 10] = "ABORTED";
+    Code["ABORTED"] = "ABORTED";
     /**
      * OUT_OF_RANGE - The operation was attempted past the valid range.  E.g., seeking or
      * reading past end-of-file.
@@ -149,14 +149,14 @@ var Code;
      *
      * HTTP Mapping: 400 Bad Request
      */
-    Code[Code["OUT_OF_RANGE"] = 11] = "OUT_OF_RANGE";
+    Code["OUT_OF_RANGE"] = "OUT_OF_RANGE";
     /**
      * UNIMPLEMENTED - The operation is not implemented or is not supported/enabled in this
      * service.
      *
      * HTTP Mapping: 501 Not Implemented
      */
-    Code[Code["UNIMPLEMENTED"] = 12] = "UNIMPLEMENTED";
+    Code["UNIMPLEMENTED"] = "UNIMPLEMENTED";
     /**
      * INTERNAL - Internal errors.  This means that some invariants expected by the
      * underlying system have been broken.  This error code is reserved
@@ -164,7 +164,7 @@ var Code;
      *
      * HTTP Mapping: 500 Internal Server Error
      */
-    Code[Code["INTERNAL"] = 13] = "INTERNAL";
+    Code["INTERNAL"] = "INTERNAL";
     /**
      * UNAVAILABLE - The service is currently unavailable.  This is most likely a
      * transient condition, which can be corrected by retrying with
@@ -176,14 +176,14 @@ var Code;
      *
      * HTTP Mapping: 503 Service Unavailable
      */
-    Code[Code["UNAVAILABLE"] = 14] = "UNAVAILABLE";
+    Code["UNAVAILABLE"] = "UNAVAILABLE";
     /**
      * DATA_LOSS - Unrecoverable data loss or corruption.
      *
      * HTTP Mapping: 500 Internal Server Error
      */
-    Code[Code["DATA_LOSS"] = 15] = "DATA_LOSS";
-    Code[Code["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    Code["DATA_LOSS"] = "DATA_LOSS";
+    Code["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(Code || (exports.Code = Code = {}));
 function codeFromJSON(object) {
     switch (object) {
@@ -287,3 +287,45 @@ function codeToJSON(object) {
     }
 }
 exports.codeToJSON = codeToJSON;
+function codeToNumber(object) {
+    switch (object) {
+        case Code.OK:
+            return 0;
+        case Code.CANCELLED:
+            return 1;
+        case Code.UNKNOWN:
+            return 2;
+        case Code.INVALID_ARGUMENT:
+            return 3;
+        case Code.DEADLINE_EXCEEDED:
+            return 4;
+        case Code.NOT_FOUND:
+            return 5;
+        case Code.ALREADY_EXISTS:
+            return 6;
+        case Code.PERMISSION_DENIED:
+            return 7;
+        case Code.UNAUTHENTICATED:
+            return 16;
+        case Code.RESOURCE_EXHAUSTED:
+            return 8;
+        case Code.FAILED_PRECONDITION:
+            return 9;
+        case Code.ABORTED:
+            return 10;
+        case Code.OUT_OF_RANGE:
+            return 11;
+        case Code.UNIMPLEMENTED:
+            return 12;
+        case Code.INTERNAL:
+            return 13;
+        case Code.UNAVAILABLE:
+            return 14;
+        case Code.DATA_LOSS:
+            return 15;
+        case Code.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.codeToNumber = codeToNumber;

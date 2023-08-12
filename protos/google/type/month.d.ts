@@ -1,32 +1,33 @@
 /** Represents a month in the Gregorian calendar. */
 export declare enum Month {
     /** MONTH_UNSPECIFIED - The unspecified month. */
-    MONTH_UNSPECIFIED = 0,
+    MONTH_UNSPECIFIED = "MONTH_UNSPECIFIED",
     /** JANUARY - The month of January. */
-    JANUARY = 1,
+    JANUARY = "JANUARY",
     /** FEBRUARY - The month of February. */
-    FEBRUARY = 2,
+    FEBRUARY = "FEBRUARY",
     /** MARCH - The month of March. */
-    MARCH = 3,
+    MARCH = "MARCH",
     /** APRIL - The month of April. */
-    APRIL = 4,
+    APRIL = "APRIL",
     /** MAY - The month of May. */
-    MAY = 5,
+    MAY = "MAY",
     /** JUNE - The month of June. */
-    JUNE = 6,
+    JUNE = "JUNE",
     /** JULY - The month of July. */
-    JULY = 7,
+    JULY = "JULY",
     /** AUGUST - The month of August. */
-    AUGUST = 8,
+    AUGUST = "AUGUST",
     /** SEPTEMBER - The month of September. */
-    SEPTEMBER = 9,
+    SEPTEMBER = "SEPTEMBER",
     /** OCTOBER - The month of October. */
-    OCTOBER = 10,
+    OCTOBER = "OCTOBER",
     /** NOVEMBER - The month of November. */
-    NOVEMBER = 11,
+    NOVEMBER = "NOVEMBER",
     /** DECEMBER - The month of December. */
-    DECEMBER = 12,
-    UNRECOGNIZED = -1
+    DECEMBER = "DECEMBER",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function monthFromJSON(object: any): Month;
 export declare function monthToJSON(object: Month): string;
+export declare function monthToNumber(object: Month): number;

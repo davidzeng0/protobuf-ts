@@ -4,11 +4,11 @@
  */
 export declare enum LaunchStage {
     /** LAUNCH_STAGE_UNSPECIFIED - Do not use this default value. */
-    LAUNCH_STAGE_UNSPECIFIED = 0,
+    LAUNCH_STAGE_UNSPECIFIED = "LAUNCH_STAGE_UNSPECIFIED",
     /** UNIMPLEMENTED - The feature is not yet implemented. Users can not use it. */
-    UNIMPLEMENTED = 6,
+    UNIMPLEMENTED = "UNIMPLEMENTED",
     /** PRELAUNCH - Prelaunch features are hidden from users and are only visible internally. */
-    PRELAUNCH = 7,
+    PRELAUNCH = "PRELAUNCH",
     /**
      * EARLY_ACCESS - Early Access features are limited to a closed group of testers. To use
      * these features, you must sign up in advance and sign a Trusted Tester
@@ -16,7 +16,7 @@ export declare enum LaunchStage {
      * be unstable, changed in backward-incompatible ways, and are not
      * guaranteed to be released.
      */
-    EARLY_ACCESS = 1,
+    EARLY_ACCESS = "EARLY_ACCESS",
     /**
      * ALPHA - Alpha is a limited availability test for releases before they are cleared
      * for widespread use. By Alpha, all significant design issues are resolved
@@ -28,7 +28,7 @@ export declare enum LaunchStage {
      * test environments or for limited-use tests -- just like they would in
      * normal production cases.
      */
-    ALPHA = 2,
+    ALPHA = "ALPHA",
     /**
      * BETA - Beta is the point at which we are ready to open a release for any
      * customer to use. There are no SLA or technical support obligations in a
@@ -36,12 +36,12 @@ export declare enum LaunchStage {
      * may have some open outstanding issues. Beta releases are suitable for
      * limited production use cases.
      */
-    BETA = 3,
+    BETA = "BETA",
     /**
      * GA - GA features are open to all developers and are considered stable and
      * fully qualified for production use.
      */
-    GA = 4,
+    GA = "GA",
     /**
      * DEPRECATED - Deprecated features are scheduled to be shut down and removed. For more
      * information, see the "Deprecation Policy" section of our [Terms of
@@ -49,8 +49,9 @@ export declare enum LaunchStage {
      * and the [Google Cloud Platform Subject to the Deprecation
      * Policy](https://cloud.google.com/terms/deprecation) documentation.
      */
-    DEPRECATED = 5,
-    UNRECOGNIZED = -1
+    DEPRECATED = "DEPRECATED",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function launchStageFromJSON(object: any): LaunchStage;
 export declare function launchStageToJSON(object: LaunchStage): string;
+export declare function launchStageToNumber(object: LaunchStage): number;

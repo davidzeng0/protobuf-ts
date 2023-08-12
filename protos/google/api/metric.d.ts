@@ -177,11 +177,11 @@ export interface MetricDescriptor {
  */
 export declare enum MetricDescriptor_MetricKind {
     /** METRIC_KIND_UNSPECIFIED - Do not use this default value. */
-    METRIC_KIND_UNSPECIFIED = 0,
+    METRIC_KIND_UNSPECIFIED = "METRIC_KIND_UNSPECIFIED",
     /** GAUGE - An instantaneous measurement of a value. */
-    GAUGE = 1,
+    GAUGE = "GAUGE",
     /** DELTA - The change in a value during a time interval. */
-    DELTA = 2,
+    DELTA = "DELTA",
     /**
      * CUMULATIVE - A value accumulated over a time interval.  Cumulative
      * measurements in a time series should have the same start time
@@ -189,37 +189,39 @@ export declare enum MetricDescriptor_MetricKind {
      * value to zero and sets a new start time for the following
      * points.
      */
-    CUMULATIVE = 3,
-    UNRECOGNIZED = -1
+    CUMULATIVE = "CUMULATIVE",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function metricDescriptor_MetricKindFromJSON(object: any): MetricDescriptor_MetricKind;
 export declare function metricDescriptor_MetricKindToJSON(object: MetricDescriptor_MetricKind): string;
+export declare function metricDescriptor_MetricKindToNumber(object: MetricDescriptor_MetricKind): number;
 /** The value type of a metric. */
 export declare enum MetricDescriptor_ValueType {
     /** VALUE_TYPE_UNSPECIFIED - Do not use this default value. */
-    VALUE_TYPE_UNSPECIFIED = 0,
+    VALUE_TYPE_UNSPECIFIED = "VALUE_TYPE_UNSPECIFIED",
     /**
      * BOOL - The value is a boolean.
      * This value type can be used only if the metric kind is `GAUGE`.
      */
-    BOOL = 1,
+    BOOL = "BOOL",
     /** INT64 - The value is a signed 64-bit integer. */
-    INT64 = 2,
+    INT64 = "INT64",
     /** DOUBLE - The value is a double precision floating point number. */
-    DOUBLE = 3,
+    DOUBLE = "DOUBLE",
     /**
      * STRING - The value is a text string.
      * This value type can be used only if the metric kind is `GAUGE`.
      */
-    STRING = 4,
+    STRING = "STRING",
     /** DISTRIBUTION - The value is a [`Distribution`][google.api.Distribution]. */
-    DISTRIBUTION = 5,
+    DISTRIBUTION = "DISTRIBUTION",
     /** MONEY - The value is money. */
-    MONEY = 6,
-    UNRECOGNIZED = -1
+    MONEY = "MONEY",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function metricDescriptor_ValueTypeFromJSON(object: any): MetricDescriptor_ValueType;
 export declare function metricDescriptor_ValueTypeToJSON(object: MetricDescriptor_ValueType): string;
+export declare function metricDescriptor_ValueTypeToNumber(object: MetricDescriptor_ValueType): number;
 /** Additional annotations that can be used to guide the usage of a metric. */
 export interface MetricDescriptor_MetricDescriptorMetadata {
     /**

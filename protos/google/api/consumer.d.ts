@@ -50,19 +50,20 @@ export interface Property {
 /** Supported data type of the property values */
 export declare enum Property_PropertyType {
     /** UNSPECIFIED - The type is unspecified, and will result in an error. */
-    UNSPECIFIED = 0,
+    UNSPECIFIED = "UNSPECIFIED",
     /** INT64 - The type is `int64`. */
-    INT64 = 1,
+    INT64 = "INT64",
     /** BOOL - The type is `bool`. */
-    BOOL = 2,
+    BOOL = "BOOL",
     /** STRING - The type is `string`. */
-    STRING = 3,
+    STRING = "STRING",
     /** DOUBLE - The type is 'double'. */
-    DOUBLE = 4,
-    UNRECOGNIZED = -1
+    DOUBLE = "DOUBLE",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function property_PropertyTypeFromJSON(object: any): Property_PropertyType;
 export declare function property_PropertyTypeToJSON(object: Property_PropertyType): string;
+export declare function property_PropertyTypeToNumber(object: Property_PropertyType): number;
 export declare const ProjectProperties: {
     encode(message: ProjectProperties, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): ProjectProperties;

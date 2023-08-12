@@ -1,7 +1,7 @@
 "use strict";
 /* eslint-disable */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.launchStageToJSON = exports.launchStageFromJSON = exports.LaunchStage = void 0;
+exports.launchStageToNumber = exports.launchStageToJSON = exports.launchStageFromJSON = exports.LaunchStage = void 0;
 /**
  * The launch stage as defined by [Google Cloud Platform
  * Launch Stages](https://cloud.google.com/terms/launch-stages).
@@ -9,11 +9,11 @@ exports.launchStageToJSON = exports.launchStageFromJSON = exports.LaunchStage = 
 var LaunchStage;
 (function (LaunchStage) {
     /** LAUNCH_STAGE_UNSPECIFIED - Do not use this default value. */
-    LaunchStage[LaunchStage["LAUNCH_STAGE_UNSPECIFIED"] = 0] = "LAUNCH_STAGE_UNSPECIFIED";
+    LaunchStage["LAUNCH_STAGE_UNSPECIFIED"] = "LAUNCH_STAGE_UNSPECIFIED";
     /** UNIMPLEMENTED - The feature is not yet implemented. Users can not use it. */
-    LaunchStage[LaunchStage["UNIMPLEMENTED"] = 6] = "UNIMPLEMENTED";
+    LaunchStage["UNIMPLEMENTED"] = "UNIMPLEMENTED";
     /** PRELAUNCH - Prelaunch features are hidden from users and are only visible internally. */
-    LaunchStage[LaunchStage["PRELAUNCH"] = 7] = "PRELAUNCH";
+    LaunchStage["PRELAUNCH"] = "PRELAUNCH";
     /**
      * EARLY_ACCESS - Early Access features are limited to a closed group of testers. To use
      * these features, you must sign up in advance and sign a Trusted Tester
@@ -21,7 +21,7 @@ var LaunchStage;
      * be unstable, changed in backward-incompatible ways, and are not
      * guaranteed to be released.
      */
-    LaunchStage[LaunchStage["EARLY_ACCESS"] = 1] = "EARLY_ACCESS";
+    LaunchStage["EARLY_ACCESS"] = "EARLY_ACCESS";
     /**
      * ALPHA - Alpha is a limited availability test for releases before they are cleared
      * for widespread use. By Alpha, all significant design issues are resolved
@@ -33,7 +33,7 @@ var LaunchStage;
      * test environments or for limited-use tests -- just like they would in
      * normal production cases.
      */
-    LaunchStage[LaunchStage["ALPHA"] = 2] = "ALPHA";
+    LaunchStage["ALPHA"] = "ALPHA";
     /**
      * BETA - Beta is the point at which we are ready to open a release for any
      * customer to use. There are no SLA or technical support obligations in a
@@ -41,12 +41,12 @@ var LaunchStage;
      * may have some open outstanding issues. Beta releases are suitable for
      * limited production use cases.
      */
-    LaunchStage[LaunchStage["BETA"] = 3] = "BETA";
+    LaunchStage["BETA"] = "BETA";
     /**
      * GA - GA features are open to all developers and are considered stable and
      * fully qualified for production use.
      */
-    LaunchStage[LaunchStage["GA"] = 4] = "GA";
+    LaunchStage["GA"] = "GA";
     /**
      * DEPRECATED - Deprecated features are scheduled to be shut down and removed. For more
      * information, see the "Deprecation Policy" section of our [Terms of
@@ -54,8 +54,8 @@ var LaunchStage;
      * and the [Google Cloud Platform Subject to the Deprecation
      * Policy](https://cloud.google.com/terms/deprecation) documentation.
      */
-    LaunchStage[LaunchStage["DEPRECATED"] = 5] = "DEPRECATED";
-    LaunchStage[LaunchStage["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    LaunchStage["DEPRECATED"] = "DEPRECATED";
+    LaunchStage["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(LaunchStage || (exports.LaunchStage = LaunchStage = {}));
 function launchStageFromJSON(object) {
     switch (object) {
@@ -114,3 +114,27 @@ function launchStageToJSON(object) {
     }
 }
 exports.launchStageToJSON = launchStageToJSON;
+function launchStageToNumber(object) {
+    switch (object) {
+        case LaunchStage.LAUNCH_STAGE_UNSPECIFIED:
+            return 0;
+        case LaunchStage.UNIMPLEMENTED:
+            return 6;
+        case LaunchStage.PRELAUNCH:
+            return 7;
+        case LaunchStage.EARLY_ACCESS:
+            return 1;
+        case LaunchStage.ALPHA:
+            return 2;
+        case LaunchStage.BETA:
+            return 3;
+        case LaunchStage.GA:
+            return 4;
+        case LaunchStage.DEPRECATED:
+            return 5;
+        case LaunchStage.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.launchStageToNumber = launchStageToNumber;

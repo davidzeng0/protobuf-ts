@@ -178,55 +178,57 @@ export declare enum FieldDescriptorProto_Type {
      * TYPE_DOUBLE - 0 is reserved for errors.
      * Order is weird for historical reasons.
      */
-    TYPE_DOUBLE = 1,
-    TYPE_FLOAT = 2,
+    TYPE_DOUBLE = "TYPE_DOUBLE",
+    TYPE_FLOAT = "TYPE_FLOAT",
     /**
      * TYPE_INT64 - Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT64 if
      * negative values are likely.
      */
-    TYPE_INT64 = 3,
-    TYPE_UINT64 = 4,
+    TYPE_INT64 = "TYPE_INT64",
+    TYPE_UINT64 = "TYPE_UINT64",
     /**
      * TYPE_INT32 - Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT32 if
      * negative values are likely.
      */
-    TYPE_INT32 = 5,
-    TYPE_FIXED64 = 6,
-    TYPE_FIXED32 = 7,
-    TYPE_BOOL = 8,
-    TYPE_STRING = 9,
+    TYPE_INT32 = "TYPE_INT32",
+    TYPE_FIXED64 = "TYPE_FIXED64",
+    TYPE_FIXED32 = "TYPE_FIXED32",
+    TYPE_BOOL = "TYPE_BOOL",
+    TYPE_STRING = "TYPE_STRING",
     /**
      * TYPE_GROUP - Tag-delimited aggregate.
      * Group type is deprecated and not supported in proto3. However, Proto3
      * implementations should still be able to parse the group wire format and
      * treat group fields as unknown fields.
      */
-    TYPE_GROUP = 10,
+    TYPE_GROUP = "TYPE_GROUP",
     /** TYPE_MESSAGE - Length-delimited aggregate. */
-    TYPE_MESSAGE = 11,
+    TYPE_MESSAGE = "TYPE_MESSAGE",
     /** TYPE_BYTES - New in version 2. */
-    TYPE_BYTES = 12,
-    TYPE_UINT32 = 13,
-    TYPE_ENUM = 14,
-    TYPE_SFIXED32 = 15,
-    TYPE_SFIXED64 = 16,
+    TYPE_BYTES = "TYPE_BYTES",
+    TYPE_UINT32 = "TYPE_UINT32",
+    TYPE_ENUM = "TYPE_ENUM",
+    TYPE_SFIXED32 = "TYPE_SFIXED32",
+    TYPE_SFIXED64 = "TYPE_SFIXED64",
     /** TYPE_SINT32 - Uses ZigZag encoding. */
-    TYPE_SINT32 = 17,
+    TYPE_SINT32 = "TYPE_SINT32",
     /** TYPE_SINT64 - Uses ZigZag encoding. */
-    TYPE_SINT64 = 18,
-    UNRECOGNIZED = -1
+    TYPE_SINT64 = "TYPE_SINT64",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function fieldDescriptorProto_TypeFromJSON(object: any): FieldDescriptorProto_Type;
 export declare function fieldDescriptorProto_TypeToJSON(object: FieldDescriptorProto_Type): string;
+export declare function fieldDescriptorProto_TypeToNumber(object: FieldDescriptorProto_Type): number;
 export declare enum FieldDescriptorProto_Label {
     /** LABEL_OPTIONAL - 0 is reserved for errors */
-    LABEL_OPTIONAL = 1,
-    LABEL_REQUIRED = 2,
-    LABEL_REPEATED = 3,
-    UNRECOGNIZED = -1
+    LABEL_OPTIONAL = "LABEL_OPTIONAL",
+    LABEL_REQUIRED = "LABEL_REQUIRED",
+    LABEL_REPEATED = "LABEL_REPEATED",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function fieldDescriptorProto_LabelFromJSON(object: any): FieldDescriptorProto_Label;
 export declare function fieldDescriptorProto_LabelToJSON(object: FieldDescriptorProto_Label): string;
+export declare function fieldDescriptorProto_LabelToNumber(object: FieldDescriptorProto_Label): number;
 /** Describes a oneof. */
 export interface OneofDescriptorProto {
     name?: string | undefined;
@@ -434,15 +436,16 @@ export interface FileOptions {
 /** Generated classes can be optimized for speed or code size. */
 export declare enum FileOptions_OptimizeMode {
     /** SPEED - Generate complete code for parsing, serialization, */
-    SPEED = 1,
+    SPEED = "SPEED",
     /** CODE_SIZE - etc. */
-    CODE_SIZE = 2,
+    CODE_SIZE = "CODE_SIZE",
     /** LITE_RUNTIME - Generate code using MessageLite and the lite runtime. */
-    LITE_RUNTIME = 3,
-    UNRECOGNIZED = -1
+    LITE_RUNTIME = "LITE_RUNTIME",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function fileOptions_OptimizeModeFromJSON(object: any): FileOptions_OptimizeMode;
 export declare function fileOptions_OptimizeModeToJSON(object: FileOptions_OptimizeMode): string;
+export declare function fileOptions_OptimizeModeToNumber(object: FileOptions_OptimizeMode): number;
 export interface MessageOptions {
     /**
      * Set true to use the old proto1 MessageSet wire format for extensions.
@@ -616,37 +619,40 @@ export interface FieldOptions {
 }
 export declare enum FieldOptions_CType {
     /** STRING - Default mode. */
-    STRING = 0,
-    CORD = 1,
-    STRING_PIECE = 2,
-    UNRECOGNIZED = -1
+    STRING = "STRING",
+    CORD = "CORD",
+    STRING_PIECE = "STRING_PIECE",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function fieldOptions_CTypeFromJSON(object: any): FieldOptions_CType;
 export declare function fieldOptions_CTypeToJSON(object: FieldOptions_CType): string;
+export declare function fieldOptions_CTypeToNumber(object: FieldOptions_CType): number;
 export declare enum FieldOptions_JSType {
     /** JS_NORMAL - Use the default type. */
-    JS_NORMAL = 0,
+    JS_NORMAL = "JS_NORMAL",
     /** JS_STRING - Use JavaScript strings. */
-    JS_STRING = 1,
+    JS_STRING = "JS_STRING",
     /** JS_NUMBER - Use JavaScript numbers. */
-    JS_NUMBER = 2,
-    UNRECOGNIZED = -1
+    JS_NUMBER = "JS_NUMBER",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function fieldOptions_JSTypeFromJSON(object: any): FieldOptions_JSType;
 export declare function fieldOptions_JSTypeToJSON(object: FieldOptions_JSType): string;
+export declare function fieldOptions_JSTypeToNumber(object: FieldOptions_JSType): number;
 /**
  * If set to RETENTION_SOURCE, the option will be omitted from the binary.
  * Note: as of January 2023, support for this is in progress and does not yet
  * have an effect (b/264593489).
  */
 export declare enum FieldOptions_OptionRetention {
-    RETENTION_UNKNOWN = 0,
-    RETENTION_RUNTIME = 1,
-    RETENTION_SOURCE = 2,
-    UNRECOGNIZED = -1
+    RETENTION_UNKNOWN = "RETENTION_UNKNOWN",
+    RETENTION_RUNTIME = "RETENTION_RUNTIME",
+    RETENTION_SOURCE = "RETENTION_SOURCE",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function fieldOptions_OptionRetentionFromJSON(object: any): FieldOptions_OptionRetention;
 export declare function fieldOptions_OptionRetentionToJSON(object: FieldOptions_OptionRetention): string;
+export declare function fieldOptions_OptionRetentionToNumber(object: FieldOptions_OptionRetention): number;
 /**
  * This indicates the types of entities that the field may apply to when used
  * as an option. If it is unset, then the field may be freely used as an
@@ -654,20 +660,21 @@ export declare function fieldOptions_OptionRetentionToJSON(object: FieldOptions_
  * in progress and does not yet have an effect (b/264593489).
  */
 export declare enum FieldOptions_OptionTargetType {
-    TARGET_TYPE_UNKNOWN = 0,
-    TARGET_TYPE_FILE = 1,
-    TARGET_TYPE_EXTENSION_RANGE = 2,
-    TARGET_TYPE_MESSAGE = 3,
-    TARGET_TYPE_FIELD = 4,
-    TARGET_TYPE_ONEOF = 5,
-    TARGET_TYPE_ENUM = 6,
-    TARGET_TYPE_ENUM_ENTRY = 7,
-    TARGET_TYPE_SERVICE = 8,
-    TARGET_TYPE_METHOD = 9,
-    UNRECOGNIZED = -1
+    TARGET_TYPE_UNKNOWN = "TARGET_TYPE_UNKNOWN",
+    TARGET_TYPE_FILE = "TARGET_TYPE_FILE",
+    TARGET_TYPE_EXTENSION_RANGE = "TARGET_TYPE_EXTENSION_RANGE",
+    TARGET_TYPE_MESSAGE = "TARGET_TYPE_MESSAGE",
+    TARGET_TYPE_FIELD = "TARGET_TYPE_FIELD",
+    TARGET_TYPE_ONEOF = "TARGET_TYPE_ONEOF",
+    TARGET_TYPE_ENUM = "TARGET_TYPE_ENUM",
+    TARGET_TYPE_ENUM_ENTRY = "TARGET_TYPE_ENUM_ENTRY",
+    TARGET_TYPE_SERVICE = "TARGET_TYPE_SERVICE",
+    TARGET_TYPE_METHOD = "TARGET_TYPE_METHOD",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function fieldOptions_OptionTargetTypeFromJSON(object: any): FieldOptions_OptionTargetType;
 export declare function fieldOptions_OptionTargetTypeToJSON(object: FieldOptions_OptionTargetType): string;
+export declare function fieldOptions_OptionTargetTypeToNumber(object: FieldOptions_OptionTargetType): number;
 export interface OneofOptions {
     /** The parser stores options it doesn't recognize here. See above. */
     uninterpreted_option?: UninterpretedOption[] | undefined;
@@ -754,15 +761,16 @@ export interface MethodOptions {
  * methods, and PUT verb for idempotent methods instead of the default POST.
  */
 export declare enum MethodOptions_IdempotencyLevel {
-    IDEMPOTENCY_UNKNOWN = 0,
+    IDEMPOTENCY_UNKNOWN = "IDEMPOTENCY_UNKNOWN",
     /** NO_SIDE_EFFECTS - implies idempotent */
-    NO_SIDE_EFFECTS = 1,
+    NO_SIDE_EFFECTS = "NO_SIDE_EFFECTS",
     /** IDEMPOTENT - idempotent, but may have side effects */
-    IDEMPOTENT = 2,
-    UNRECOGNIZED = -1
+    IDEMPOTENT = "IDEMPOTENT",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function methodOptions_IdempotencyLevelFromJSON(object: any): MethodOptions_IdempotencyLevel;
 export declare function methodOptions_IdempotencyLevelToJSON(object: MethodOptions_IdempotencyLevel): string;
+export declare function methodOptions_IdempotencyLevelToNumber(object: MethodOptions_IdempotencyLevel): number;
 /**
  * A message representing a option the parser does not recognize. This only
  * appears in options protos created by the compiler::Parser class.
@@ -992,15 +1000,16 @@ export interface GeneratedCodeInfo_Annotation {
  */
 export declare enum GeneratedCodeInfo_Annotation_Semantic {
     /** NONE - There is no effect or the effect is indescribable. */
-    NONE = 0,
+    NONE = "NONE",
     /** SET - The element is set or otherwise mutated. */
-    SET = 1,
+    SET = "SET",
     /** ALIAS - An alias to the element is returned. */
-    ALIAS = 2,
-    UNRECOGNIZED = -1
+    ALIAS = "ALIAS",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function generatedCodeInfo_Annotation_SemanticFromJSON(object: any): GeneratedCodeInfo_Annotation_Semantic;
 export declare function generatedCodeInfo_Annotation_SemanticToJSON(object: GeneratedCodeInfo_Annotation_Semantic): string;
+export declare function generatedCodeInfo_Annotation_SemanticToNumber(object: GeneratedCodeInfo_Annotation_Semantic): number;
 export declare const FileDescriptorSet: {
     encode(message: FileDescriptorSet, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): FileDescriptorSet;

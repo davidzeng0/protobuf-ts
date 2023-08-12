@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resource = exports.resource_definition = exports.resource_reference = exports.ResourceReference = exports.ResourceDescriptor = exports.resourceDescriptor_StyleToJSON = exports.resourceDescriptor_StyleFromJSON = exports.ResourceDescriptor_Style = exports.resourceDescriptor_HistoryToJSON = exports.resourceDescriptor_HistoryFromJSON = exports.ResourceDescriptor_History = void 0;
+exports.resource = exports.resource_definition = exports.resource_reference = exports.ResourceReference = exports.ResourceDescriptor = exports.resourceDescriptor_StyleToNumber = exports.resourceDescriptor_StyleToJSON = exports.resourceDescriptor_StyleFromJSON = exports.ResourceDescriptor_Style = exports.resourceDescriptor_HistoryToNumber = exports.resourceDescriptor_HistoryToJSON = exports.resourceDescriptor_HistoryFromJSON = exports.ResourceDescriptor_History = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 /**
@@ -13,19 +13,19 @@ const minimal_1 = __importDefault(require("protobufjs/minimal"));
 var ResourceDescriptor_History;
 (function (ResourceDescriptor_History) {
     /** HISTORY_UNSPECIFIED - The "unset" value. */
-    ResourceDescriptor_History[ResourceDescriptor_History["HISTORY_UNSPECIFIED"] = 0] = "HISTORY_UNSPECIFIED";
+    ResourceDescriptor_History["HISTORY_UNSPECIFIED"] = "HISTORY_UNSPECIFIED";
     /**
      * ORIGINALLY_SINGLE_PATTERN - The resource originally had one pattern and launched as such, and
      * additional patterns were added later.
      */
-    ResourceDescriptor_History[ResourceDescriptor_History["ORIGINALLY_SINGLE_PATTERN"] = 1] = "ORIGINALLY_SINGLE_PATTERN";
+    ResourceDescriptor_History["ORIGINALLY_SINGLE_PATTERN"] = "ORIGINALLY_SINGLE_PATTERN";
     /**
      * FUTURE_MULTI_PATTERN - The resource has one pattern, but the API owner expects to add more
      * later. (This is the inverse of ORIGINALLY_SINGLE_PATTERN, and prevents
      * that from being necessary once there are multiple patterns.)
      */
-    ResourceDescriptor_History[ResourceDescriptor_History["FUTURE_MULTI_PATTERN"] = 2] = "FUTURE_MULTI_PATTERN";
-    ResourceDescriptor_History[ResourceDescriptor_History["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    ResourceDescriptor_History["FUTURE_MULTI_PATTERN"] = "FUTURE_MULTI_PATTERN";
+    ResourceDescriptor_History["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(ResourceDescriptor_History || (exports.ResourceDescriptor_History = ResourceDescriptor_History = {}));
 function resourceDescriptor_HistoryFromJSON(object) {
     switch (object) {
@@ -59,11 +59,25 @@ function resourceDescriptor_HistoryToJSON(object) {
     }
 }
 exports.resourceDescriptor_HistoryToJSON = resourceDescriptor_HistoryToJSON;
+function resourceDescriptor_HistoryToNumber(object) {
+    switch (object) {
+        case ResourceDescriptor_History.HISTORY_UNSPECIFIED:
+            return 0;
+        case ResourceDescriptor_History.ORIGINALLY_SINGLE_PATTERN:
+            return 1;
+        case ResourceDescriptor_History.FUTURE_MULTI_PATTERN:
+            return 2;
+        case ResourceDescriptor_History.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.resourceDescriptor_HistoryToNumber = resourceDescriptor_HistoryToNumber;
 /** A flag representing a specific style that a resource claims to conform to. */
 var ResourceDescriptor_Style;
 (function (ResourceDescriptor_Style) {
     /** STYLE_UNSPECIFIED - The unspecified value. Do not use. */
-    ResourceDescriptor_Style[ResourceDescriptor_Style["STYLE_UNSPECIFIED"] = 0] = "STYLE_UNSPECIFIED";
+    ResourceDescriptor_Style["STYLE_UNSPECIFIED"] = "STYLE_UNSPECIFIED";
     /**
      * DECLARATIVE_FRIENDLY - This resource is intended to be "declarative-friendly".
      *
@@ -74,8 +88,8 @@ var ResourceDescriptor_Style;
      * Note: This is used by the API linter (linter.aip.dev) to enable
      * additional checks.
      */
-    ResourceDescriptor_Style[ResourceDescriptor_Style["DECLARATIVE_FRIENDLY"] = 1] = "DECLARATIVE_FRIENDLY";
-    ResourceDescriptor_Style[ResourceDescriptor_Style["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    ResourceDescriptor_Style["DECLARATIVE_FRIENDLY"] = "DECLARATIVE_FRIENDLY";
+    ResourceDescriptor_Style["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(ResourceDescriptor_Style || (exports.ResourceDescriptor_Style = ResourceDescriptor_Style = {}));
 function resourceDescriptor_StyleFromJSON(object) {
     switch (object) {
@@ -104,6 +118,18 @@ function resourceDescriptor_StyleToJSON(object) {
     }
 }
 exports.resourceDescriptor_StyleToJSON = resourceDescriptor_StyleToJSON;
+function resourceDescriptor_StyleToNumber(object) {
+    switch (object) {
+        case ResourceDescriptor_Style.STYLE_UNSPECIFIED:
+            return 0;
+        case ResourceDescriptor_Style.DECLARATIVE_FRIENDLY:
+            return 1;
+        case ResourceDescriptor_Style.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.resourceDescriptor_StyleToNumber = resourceDescriptor_StyleToNumber;
 function createBaseResourceDescriptor() {
     return {};
 }
@@ -120,8 +146,8 @@ exports.ResourceDescriptor = {
         if (message.name_field !== undefined && message.name_field !== "") {
             writer.uint32(26).string(message.name_field);
         }
-        if (message.history !== undefined && message.history !== 0) {
-            writer.uint32(32).int32(message.history);
+        if (message.history !== undefined && message.history !== ResourceDescriptor_History.HISTORY_UNSPECIFIED) {
+            writer.uint32(32).int32(resourceDescriptor_HistoryToNumber(message.history));
         }
         if (message.plural !== undefined && message.plural !== "") {
             writer.uint32(42).string(message.plural);
@@ -132,7 +158,7 @@ exports.ResourceDescriptor = {
         if (message.style !== undefined && message.style.length !== 0) {
             writer.uint32(82).fork();
             for (const v of message.style) {
-                writer.int32(v);
+                writer.int32(resourceDescriptor_StyleToNumber(v));
             }
             writer.ldelim();
         }
@@ -179,7 +205,7 @@ exports.ResourceDescriptor = {
                     if (tag !== 32) {
                         break;
                     }
-                    message.history = reader.int32();
+                    message.history = resourceDescriptor_HistoryFromJSON(reader.int32());
                     continue;
                 case 5:
                     if (tag !== 42) {
@@ -198,7 +224,7 @@ exports.ResourceDescriptor = {
                         if (message.style === undefined) {
                             message.style = [];
                         }
-                        message.style.push(reader.int32());
+                        message.style.push(resourceDescriptor_StyleFromJSON(reader.int32()));
                         continue;
                     }
                     if (tag === 82) {
@@ -207,7 +233,7 @@ exports.ResourceDescriptor = {
                         }
                         const end2 = reader.uint32() + reader.pos;
                         while (reader.pos < end2) {
-                            message.style.push(reader.int32());
+                            message.style.push(resourceDescriptor_StyleFromJSON(reader.int32()));
                         }
                         continue;
                     }
@@ -256,7 +282,7 @@ exports.ResourceDescriptor = {
         if (message.name_field !== undefined && message.name_field !== "") {
             obj.name_field = message.name_field;
         }
-        if (message.history !== undefined && message.history !== 0) {
+        if (message.history !== undefined && message.history !== ResourceDescriptor_History.HISTORY_UNSPECIFIED) {
             obj.history = resourceDescriptor_HistoryToJSON(message.history);
         }
         if (message.plural !== undefined && message.plural !== "") {

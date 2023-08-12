@@ -1,37 +1,37 @@
 "use strict";
 /* eslint-disable */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.monthToJSON = exports.monthFromJSON = exports.Month = void 0;
+exports.monthToNumber = exports.monthToJSON = exports.monthFromJSON = exports.Month = void 0;
 /** Represents a month in the Gregorian calendar. */
 var Month;
 (function (Month) {
     /** MONTH_UNSPECIFIED - The unspecified month. */
-    Month[Month["MONTH_UNSPECIFIED"] = 0] = "MONTH_UNSPECIFIED";
+    Month["MONTH_UNSPECIFIED"] = "MONTH_UNSPECIFIED";
     /** JANUARY - The month of January. */
-    Month[Month["JANUARY"] = 1] = "JANUARY";
+    Month["JANUARY"] = "JANUARY";
     /** FEBRUARY - The month of February. */
-    Month[Month["FEBRUARY"] = 2] = "FEBRUARY";
+    Month["FEBRUARY"] = "FEBRUARY";
     /** MARCH - The month of March. */
-    Month[Month["MARCH"] = 3] = "MARCH";
+    Month["MARCH"] = "MARCH";
     /** APRIL - The month of April. */
-    Month[Month["APRIL"] = 4] = "APRIL";
+    Month["APRIL"] = "APRIL";
     /** MAY - The month of May. */
-    Month[Month["MAY"] = 5] = "MAY";
+    Month["MAY"] = "MAY";
     /** JUNE - The month of June. */
-    Month[Month["JUNE"] = 6] = "JUNE";
+    Month["JUNE"] = "JUNE";
     /** JULY - The month of July. */
-    Month[Month["JULY"] = 7] = "JULY";
+    Month["JULY"] = "JULY";
     /** AUGUST - The month of August. */
-    Month[Month["AUGUST"] = 8] = "AUGUST";
+    Month["AUGUST"] = "AUGUST";
     /** SEPTEMBER - The month of September. */
-    Month[Month["SEPTEMBER"] = 9] = "SEPTEMBER";
+    Month["SEPTEMBER"] = "SEPTEMBER";
     /** OCTOBER - The month of October. */
-    Month[Month["OCTOBER"] = 10] = "OCTOBER";
+    Month["OCTOBER"] = "OCTOBER";
     /** NOVEMBER - The month of November. */
-    Month[Month["NOVEMBER"] = 11] = "NOVEMBER";
+    Month["NOVEMBER"] = "NOVEMBER";
     /** DECEMBER - The month of December. */
-    Month[Month["DECEMBER"] = 12] = "DECEMBER";
-    Month[Month["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    Month["DECEMBER"] = "DECEMBER";
+    Month["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(Month || (exports.Month = Month = {}));
 function monthFromJSON(object) {
     switch (object) {
@@ -115,3 +115,37 @@ function monthToJSON(object) {
     }
 }
 exports.monthToJSON = monthToJSON;
+function monthToNumber(object) {
+    switch (object) {
+        case Month.MONTH_UNSPECIFIED:
+            return 0;
+        case Month.JANUARY:
+            return 1;
+        case Month.FEBRUARY:
+            return 2;
+        case Month.MARCH:
+            return 3;
+        case Month.APRIL:
+            return 4;
+        case Month.MAY:
+            return 5;
+        case Month.JUNE:
+            return 6;
+        case Month.JULY:
+            return 7;
+        case Month.AUGUST:
+            return 8;
+        case Month.SEPTEMBER:
+            return 9;
+        case Month.OCTOBER:
+            return 10;
+        case Month.NOVEMBER:
+            return 11;
+        case Month.DECEMBER:
+            return 12;
+        case Month.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.monthToNumber = monthToNumber;

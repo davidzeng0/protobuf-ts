@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BackendRule = exports.Backend = exports.backendRule_PathTranslationToJSON = exports.backendRule_PathTranslationFromJSON = exports.BackendRule_PathTranslation = void 0;
+exports.BackendRule = exports.Backend = exports.backendRule_PathTranslationToNumber = exports.backendRule_PathTranslationToJSON = exports.backendRule_PathTranslationFromJSON = exports.BackendRule_PathTranslation = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 /**
@@ -17,7 +17,7 @@ const minimal_1 = __importDefault(require("protobufjs/minimal"));
  */
 var BackendRule_PathTranslation;
 (function (BackendRule_PathTranslation) {
-    BackendRule_PathTranslation[BackendRule_PathTranslation["PATH_TRANSLATION_UNSPECIFIED"] = 0] = "PATH_TRANSLATION_UNSPECIFIED";
+    BackendRule_PathTranslation["PATH_TRANSLATION_UNSPECIFIED"] = "PATH_TRANSLATION_UNSPECIFIED";
     /**
      * CONSTANT_ADDRESS - Use the backend address as-is, with no modification to the path. If the
      * URL pattern contains variables, the variable names and values will be
@@ -43,7 +43,7 @@ var BackendRule_PathTranslation;
      *     Translated:
      *     https://example.cloudfunctions.net/getUser?timezone=EST&cid=widgetworks&uid=johndoe
      */
-    BackendRule_PathTranslation[BackendRule_PathTranslation["CONSTANT_ADDRESS"] = 1] = "CONSTANT_ADDRESS";
+    BackendRule_PathTranslation["CONSTANT_ADDRESS"] = "CONSTANT_ADDRESS";
     /**
      * APPEND_PATH_TO_ADDRESS - The request path will be appended to the backend address.
      *
@@ -65,8 +65,8 @@ var BackendRule_PathTranslation;
      *     Translated:
      *     https://example.appspot.com/api/company/widgetworks/user/johndoe?timezone=EST
      */
-    BackendRule_PathTranslation[BackendRule_PathTranslation["APPEND_PATH_TO_ADDRESS"] = 2] = "APPEND_PATH_TO_ADDRESS";
-    BackendRule_PathTranslation[BackendRule_PathTranslation["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    BackendRule_PathTranslation["APPEND_PATH_TO_ADDRESS"] = "APPEND_PATH_TO_ADDRESS";
+    BackendRule_PathTranslation["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(BackendRule_PathTranslation || (exports.BackendRule_PathTranslation = BackendRule_PathTranslation = {}));
 function backendRule_PathTranslationFromJSON(object) {
     switch (object) {
@@ -100,6 +100,20 @@ function backendRule_PathTranslationToJSON(object) {
     }
 }
 exports.backendRule_PathTranslationToJSON = backendRule_PathTranslationToJSON;
+function backendRule_PathTranslationToNumber(object) {
+    switch (object) {
+        case BackendRule_PathTranslation.PATH_TRANSLATION_UNSPECIFIED:
+            return 0;
+        case BackendRule_PathTranslation.CONSTANT_ADDRESS:
+            return 1;
+        case BackendRule_PathTranslation.APPEND_PATH_TO_ADDRESS:
+            return 2;
+        case BackendRule_PathTranslation.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.backendRule_PathTranslationToNumber = backendRule_PathTranslationToNumber;
 function createBaseBackend() {
     return {};
 }
@@ -188,8 +202,9 @@ exports.BackendRule = {
         if (message.operation_deadline !== undefined && message.operation_deadline !== 0) {
             writer.uint32(41).double(message.operation_deadline);
         }
-        if (message.path_translation !== undefined && message.path_translation !== 0) {
-            writer.uint32(48).int32(message.path_translation);
+        if (message.path_translation !== undefined &&
+            message.path_translation !== BackendRule_PathTranslation.PATH_TRANSLATION_UNSPECIFIED) {
+            writer.uint32(48).int32(backendRule_PathTranslationToNumber(message.path_translation));
         }
         if (message.jwt_audience !== undefined) {
             writer.uint32(58).string(message.jwt_audience);
@@ -252,7 +267,7 @@ exports.BackendRule = {
                     if (tag !== 48) {
                         break;
                     }
-                    message.path_translation = reader.int32();
+                    message.path_translation = backendRule_PathTranslationFromJSON(reader.int32());
                     continue;
                 case 7:
                     if (tag !== 58) {
@@ -324,7 +339,8 @@ exports.BackendRule = {
         if (message.operation_deadline !== undefined && message.operation_deadline !== 0) {
             obj.operation_deadline = message.operation_deadline;
         }
-        if (message.path_translation !== undefined && message.path_translation !== 0) {
+        if (message.path_translation !== undefined &&
+            message.path_translation !== BackendRule_PathTranslation.PATH_TRANSLATION_UNSPECIFIED) {
             obj.path_translation = backendRule_PathTranslationToJSON(message.path_translation);
         }
         if (message.jwt_audience !== undefined) {

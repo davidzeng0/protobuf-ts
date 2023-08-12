@@ -1,7 +1,7 @@
 "use strict";
 /* eslint-disable */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calendarPeriodToJSON = exports.calendarPeriodFromJSON = exports.CalendarPeriod = void 0;
+exports.calendarPeriodToNumber = exports.calendarPeriodToJSON = exports.calendarPeriodFromJSON = exports.CalendarPeriod = void 0;
 /**
  * A `CalendarPeriod` represents the abstract concept of a time period that has
  * a canonical start. Grammatically, "the start of the current
@@ -10,32 +10,32 @@ exports.calendarPeriodToJSON = exports.calendarPeriodFromJSON = exports.Calendar
 var CalendarPeriod;
 (function (CalendarPeriod) {
     /** CALENDAR_PERIOD_UNSPECIFIED - Undefined period, raises an error. */
-    CalendarPeriod[CalendarPeriod["CALENDAR_PERIOD_UNSPECIFIED"] = 0] = "CALENDAR_PERIOD_UNSPECIFIED";
+    CalendarPeriod["CALENDAR_PERIOD_UNSPECIFIED"] = "CALENDAR_PERIOD_UNSPECIFIED";
     /** DAY - A day. */
-    CalendarPeriod[CalendarPeriod["DAY"] = 1] = "DAY";
+    CalendarPeriod["DAY"] = "DAY";
     /**
      * WEEK - A week. Weeks begin on Monday, following
      * [ISO 8601](https://en.wikipedia.org/wiki/ISO_week_date).
      */
-    CalendarPeriod[CalendarPeriod["WEEK"] = 2] = "WEEK";
+    CalendarPeriod["WEEK"] = "WEEK";
     /**
      * FORTNIGHT - A fortnight. The first calendar fortnight of the year begins at the start
      * of week 1 according to
      * [ISO 8601](https://en.wikipedia.org/wiki/ISO_week_date).
      */
-    CalendarPeriod[CalendarPeriod["FORTNIGHT"] = 3] = "FORTNIGHT";
+    CalendarPeriod["FORTNIGHT"] = "FORTNIGHT";
     /** MONTH - A month. */
-    CalendarPeriod[CalendarPeriod["MONTH"] = 4] = "MONTH";
+    CalendarPeriod["MONTH"] = "MONTH";
     /**
      * QUARTER - A quarter. Quarters start on dates 1-Jan, 1-Apr, 1-Jul, and 1-Oct of each
      * year.
      */
-    CalendarPeriod[CalendarPeriod["QUARTER"] = 5] = "QUARTER";
+    CalendarPeriod["QUARTER"] = "QUARTER";
     /** HALF - A half-year. Half-years start on dates 1-Jan and 1-Jul. */
-    CalendarPeriod[CalendarPeriod["HALF"] = 6] = "HALF";
+    CalendarPeriod["HALF"] = "HALF";
     /** YEAR - A year. */
-    CalendarPeriod[CalendarPeriod["YEAR"] = 7] = "YEAR";
-    CalendarPeriod[CalendarPeriod["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    CalendarPeriod["YEAR"] = "YEAR";
+    CalendarPeriod["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(CalendarPeriod || (exports.CalendarPeriod = CalendarPeriod = {}));
 function calendarPeriodFromJSON(object) {
     switch (object) {
@@ -94,3 +94,27 @@ function calendarPeriodToJSON(object) {
     }
 }
 exports.calendarPeriodToJSON = calendarPeriodToJSON;
+function calendarPeriodToNumber(object) {
+    switch (object) {
+        case CalendarPeriod.CALENDAR_PERIOD_UNSPECIFIED:
+            return 0;
+        case CalendarPeriod.DAY:
+            return 1;
+        case CalendarPeriod.WEEK:
+            return 2;
+        case CalendarPeriod.FORTNIGHT:
+            return 3;
+        case CalendarPeriod.MONTH:
+            return 4;
+        case CalendarPeriod.QUARTER:
+            return 5;
+        case CalendarPeriod.HALF:
+            return 6;
+        case CalendarPeriod.YEAR:
+            return 7;
+        case CalendarPeriod.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.calendarPeriodToNumber = calendarPeriodToNumber;

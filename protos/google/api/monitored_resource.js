@@ -31,8 +31,8 @@ exports.MonitoredResourceDescriptor = {
                 label_1.LabelDescriptor.encode(v, writer.uint32(34).fork()).ldelim();
             }
         }
-        if (message.launch_stage !== undefined && message.launch_stage !== 0) {
-            writer.uint32(56).int32(message.launch_stage);
+        if (message.launch_stage !== undefined && message.launch_stage !== launch_stage_1.LaunchStage.LAUNCH_STAGE_UNSPECIFIED) {
+            writer.uint32(56).int32((0, launch_stage_1.launchStageToNumber)(message.launch_stage));
         }
         if (message._unknownFields !== undefined) {
             for (const [key, values] of Object.entries(message._unknownFields)) {
@@ -89,7 +89,7 @@ exports.MonitoredResourceDescriptor = {
                     if (tag !== 56) {
                         break;
                     }
-                    message.launch_stage = reader.int32();
+                    message.launch_stage = (0, launch_stage_1.launchStageFromJSON)(reader.int32());
                     continue;
             }
             if ((tag & 7) === 4 || tag === 0) {
@@ -138,7 +138,7 @@ exports.MonitoredResourceDescriptor = {
         if (message.labels?.length) {
             obj.labels = message.labels.map((e) => label_1.LabelDescriptor.toJSON(e));
         }
-        if (message.launch_stage !== undefined && message.launch_stage !== 0) {
+        if (message.launch_stage !== undefined && message.launch_stage !== launch_stage_1.LaunchStage.LAUNCH_STAGE_UNSPECIFIED) {
             obj.launch_stage = (0, launch_stage_1.launchStageToJSON)(message.launch_stage);
         }
         return obj;

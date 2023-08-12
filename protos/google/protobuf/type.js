@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Option = exports.EnumValue = exports.Enum = exports.Field = exports.Type = exports.field_CardinalityToJSON = exports.field_CardinalityFromJSON = exports.Field_Cardinality = exports.field_KindToJSON = exports.field_KindFromJSON = exports.Field_Kind = exports.syntaxToJSON = exports.syntaxFromJSON = exports.Syntax = void 0;
+exports.Option = exports.EnumValue = exports.Enum = exports.Field = exports.Type = exports.field_CardinalityToNumber = exports.field_CardinalityToJSON = exports.field_CardinalityFromJSON = exports.Field_Cardinality = exports.field_KindToNumber = exports.field_KindToJSON = exports.field_KindFromJSON = exports.Field_Kind = exports.syntaxToNumber = exports.syntaxToJSON = exports.syntaxFromJSON = exports.Syntax = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 const any_1 = require("./any");
@@ -12,12 +12,12 @@ const source_context_1 = require("./source_context");
 var Syntax;
 (function (Syntax) {
     /** SYNTAX_PROTO2 - Syntax `proto2`. */
-    Syntax[Syntax["SYNTAX_PROTO2"] = 0] = "SYNTAX_PROTO2";
+    Syntax["SYNTAX_PROTO2"] = "SYNTAX_PROTO2";
     /** SYNTAX_PROTO3 - Syntax `proto3`. */
-    Syntax[Syntax["SYNTAX_PROTO3"] = 1] = "SYNTAX_PROTO3";
+    Syntax["SYNTAX_PROTO3"] = "SYNTAX_PROTO3";
     /** SYNTAX_EDITIONS - Syntax `editions`. */
-    Syntax[Syntax["SYNTAX_EDITIONS"] = 2] = "SYNTAX_EDITIONS";
-    Syntax[Syntax["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    Syntax["SYNTAX_EDITIONS"] = "SYNTAX_EDITIONS";
+    Syntax["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(Syntax || (exports.Syntax = Syntax = {}));
 function syntaxFromJSON(object) {
     switch (object) {
@@ -51,48 +51,62 @@ function syntaxToJSON(object) {
     }
 }
 exports.syntaxToJSON = syntaxToJSON;
+function syntaxToNumber(object) {
+    switch (object) {
+        case Syntax.SYNTAX_PROTO2:
+            return 0;
+        case Syntax.SYNTAX_PROTO3:
+            return 1;
+        case Syntax.SYNTAX_EDITIONS:
+            return 2;
+        case Syntax.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.syntaxToNumber = syntaxToNumber;
 /** Basic field types. */
 var Field_Kind;
 (function (Field_Kind) {
     /** TYPE_UNKNOWN - Field type unknown. */
-    Field_Kind[Field_Kind["TYPE_UNKNOWN"] = 0] = "TYPE_UNKNOWN";
+    Field_Kind["TYPE_UNKNOWN"] = "TYPE_UNKNOWN";
     /** TYPE_DOUBLE - Field type double. */
-    Field_Kind[Field_Kind["TYPE_DOUBLE"] = 1] = "TYPE_DOUBLE";
+    Field_Kind["TYPE_DOUBLE"] = "TYPE_DOUBLE";
     /** TYPE_FLOAT - Field type float. */
-    Field_Kind[Field_Kind["TYPE_FLOAT"] = 2] = "TYPE_FLOAT";
+    Field_Kind["TYPE_FLOAT"] = "TYPE_FLOAT";
     /** TYPE_INT64 - Field type int64. */
-    Field_Kind[Field_Kind["TYPE_INT64"] = 3] = "TYPE_INT64";
+    Field_Kind["TYPE_INT64"] = "TYPE_INT64";
     /** TYPE_UINT64 - Field type uint64. */
-    Field_Kind[Field_Kind["TYPE_UINT64"] = 4] = "TYPE_UINT64";
+    Field_Kind["TYPE_UINT64"] = "TYPE_UINT64";
     /** TYPE_INT32 - Field type int32. */
-    Field_Kind[Field_Kind["TYPE_INT32"] = 5] = "TYPE_INT32";
+    Field_Kind["TYPE_INT32"] = "TYPE_INT32";
     /** TYPE_FIXED64 - Field type fixed64. */
-    Field_Kind[Field_Kind["TYPE_FIXED64"] = 6] = "TYPE_FIXED64";
+    Field_Kind["TYPE_FIXED64"] = "TYPE_FIXED64";
     /** TYPE_FIXED32 - Field type fixed32. */
-    Field_Kind[Field_Kind["TYPE_FIXED32"] = 7] = "TYPE_FIXED32";
+    Field_Kind["TYPE_FIXED32"] = "TYPE_FIXED32";
     /** TYPE_BOOL - Field type bool. */
-    Field_Kind[Field_Kind["TYPE_BOOL"] = 8] = "TYPE_BOOL";
+    Field_Kind["TYPE_BOOL"] = "TYPE_BOOL";
     /** TYPE_STRING - Field type string. */
-    Field_Kind[Field_Kind["TYPE_STRING"] = 9] = "TYPE_STRING";
+    Field_Kind["TYPE_STRING"] = "TYPE_STRING";
     /** TYPE_GROUP - Field type group. Proto2 syntax only, and deprecated. */
-    Field_Kind[Field_Kind["TYPE_GROUP"] = 10] = "TYPE_GROUP";
+    Field_Kind["TYPE_GROUP"] = "TYPE_GROUP";
     /** TYPE_MESSAGE - Field type message. */
-    Field_Kind[Field_Kind["TYPE_MESSAGE"] = 11] = "TYPE_MESSAGE";
+    Field_Kind["TYPE_MESSAGE"] = "TYPE_MESSAGE";
     /** TYPE_BYTES - Field type bytes. */
-    Field_Kind[Field_Kind["TYPE_BYTES"] = 12] = "TYPE_BYTES";
+    Field_Kind["TYPE_BYTES"] = "TYPE_BYTES";
     /** TYPE_UINT32 - Field type uint32. */
-    Field_Kind[Field_Kind["TYPE_UINT32"] = 13] = "TYPE_UINT32";
+    Field_Kind["TYPE_UINT32"] = "TYPE_UINT32";
     /** TYPE_ENUM - Field type enum. */
-    Field_Kind[Field_Kind["TYPE_ENUM"] = 14] = "TYPE_ENUM";
+    Field_Kind["TYPE_ENUM"] = "TYPE_ENUM";
     /** TYPE_SFIXED32 - Field type sfixed32. */
-    Field_Kind[Field_Kind["TYPE_SFIXED32"] = 15] = "TYPE_SFIXED32";
+    Field_Kind["TYPE_SFIXED32"] = "TYPE_SFIXED32";
     /** TYPE_SFIXED64 - Field type sfixed64. */
-    Field_Kind[Field_Kind["TYPE_SFIXED64"] = 16] = "TYPE_SFIXED64";
+    Field_Kind["TYPE_SFIXED64"] = "TYPE_SFIXED64";
     /** TYPE_SINT32 - Field type sint32. */
-    Field_Kind[Field_Kind["TYPE_SINT32"] = 17] = "TYPE_SINT32";
+    Field_Kind["TYPE_SINT32"] = "TYPE_SINT32";
     /** TYPE_SINT64 - Field type sint64. */
-    Field_Kind[Field_Kind["TYPE_SINT64"] = 18] = "TYPE_SINT64";
-    Field_Kind[Field_Kind["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    Field_Kind["TYPE_SINT64"] = "TYPE_SINT64";
+    Field_Kind["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(Field_Kind || (exports.Field_Kind = Field_Kind = {}));
 function field_KindFromJSON(object) {
     switch (object) {
@@ -206,18 +220,64 @@ function field_KindToJSON(object) {
     }
 }
 exports.field_KindToJSON = field_KindToJSON;
+function field_KindToNumber(object) {
+    switch (object) {
+        case Field_Kind.TYPE_UNKNOWN:
+            return 0;
+        case Field_Kind.TYPE_DOUBLE:
+            return 1;
+        case Field_Kind.TYPE_FLOAT:
+            return 2;
+        case Field_Kind.TYPE_INT64:
+            return 3;
+        case Field_Kind.TYPE_UINT64:
+            return 4;
+        case Field_Kind.TYPE_INT32:
+            return 5;
+        case Field_Kind.TYPE_FIXED64:
+            return 6;
+        case Field_Kind.TYPE_FIXED32:
+            return 7;
+        case Field_Kind.TYPE_BOOL:
+            return 8;
+        case Field_Kind.TYPE_STRING:
+            return 9;
+        case Field_Kind.TYPE_GROUP:
+            return 10;
+        case Field_Kind.TYPE_MESSAGE:
+            return 11;
+        case Field_Kind.TYPE_BYTES:
+            return 12;
+        case Field_Kind.TYPE_UINT32:
+            return 13;
+        case Field_Kind.TYPE_ENUM:
+            return 14;
+        case Field_Kind.TYPE_SFIXED32:
+            return 15;
+        case Field_Kind.TYPE_SFIXED64:
+            return 16;
+        case Field_Kind.TYPE_SINT32:
+            return 17;
+        case Field_Kind.TYPE_SINT64:
+            return 18;
+        case Field_Kind.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.field_KindToNumber = field_KindToNumber;
 /** Whether a field is optional, required, or repeated. */
 var Field_Cardinality;
 (function (Field_Cardinality) {
     /** CARDINALITY_UNKNOWN - For fields with unknown cardinality. */
-    Field_Cardinality[Field_Cardinality["CARDINALITY_UNKNOWN"] = 0] = "CARDINALITY_UNKNOWN";
+    Field_Cardinality["CARDINALITY_UNKNOWN"] = "CARDINALITY_UNKNOWN";
     /** CARDINALITY_OPTIONAL - For optional fields. */
-    Field_Cardinality[Field_Cardinality["CARDINALITY_OPTIONAL"] = 1] = "CARDINALITY_OPTIONAL";
+    Field_Cardinality["CARDINALITY_OPTIONAL"] = "CARDINALITY_OPTIONAL";
     /** CARDINALITY_REQUIRED - For required fields. Proto2 syntax only. */
-    Field_Cardinality[Field_Cardinality["CARDINALITY_REQUIRED"] = 2] = "CARDINALITY_REQUIRED";
+    Field_Cardinality["CARDINALITY_REQUIRED"] = "CARDINALITY_REQUIRED";
     /** CARDINALITY_REPEATED - For repeated fields. */
-    Field_Cardinality[Field_Cardinality["CARDINALITY_REPEATED"] = 3] = "CARDINALITY_REPEATED";
-    Field_Cardinality[Field_Cardinality["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    Field_Cardinality["CARDINALITY_REPEATED"] = "CARDINALITY_REPEATED";
+    Field_Cardinality["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(Field_Cardinality || (exports.Field_Cardinality = Field_Cardinality = {}));
 function field_CardinalityFromJSON(object) {
     switch (object) {
@@ -256,6 +316,22 @@ function field_CardinalityToJSON(object) {
     }
 }
 exports.field_CardinalityToJSON = field_CardinalityToJSON;
+function field_CardinalityToNumber(object) {
+    switch (object) {
+        case Field_Cardinality.CARDINALITY_UNKNOWN:
+            return 0;
+        case Field_Cardinality.CARDINALITY_OPTIONAL:
+            return 1;
+        case Field_Cardinality.CARDINALITY_REQUIRED:
+            return 2;
+        case Field_Cardinality.CARDINALITY_REPEATED:
+            return 3;
+        case Field_Cardinality.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.field_CardinalityToNumber = field_CardinalityToNumber;
 function createBaseType() {
     return {};
 }
@@ -282,8 +358,8 @@ exports.Type = {
         if (message.source_context !== undefined) {
             source_context_1.SourceContext.encode(message.source_context, writer.uint32(42).fork()).ldelim();
         }
-        if (message.syntax !== undefined && message.syntax !== 0) {
-            writer.uint32(48).int32(message.syntax);
+        if (message.syntax !== undefined && message.syntax !== Syntax.SYNTAX_PROTO2) {
+            writer.uint32(48).int32(syntaxToNumber(message.syntax));
         }
         if (message.edition !== undefined && message.edition !== "") {
             writer.uint32(58).string(message.edition);
@@ -349,7 +425,7 @@ exports.Type = {
                     if (tag !== 48) {
                         break;
                     }
-                    message.syntax = reader.int32();
+                    message.syntax = syntaxFromJSON(reader.int32());
                     continue;
                 case 7:
                     if (tag !== 58) {
@@ -405,7 +481,7 @@ exports.Type = {
         if (message.source_context !== undefined) {
             obj.source_context = source_context_1.SourceContext.toJSON(message.source_context);
         }
-        if (message.syntax !== undefined && message.syntax !== 0) {
+        if (message.syntax !== undefined && message.syntax !== Syntax.SYNTAX_PROTO2) {
             obj.syntax = syntaxToJSON(message.syntax);
         }
         if (message.edition !== undefined && message.edition !== "") {
@@ -419,11 +495,11 @@ function createBaseField() {
 }
 exports.Field = {
     encode(message, writer = minimal_1.default.Writer.create()) {
-        if (message.kind !== undefined && message.kind !== 0) {
-            writer.uint32(8).int32(message.kind);
+        if (message.kind !== undefined && message.kind !== Field_Kind.TYPE_UNKNOWN) {
+            writer.uint32(8).int32(field_KindToNumber(message.kind));
         }
-        if (message.cardinality !== undefined && message.cardinality !== 0) {
-            writer.uint32(16).int32(message.cardinality);
+        if (message.cardinality !== undefined && message.cardinality !== Field_Cardinality.CARDINALITY_UNKNOWN) {
+            writer.uint32(16).int32(field_CardinalityToNumber(message.cardinality));
         }
         if (message.number !== undefined && message.number !== 0) {
             writer.uint32(24).int32(message.number);
@@ -473,13 +549,13 @@ exports.Field = {
                     if (tag !== 8) {
                         break;
                     }
-                    message.kind = reader.int32();
+                    message.kind = field_KindFromJSON(reader.int32());
                     continue;
                 case 2:
                     if (tag !== 16) {
                         break;
                     }
-                    message.cardinality = reader.int32();
+                    message.cardinality = field_CardinalityFromJSON(reader.int32());
                     continue;
                 case 3:
                     if (tag !== 24) {
@@ -568,10 +644,10 @@ exports.Field = {
     },
     toJSON(message) {
         const obj = {};
-        if (message.kind !== undefined && message.kind !== 0) {
+        if (message.kind !== undefined && message.kind !== Field_Kind.TYPE_UNKNOWN) {
             obj.kind = field_KindToJSON(message.kind);
         }
-        if (message.cardinality !== undefined && message.cardinality !== 0) {
+        if (message.cardinality !== undefined && message.cardinality !== Field_Cardinality.CARDINALITY_UNKNOWN) {
             obj.cardinality = field_CardinalityToJSON(message.cardinality);
         }
         if (message.number !== undefined && message.number !== 0) {
@@ -622,8 +698,8 @@ exports.Enum = {
         if (message.source_context !== undefined) {
             source_context_1.SourceContext.encode(message.source_context, writer.uint32(34).fork()).ldelim();
         }
-        if (message.syntax !== undefined && message.syntax !== 0) {
-            writer.uint32(40).int32(message.syntax);
+        if (message.syntax !== undefined && message.syntax !== Syntax.SYNTAX_PROTO2) {
+            writer.uint32(40).int32(syntaxToNumber(message.syntax));
         }
         if (message.edition !== undefined && message.edition !== "") {
             writer.uint32(50).string(message.edition);
@@ -680,7 +756,7 @@ exports.Enum = {
                     if (tag !== 40) {
                         break;
                     }
-                    message.syntax = reader.int32();
+                    message.syntax = syntaxFromJSON(reader.int32());
                     continue;
                 case 6:
                     if (tag !== 50) {
@@ -732,7 +808,7 @@ exports.Enum = {
         if (message.source_context !== undefined) {
             obj.source_context = source_context_1.SourceContext.toJSON(message.source_context);
         }
-        if (message.syntax !== undefined && message.syntax !== 0) {
+        if (message.syntax !== undefined && message.syntax !== Syntax.SYNTAX_PROTO2) {
             obj.syntax = syntaxToJSON(message.syntax);
         }
         if (message.edition !== undefined && message.edition !== "") {

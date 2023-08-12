@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Metric_LabelsEntry = exports.Metric = exports.MetricDescriptor_MetricDescriptorMetadata = exports.MetricDescriptor = exports.metricDescriptor_ValueTypeToJSON = exports.metricDescriptor_ValueTypeFromJSON = exports.MetricDescriptor_ValueType = exports.metricDescriptor_MetricKindToJSON = exports.metricDescriptor_MetricKindFromJSON = exports.MetricDescriptor_MetricKind = void 0;
+exports.Metric_LabelsEntry = exports.Metric = exports.MetricDescriptor_MetricDescriptorMetadata = exports.MetricDescriptor = exports.metricDescriptor_ValueTypeToNumber = exports.metricDescriptor_ValueTypeToJSON = exports.metricDescriptor_ValueTypeFromJSON = exports.MetricDescriptor_ValueType = exports.metricDescriptor_MetricKindToNumber = exports.metricDescriptor_MetricKindToJSON = exports.metricDescriptor_MetricKindFromJSON = exports.MetricDescriptor_MetricKind = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 const duration_1 = require("../protobuf/duration");
@@ -17,11 +17,11 @@ const launch_stage_1 = require("./launch_stage");
 var MetricDescriptor_MetricKind;
 (function (MetricDescriptor_MetricKind) {
     /** METRIC_KIND_UNSPECIFIED - Do not use this default value. */
-    MetricDescriptor_MetricKind[MetricDescriptor_MetricKind["METRIC_KIND_UNSPECIFIED"] = 0] = "METRIC_KIND_UNSPECIFIED";
+    MetricDescriptor_MetricKind["METRIC_KIND_UNSPECIFIED"] = "METRIC_KIND_UNSPECIFIED";
     /** GAUGE - An instantaneous measurement of a value. */
-    MetricDescriptor_MetricKind[MetricDescriptor_MetricKind["GAUGE"] = 1] = "GAUGE";
+    MetricDescriptor_MetricKind["GAUGE"] = "GAUGE";
     /** DELTA - The change in a value during a time interval. */
-    MetricDescriptor_MetricKind[MetricDescriptor_MetricKind["DELTA"] = 2] = "DELTA";
+    MetricDescriptor_MetricKind["DELTA"] = "DELTA";
     /**
      * CUMULATIVE - A value accumulated over a time interval.  Cumulative
      * measurements in a time series should have the same start time
@@ -29,8 +29,8 @@ var MetricDescriptor_MetricKind;
      * value to zero and sets a new start time for the following
      * points.
      */
-    MetricDescriptor_MetricKind[MetricDescriptor_MetricKind["CUMULATIVE"] = 3] = "CUMULATIVE";
-    MetricDescriptor_MetricKind[MetricDescriptor_MetricKind["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    MetricDescriptor_MetricKind["CUMULATIVE"] = "CUMULATIVE";
+    MetricDescriptor_MetricKind["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(MetricDescriptor_MetricKind || (exports.MetricDescriptor_MetricKind = MetricDescriptor_MetricKind = {}));
 function metricDescriptor_MetricKindFromJSON(object) {
     switch (object) {
@@ -69,30 +69,46 @@ function metricDescriptor_MetricKindToJSON(object) {
     }
 }
 exports.metricDescriptor_MetricKindToJSON = metricDescriptor_MetricKindToJSON;
+function metricDescriptor_MetricKindToNumber(object) {
+    switch (object) {
+        case MetricDescriptor_MetricKind.METRIC_KIND_UNSPECIFIED:
+            return 0;
+        case MetricDescriptor_MetricKind.GAUGE:
+            return 1;
+        case MetricDescriptor_MetricKind.DELTA:
+            return 2;
+        case MetricDescriptor_MetricKind.CUMULATIVE:
+            return 3;
+        case MetricDescriptor_MetricKind.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.metricDescriptor_MetricKindToNumber = metricDescriptor_MetricKindToNumber;
 /** The value type of a metric. */
 var MetricDescriptor_ValueType;
 (function (MetricDescriptor_ValueType) {
     /** VALUE_TYPE_UNSPECIFIED - Do not use this default value. */
-    MetricDescriptor_ValueType[MetricDescriptor_ValueType["VALUE_TYPE_UNSPECIFIED"] = 0] = "VALUE_TYPE_UNSPECIFIED";
+    MetricDescriptor_ValueType["VALUE_TYPE_UNSPECIFIED"] = "VALUE_TYPE_UNSPECIFIED";
     /**
      * BOOL - The value is a boolean.
      * This value type can be used only if the metric kind is `GAUGE`.
      */
-    MetricDescriptor_ValueType[MetricDescriptor_ValueType["BOOL"] = 1] = "BOOL";
+    MetricDescriptor_ValueType["BOOL"] = "BOOL";
     /** INT64 - The value is a signed 64-bit integer. */
-    MetricDescriptor_ValueType[MetricDescriptor_ValueType["INT64"] = 2] = "INT64";
+    MetricDescriptor_ValueType["INT64"] = "INT64";
     /** DOUBLE - The value is a double precision floating point number. */
-    MetricDescriptor_ValueType[MetricDescriptor_ValueType["DOUBLE"] = 3] = "DOUBLE";
+    MetricDescriptor_ValueType["DOUBLE"] = "DOUBLE";
     /**
      * STRING - The value is a text string.
      * This value type can be used only if the metric kind is `GAUGE`.
      */
-    MetricDescriptor_ValueType[MetricDescriptor_ValueType["STRING"] = 4] = "STRING";
+    MetricDescriptor_ValueType["STRING"] = "STRING";
     /** DISTRIBUTION - The value is a [`Distribution`][google.api.Distribution]. */
-    MetricDescriptor_ValueType[MetricDescriptor_ValueType["DISTRIBUTION"] = 5] = "DISTRIBUTION";
+    MetricDescriptor_ValueType["DISTRIBUTION"] = "DISTRIBUTION";
     /** MONEY - The value is money. */
-    MetricDescriptor_ValueType[MetricDescriptor_ValueType["MONEY"] = 6] = "MONEY";
-    MetricDescriptor_ValueType[MetricDescriptor_ValueType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    MetricDescriptor_ValueType["MONEY"] = "MONEY";
+    MetricDescriptor_ValueType["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(MetricDescriptor_ValueType || (exports.MetricDescriptor_ValueType = MetricDescriptor_ValueType = {}));
 function metricDescriptor_ValueTypeFromJSON(object) {
     switch (object) {
@@ -146,6 +162,28 @@ function metricDescriptor_ValueTypeToJSON(object) {
     }
 }
 exports.metricDescriptor_ValueTypeToJSON = metricDescriptor_ValueTypeToJSON;
+function metricDescriptor_ValueTypeToNumber(object) {
+    switch (object) {
+        case MetricDescriptor_ValueType.VALUE_TYPE_UNSPECIFIED:
+            return 0;
+        case MetricDescriptor_ValueType.BOOL:
+            return 1;
+        case MetricDescriptor_ValueType.INT64:
+            return 2;
+        case MetricDescriptor_ValueType.DOUBLE:
+            return 3;
+        case MetricDescriptor_ValueType.STRING:
+            return 4;
+        case MetricDescriptor_ValueType.DISTRIBUTION:
+            return 5;
+        case MetricDescriptor_ValueType.MONEY:
+            return 6;
+        case MetricDescriptor_ValueType.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.metricDescriptor_ValueTypeToNumber = metricDescriptor_ValueTypeToNumber;
 function createBaseMetricDescriptor() {
     return {};
 }
@@ -162,11 +200,11 @@ exports.MetricDescriptor = {
                 label_1.LabelDescriptor.encode(v, writer.uint32(18).fork()).ldelim();
             }
         }
-        if (message.metric_kind !== undefined && message.metric_kind !== 0) {
-            writer.uint32(24).int32(message.metric_kind);
+        if (message.metric_kind !== undefined && message.metric_kind !== MetricDescriptor_MetricKind.METRIC_KIND_UNSPECIFIED) {
+            writer.uint32(24).int32(metricDescriptor_MetricKindToNumber(message.metric_kind));
         }
-        if (message.value_type !== undefined && message.value_type !== 0) {
-            writer.uint32(32).int32(message.value_type);
+        if (message.value_type !== undefined && message.value_type !== MetricDescriptor_ValueType.VALUE_TYPE_UNSPECIFIED) {
+            writer.uint32(32).int32(metricDescriptor_ValueTypeToNumber(message.value_type));
         }
         if (message.unit !== undefined && message.unit !== "") {
             writer.uint32(42).string(message.unit);
@@ -180,8 +218,8 @@ exports.MetricDescriptor = {
         if (message.metadata !== undefined) {
             exports.MetricDescriptor_MetricDescriptorMetadata.encode(message.metadata, writer.uint32(82).fork()).ldelim();
         }
-        if (message.launch_stage !== undefined && message.launch_stage !== 0) {
-            writer.uint32(96).int32(message.launch_stage);
+        if (message.launch_stage !== undefined && message.launch_stage !== launch_stage_1.LaunchStage.LAUNCH_STAGE_UNSPECIFIED) {
+            writer.uint32(96).int32((0, launch_stage_1.launchStageToNumber)(message.launch_stage));
         }
         if (message.monitored_resource_types !== undefined && message.monitored_resource_types.length !== 0) {
             for (const v of message.monitored_resource_types) {
@@ -231,13 +269,13 @@ exports.MetricDescriptor = {
                     if (tag !== 24) {
                         break;
                     }
-                    message.metric_kind = reader.int32();
+                    message.metric_kind = metricDescriptor_MetricKindFromJSON(reader.int32());
                     continue;
                 case 4:
                     if (tag !== 32) {
                         break;
                     }
-                    message.value_type = reader.int32();
+                    message.value_type = metricDescriptor_ValueTypeFromJSON(reader.int32());
                     continue;
                 case 5:
                     if (tag !== 42) {
@@ -267,7 +305,7 @@ exports.MetricDescriptor = {
                     if (tag !== 96) {
                         break;
                     }
-                    message.launch_stage = reader.int32();
+                    message.launch_stage = (0, launch_stage_1.launchStageFromJSON)(reader.int32());
                     continue;
                 case 13:
                     if (tag !== 106) {
@@ -328,10 +366,10 @@ exports.MetricDescriptor = {
         if (message.labels?.length) {
             obj.labels = message.labels.map((e) => label_1.LabelDescriptor.toJSON(e));
         }
-        if (message.metric_kind !== undefined && message.metric_kind !== 0) {
+        if (message.metric_kind !== undefined && message.metric_kind !== MetricDescriptor_MetricKind.METRIC_KIND_UNSPECIFIED) {
             obj.metric_kind = metricDescriptor_MetricKindToJSON(message.metric_kind);
         }
-        if (message.value_type !== undefined && message.value_type !== 0) {
+        if (message.value_type !== undefined && message.value_type !== MetricDescriptor_ValueType.VALUE_TYPE_UNSPECIFIED) {
             obj.value_type = metricDescriptor_ValueTypeToJSON(message.value_type);
         }
         if (message.unit !== undefined && message.unit !== "") {
@@ -346,7 +384,7 @@ exports.MetricDescriptor = {
         if (message.metadata !== undefined) {
             obj.metadata = exports.MetricDescriptor_MetricDescriptorMetadata.toJSON(message.metadata);
         }
-        if (message.launch_stage !== undefined && message.launch_stage !== 0) {
+        if (message.launch_stage !== undefined && message.launch_stage !== launch_stage_1.LaunchStage.LAUNCH_STAGE_UNSPECIFIED) {
             obj.launch_stage = (0, launch_stage_1.launchStageToJSON)(message.launch_stage);
         }
         if (message.monitored_resource_types?.length) {
@@ -360,8 +398,8 @@ function createBaseMetricDescriptor_MetricDescriptorMetadata() {
 }
 exports.MetricDescriptor_MetricDescriptorMetadata = {
     encode(message, writer = minimal_1.default.Writer.create()) {
-        if (message.launch_stage !== undefined && message.launch_stage !== 0) {
-            writer.uint32(8).int32(message.launch_stage);
+        if (message.launch_stage !== undefined && message.launch_stage !== launch_stage_1.LaunchStage.LAUNCH_STAGE_UNSPECIFIED) {
+            writer.uint32(8).int32((0, launch_stage_1.launchStageToNumber)(message.launch_stage));
         }
         if (message.sample_period !== undefined) {
             duration_1.Duration.encode(message.sample_period, writer.uint32(18).fork()).ldelim();
@@ -391,7 +429,7 @@ exports.MetricDescriptor_MetricDescriptorMetadata = {
                     if (tag !== 8) {
                         break;
                     }
-                    message.launch_stage = reader.int32();
+                    message.launch_stage = (0, launch_stage_1.launchStageFromJSON)(reader.int32());
                     continue;
                 case 2:
                     if (tag !== 18) {
@@ -434,7 +472,7 @@ exports.MetricDescriptor_MetricDescriptorMetadata = {
     },
     toJSON(message) {
         const obj = {};
-        if (message.launch_stage !== undefined && message.launch_stage !== 0) {
+        if (message.launch_stage !== undefined && message.launch_stage !== launch_stage_1.LaunchStage.LAUNCH_STAGE_UNSPECIFIED) {
             obj.launch_stage = (0, launch_stage_1.launchStageToJSON)(message.launch_stage);
         }
         if (message.sample_period !== undefined) {

@@ -12,13 +12,13 @@ export declare enum Code {
      *
      * HTTP Mapping: 200 OK
      */
-    OK = 0,
+    OK = "OK",
     /**
      * CANCELLED - The operation was cancelled, typically by the caller.
      *
      * HTTP Mapping: 499 Client Closed Request
      */
-    CANCELLED = 1,
+    CANCELLED = "CANCELLED",
     /**
      * UNKNOWN - Unknown error.  For example, this error may be returned when
      * a `Status` value received from another address space belongs to
@@ -28,7 +28,7 @@ export declare enum Code {
      *
      * HTTP Mapping: 500 Internal Server Error
      */
-    UNKNOWN = 2,
+    UNKNOWN = "UNKNOWN",
     /**
      * INVALID_ARGUMENT - The client specified an invalid argument.  Note that this differs
      * from `FAILED_PRECONDITION`.  `INVALID_ARGUMENT` indicates arguments
@@ -37,7 +37,7 @@ export declare enum Code {
      *
      * HTTP Mapping: 400 Bad Request
      */
-    INVALID_ARGUMENT = 3,
+    INVALID_ARGUMENT = "INVALID_ARGUMENT",
     /**
      * DEADLINE_EXCEEDED - The deadline expired before the operation could complete. For operations
      * that change the state of the system, this error may be returned
@@ -47,7 +47,7 @@ export declare enum Code {
      *
      * HTTP Mapping: 504 Gateway Timeout
      */
-    DEADLINE_EXCEEDED = 4,
+    DEADLINE_EXCEEDED = "DEADLINE_EXCEEDED",
     /**
      * NOT_FOUND - Some requested entity (e.g., file or directory) was not found.
      *
@@ -59,14 +59,14 @@ export declare enum Code {
      *
      * HTTP Mapping: 404 Not Found
      */
-    NOT_FOUND = 5,
+    NOT_FOUND = "NOT_FOUND",
     /**
      * ALREADY_EXISTS - The entity that a client attempted to create (e.g., file or directory)
      * already exists.
      *
      * HTTP Mapping: 409 Conflict
      */
-    ALREADY_EXISTS = 6,
+    ALREADY_EXISTS = "ALREADY_EXISTS",
     /**
      * PERMISSION_DENIED - The caller does not have permission to execute the specified
      * operation. `PERMISSION_DENIED` must not be used for rejections
@@ -79,21 +79,21 @@ export declare enum Code {
      *
      * HTTP Mapping: 403 Forbidden
      */
-    PERMISSION_DENIED = 7,
+    PERMISSION_DENIED = "PERMISSION_DENIED",
     /**
      * UNAUTHENTICATED - The request does not have valid authentication credentials for the
      * operation.
      *
      * HTTP Mapping: 401 Unauthorized
      */
-    UNAUTHENTICATED = 16,
+    UNAUTHENTICATED = "UNAUTHENTICATED",
     /**
      * RESOURCE_EXHAUSTED - Some resource has been exhausted, perhaps a per-user quota, or
      * perhaps the entire file system is out of space.
      *
      * HTTP Mapping: 429 Too Many Requests
      */
-    RESOURCE_EXHAUSTED = 8,
+    RESOURCE_EXHAUSTED = "RESOURCE_EXHAUSTED",
     /**
      * FAILED_PRECONDITION - The operation was rejected because the system is not in a state
      * required for the operation's execution.  For example, the directory
@@ -114,7 +114,7 @@ export declare enum Code {
      *
      * HTTP Mapping: 400 Bad Request
      */
-    FAILED_PRECONDITION = 9,
+    FAILED_PRECONDITION = "FAILED_PRECONDITION",
     /**
      * ABORTED - The operation was aborted, typically due to a concurrency issue such as
      * a sequencer check failure or transaction abort.
@@ -124,7 +124,7 @@ export declare enum Code {
      *
      * HTTP Mapping: 409 Conflict
      */
-    ABORTED = 10,
+    ABORTED = "ABORTED",
     /**
      * OUT_OF_RANGE - The operation was attempted past the valid range.  E.g., seeking or
      * reading past end-of-file.
@@ -144,14 +144,14 @@ export declare enum Code {
      *
      * HTTP Mapping: 400 Bad Request
      */
-    OUT_OF_RANGE = 11,
+    OUT_OF_RANGE = "OUT_OF_RANGE",
     /**
      * UNIMPLEMENTED - The operation is not implemented or is not supported/enabled in this
      * service.
      *
      * HTTP Mapping: 501 Not Implemented
      */
-    UNIMPLEMENTED = 12,
+    UNIMPLEMENTED = "UNIMPLEMENTED",
     /**
      * INTERNAL - Internal errors.  This means that some invariants expected by the
      * underlying system have been broken.  This error code is reserved
@@ -159,7 +159,7 @@ export declare enum Code {
      *
      * HTTP Mapping: 500 Internal Server Error
      */
-    INTERNAL = 13,
+    INTERNAL = "INTERNAL",
     /**
      * UNAVAILABLE - The service is currently unavailable.  This is most likely a
      * transient condition, which can be corrected by retrying with
@@ -171,14 +171,15 @@ export declare enum Code {
      *
      * HTTP Mapping: 503 Service Unavailable
      */
-    UNAVAILABLE = 14,
+    UNAVAILABLE = "UNAVAILABLE",
     /**
      * DATA_LOSS - Unrecoverable data loss or corruption.
      *
      * HTTP Mapping: 500 Internal Server Error
      */
-    DATA_LOSS = 15,
-    UNRECOGNIZED = -1
+    DATA_LOSS = "DATA_LOSS",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function codeFromJSON(object: any): Code;
 export declare function codeToJSON(object: Code): string;
+export declare function codeToNumber(object: Code): number;

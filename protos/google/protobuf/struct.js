@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListValue = exports.Value = exports.Struct_FieldsEntry = exports.Struct = exports.nullValueToJSON = exports.nullValueFromJSON = exports.NullValue = void 0;
+exports.ListValue = exports.Value = exports.Struct_FieldsEntry = exports.Struct = exports.nullValueToNumber = exports.nullValueToJSON = exports.nullValueFromJSON = exports.NullValue = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 /**
@@ -15,8 +15,8 @@ const minimal_1 = __importDefault(require("protobufjs/minimal"));
 var NullValue;
 (function (NullValue) {
     /** NULL_VALUE - Null value. */
-    NullValue[NullValue["NULL_VALUE"] = 0] = "NULL_VALUE";
-    NullValue[NullValue["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    NullValue["NULL_VALUE"] = "NULL_VALUE";
+    NullValue["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(NullValue || (exports.NullValue = NullValue = {}));
 function nullValueFromJSON(object) {
     switch (object) {
@@ -40,6 +40,16 @@ function nullValueToJSON(object) {
     }
 }
 exports.nullValueToJSON = nullValueToJSON;
+function nullValueToNumber(object) {
+    switch (object) {
+        case NullValue.NULL_VALUE:
+            return 0;
+        case NullValue.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.nullValueToNumber = nullValueToNumber;
 function createBaseStruct() {
     return {};
 }
@@ -218,7 +228,7 @@ function createBaseValue() {
 exports.Value = {
     encode(message, writer = minimal_1.default.Writer.create()) {
         if (message.null_value !== undefined) {
-            writer.uint32(8).int32(message.null_value);
+            writer.uint32(8).int32(nullValueToNumber(message.null_value));
         }
         if (message.number_value !== undefined) {
             writer.uint32(17).double(message.number_value);
@@ -257,7 +267,7 @@ exports.Value = {
                     if (tag !== 8) {
                         break;
                     }
-                    message.null_value = reader.int32();
+                    message.null_value = nullValueFromJSON(reader.int32());
                     continue;
                 case 2:
                     if (tag !== 17) {

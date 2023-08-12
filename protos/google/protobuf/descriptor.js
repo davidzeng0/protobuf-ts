@@ -3,8 +3,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UninterpretedOption_NamePart = exports.UninterpretedOption = exports.MethodOptions = exports.ServiceOptions = exports.EnumValueOptions = exports.EnumOptions = exports.OneofOptions = exports.FieldOptions = exports.MessageOptions = exports.FileOptions = exports.MethodDescriptorProto = exports.ServiceDescriptorProto = exports.EnumValueDescriptorProto = exports.EnumDescriptorProto_EnumReservedRange = exports.EnumDescriptorProto = exports.OneofDescriptorProto = exports.FieldDescriptorProto = exports.ExtensionRangeOptions = exports.DescriptorProto_ReservedRange = exports.DescriptorProto_ExtensionRange = exports.DescriptorProto = exports.FileDescriptorProto = exports.FileDescriptorSet = exports.generatedCodeInfo_Annotation_SemanticToJSON = exports.generatedCodeInfo_Annotation_SemanticFromJSON = exports.GeneratedCodeInfo_Annotation_Semantic = exports.methodOptions_IdempotencyLevelToJSON = exports.methodOptions_IdempotencyLevelFromJSON = exports.MethodOptions_IdempotencyLevel = exports.fieldOptions_OptionTargetTypeToJSON = exports.fieldOptions_OptionTargetTypeFromJSON = exports.FieldOptions_OptionTargetType = exports.fieldOptions_OptionRetentionToJSON = exports.fieldOptions_OptionRetentionFromJSON = exports.FieldOptions_OptionRetention = exports.fieldOptions_JSTypeToJSON = exports.fieldOptions_JSTypeFromJSON = exports.FieldOptions_JSType = exports.fieldOptions_CTypeToJSON = exports.fieldOptions_CTypeFromJSON = exports.FieldOptions_CType = exports.fileOptions_OptimizeModeToJSON = exports.fileOptions_OptimizeModeFromJSON = exports.FileOptions_OptimizeMode = exports.fieldDescriptorProto_LabelToJSON = exports.fieldDescriptorProto_LabelFromJSON = exports.FieldDescriptorProto_Label = exports.fieldDescriptorProto_TypeToJSON = exports.fieldDescriptorProto_TypeFromJSON = exports.FieldDescriptorProto_Type = void 0;
-exports.GeneratedCodeInfo_Annotation = exports.GeneratedCodeInfo = exports.SourceCodeInfo_Location = exports.SourceCodeInfo = void 0;
+exports.FileOptions = exports.MethodDescriptorProto = exports.ServiceDescriptorProto = exports.EnumValueDescriptorProto = exports.EnumDescriptorProto_EnumReservedRange = exports.EnumDescriptorProto = exports.OneofDescriptorProto = exports.FieldDescriptorProto = exports.ExtensionRangeOptions = exports.DescriptorProto_ReservedRange = exports.DescriptorProto_ExtensionRange = exports.DescriptorProto = exports.FileDescriptorProto = exports.FileDescriptorSet = exports.generatedCodeInfo_Annotation_SemanticToNumber = exports.generatedCodeInfo_Annotation_SemanticToJSON = exports.generatedCodeInfo_Annotation_SemanticFromJSON = exports.GeneratedCodeInfo_Annotation_Semantic = exports.methodOptions_IdempotencyLevelToNumber = exports.methodOptions_IdempotencyLevelToJSON = exports.methodOptions_IdempotencyLevelFromJSON = exports.MethodOptions_IdempotencyLevel = exports.fieldOptions_OptionTargetTypeToNumber = exports.fieldOptions_OptionTargetTypeToJSON = exports.fieldOptions_OptionTargetTypeFromJSON = exports.FieldOptions_OptionTargetType = exports.fieldOptions_OptionRetentionToNumber = exports.fieldOptions_OptionRetentionToJSON = exports.fieldOptions_OptionRetentionFromJSON = exports.FieldOptions_OptionRetention = exports.fieldOptions_JSTypeToNumber = exports.fieldOptions_JSTypeToJSON = exports.fieldOptions_JSTypeFromJSON = exports.FieldOptions_JSType = exports.fieldOptions_CTypeToNumber = exports.fieldOptions_CTypeToJSON = exports.fieldOptions_CTypeFromJSON = exports.FieldOptions_CType = exports.fileOptions_OptimizeModeToNumber = exports.fileOptions_OptimizeModeToJSON = exports.fileOptions_OptimizeModeFromJSON = exports.FileOptions_OptimizeMode = exports.fieldDescriptorProto_LabelToNumber = exports.fieldDescriptorProto_LabelToJSON = exports.fieldDescriptorProto_LabelFromJSON = exports.FieldDescriptorProto_Label = exports.fieldDescriptorProto_TypeToNumber = exports.fieldDescriptorProto_TypeToJSON = exports.fieldDescriptorProto_TypeFromJSON = exports.FieldDescriptorProto_Type = void 0;
+exports.GeneratedCodeInfo_Annotation = exports.GeneratedCodeInfo = exports.SourceCodeInfo_Location = exports.SourceCodeInfo = exports.UninterpretedOption_NamePart = exports.UninterpretedOption = exports.MethodOptions = exports.ServiceOptions = exports.EnumValueOptions = exports.EnumOptions = exports.OneofOptions = exports.FieldOptions = exports.MessageOptions = void 0;
 /* eslint-disable */
 const long_1 = __importDefault(require("long"));
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
@@ -14,43 +14,43 @@ var FieldDescriptorProto_Type;
      * TYPE_DOUBLE - 0 is reserved for errors.
      * Order is weird for historical reasons.
      */
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_DOUBLE"] = 1] = "TYPE_DOUBLE";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_FLOAT"] = 2] = "TYPE_FLOAT";
+    FieldDescriptorProto_Type["TYPE_DOUBLE"] = "TYPE_DOUBLE";
+    FieldDescriptorProto_Type["TYPE_FLOAT"] = "TYPE_FLOAT";
     /**
      * TYPE_INT64 - Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT64 if
      * negative values are likely.
      */
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_INT64"] = 3] = "TYPE_INT64";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_UINT64"] = 4] = "TYPE_UINT64";
+    FieldDescriptorProto_Type["TYPE_INT64"] = "TYPE_INT64";
+    FieldDescriptorProto_Type["TYPE_UINT64"] = "TYPE_UINT64";
     /**
      * TYPE_INT32 - Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT32 if
      * negative values are likely.
      */
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_INT32"] = 5] = "TYPE_INT32";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_FIXED64"] = 6] = "TYPE_FIXED64";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_FIXED32"] = 7] = "TYPE_FIXED32";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_BOOL"] = 8] = "TYPE_BOOL";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_STRING"] = 9] = "TYPE_STRING";
+    FieldDescriptorProto_Type["TYPE_INT32"] = "TYPE_INT32";
+    FieldDescriptorProto_Type["TYPE_FIXED64"] = "TYPE_FIXED64";
+    FieldDescriptorProto_Type["TYPE_FIXED32"] = "TYPE_FIXED32";
+    FieldDescriptorProto_Type["TYPE_BOOL"] = "TYPE_BOOL";
+    FieldDescriptorProto_Type["TYPE_STRING"] = "TYPE_STRING";
     /**
      * TYPE_GROUP - Tag-delimited aggregate.
      * Group type is deprecated and not supported in proto3. However, Proto3
      * implementations should still be able to parse the group wire format and
      * treat group fields as unknown fields.
      */
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_GROUP"] = 10] = "TYPE_GROUP";
+    FieldDescriptorProto_Type["TYPE_GROUP"] = "TYPE_GROUP";
     /** TYPE_MESSAGE - Length-delimited aggregate. */
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_MESSAGE"] = 11] = "TYPE_MESSAGE";
+    FieldDescriptorProto_Type["TYPE_MESSAGE"] = "TYPE_MESSAGE";
     /** TYPE_BYTES - New in version 2. */
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_BYTES"] = 12] = "TYPE_BYTES";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_UINT32"] = 13] = "TYPE_UINT32";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_ENUM"] = 14] = "TYPE_ENUM";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_SFIXED32"] = 15] = "TYPE_SFIXED32";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_SFIXED64"] = 16] = "TYPE_SFIXED64";
+    FieldDescriptorProto_Type["TYPE_BYTES"] = "TYPE_BYTES";
+    FieldDescriptorProto_Type["TYPE_UINT32"] = "TYPE_UINT32";
+    FieldDescriptorProto_Type["TYPE_ENUM"] = "TYPE_ENUM";
+    FieldDescriptorProto_Type["TYPE_SFIXED32"] = "TYPE_SFIXED32";
+    FieldDescriptorProto_Type["TYPE_SFIXED64"] = "TYPE_SFIXED64";
     /** TYPE_SINT32 - Uses ZigZag encoding. */
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_SINT32"] = 17] = "TYPE_SINT32";
+    FieldDescriptorProto_Type["TYPE_SINT32"] = "TYPE_SINT32";
     /** TYPE_SINT64 - Uses ZigZag encoding. */
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_SINT64"] = 18] = "TYPE_SINT64";
-    FieldDescriptorProto_Type[FieldDescriptorProto_Type["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    FieldDescriptorProto_Type["TYPE_SINT64"] = "TYPE_SINT64";
+    FieldDescriptorProto_Type["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(FieldDescriptorProto_Type || (exports.FieldDescriptorProto_Type = FieldDescriptorProto_Type = {}));
 function fieldDescriptorProto_TypeFromJSON(object) {
     switch (object) {
@@ -159,13 +159,57 @@ function fieldDescriptorProto_TypeToJSON(object) {
     }
 }
 exports.fieldDescriptorProto_TypeToJSON = fieldDescriptorProto_TypeToJSON;
+function fieldDescriptorProto_TypeToNumber(object) {
+    switch (object) {
+        case FieldDescriptorProto_Type.TYPE_DOUBLE:
+            return 1;
+        case FieldDescriptorProto_Type.TYPE_FLOAT:
+            return 2;
+        case FieldDescriptorProto_Type.TYPE_INT64:
+            return 3;
+        case FieldDescriptorProto_Type.TYPE_UINT64:
+            return 4;
+        case FieldDescriptorProto_Type.TYPE_INT32:
+            return 5;
+        case FieldDescriptorProto_Type.TYPE_FIXED64:
+            return 6;
+        case FieldDescriptorProto_Type.TYPE_FIXED32:
+            return 7;
+        case FieldDescriptorProto_Type.TYPE_BOOL:
+            return 8;
+        case FieldDescriptorProto_Type.TYPE_STRING:
+            return 9;
+        case FieldDescriptorProto_Type.TYPE_GROUP:
+            return 10;
+        case FieldDescriptorProto_Type.TYPE_MESSAGE:
+            return 11;
+        case FieldDescriptorProto_Type.TYPE_BYTES:
+            return 12;
+        case FieldDescriptorProto_Type.TYPE_UINT32:
+            return 13;
+        case FieldDescriptorProto_Type.TYPE_ENUM:
+            return 14;
+        case FieldDescriptorProto_Type.TYPE_SFIXED32:
+            return 15;
+        case FieldDescriptorProto_Type.TYPE_SFIXED64:
+            return 16;
+        case FieldDescriptorProto_Type.TYPE_SINT32:
+            return 17;
+        case FieldDescriptorProto_Type.TYPE_SINT64:
+            return 18;
+        case FieldDescriptorProto_Type.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.fieldDescriptorProto_TypeToNumber = fieldDescriptorProto_TypeToNumber;
 var FieldDescriptorProto_Label;
 (function (FieldDescriptorProto_Label) {
     /** LABEL_OPTIONAL - 0 is reserved for errors */
-    FieldDescriptorProto_Label[FieldDescriptorProto_Label["LABEL_OPTIONAL"] = 1] = "LABEL_OPTIONAL";
-    FieldDescriptorProto_Label[FieldDescriptorProto_Label["LABEL_REQUIRED"] = 2] = "LABEL_REQUIRED";
-    FieldDescriptorProto_Label[FieldDescriptorProto_Label["LABEL_REPEATED"] = 3] = "LABEL_REPEATED";
-    FieldDescriptorProto_Label[FieldDescriptorProto_Label["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    FieldDescriptorProto_Label["LABEL_OPTIONAL"] = "LABEL_OPTIONAL";
+    FieldDescriptorProto_Label["LABEL_REQUIRED"] = "LABEL_REQUIRED";
+    FieldDescriptorProto_Label["LABEL_REPEATED"] = "LABEL_REPEATED";
+    FieldDescriptorProto_Label["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(FieldDescriptorProto_Label || (exports.FieldDescriptorProto_Label = FieldDescriptorProto_Label = {}));
 function fieldDescriptorProto_LabelFromJSON(object) {
     switch (object) {
@@ -199,16 +243,30 @@ function fieldDescriptorProto_LabelToJSON(object) {
     }
 }
 exports.fieldDescriptorProto_LabelToJSON = fieldDescriptorProto_LabelToJSON;
+function fieldDescriptorProto_LabelToNumber(object) {
+    switch (object) {
+        case FieldDescriptorProto_Label.LABEL_OPTIONAL:
+            return 1;
+        case FieldDescriptorProto_Label.LABEL_REQUIRED:
+            return 2;
+        case FieldDescriptorProto_Label.LABEL_REPEATED:
+            return 3;
+        case FieldDescriptorProto_Label.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.fieldDescriptorProto_LabelToNumber = fieldDescriptorProto_LabelToNumber;
 /** Generated classes can be optimized for speed or code size. */
 var FileOptions_OptimizeMode;
 (function (FileOptions_OptimizeMode) {
     /** SPEED - Generate complete code for parsing, serialization, */
-    FileOptions_OptimizeMode[FileOptions_OptimizeMode["SPEED"] = 1] = "SPEED";
+    FileOptions_OptimizeMode["SPEED"] = "SPEED";
     /** CODE_SIZE - etc. */
-    FileOptions_OptimizeMode[FileOptions_OptimizeMode["CODE_SIZE"] = 2] = "CODE_SIZE";
+    FileOptions_OptimizeMode["CODE_SIZE"] = "CODE_SIZE";
     /** LITE_RUNTIME - Generate code using MessageLite and the lite runtime. */
-    FileOptions_OptimizeMode[FileOptions_OptimizeMode["LITE_RUNTIME"] = 3] = "LITE_RUNTIME";
-    FileOptions_OptimizeMode[FileOptions_OptimizeMode["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    FileOptions_OptimizeMode["LITE_RUNTIME"] = "LITE_RUNTIME";
+    FileOptions_OptimizeMode["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(FileOptions_OptimizeMode || (exports.FileOptions_OptimizeMode = FileOptions_OptimizeMode = {}));
 function fileOptions_OptimizeModeFromJSON(object) {
     switch (object) {
@@ -242,13 +300,27 @@ function fileOptions_OptimizeModeToJSON(object) {
     }
 }
 exports.fileOptions_OptimizeModeToJSON = fileOptions_OptimizeModeToJSON;
+function fileOptions_OptimizeModeToNumber(object) {
+    switch (object) {
+        case FileOptions_OptimizeMode.SPEED:
+            return 1;
+        case FileOptions_OptimizeMode.CODE_SIZE:
+            return 2;
+        case FileOptions_OptimizeMode.LITE_RUNTIME:
+            return 3;
+        case FileOptions_OptimizeMode.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.fileOptions_OptimizeModeToNumber = fileOptions_OptimizeModeToNumber;
 var FieldOptions_CType;
 (function (FieldOptions_CType) {
     /** STRING - Default mode. */
-    FieldOptions_CType[FieldOptions_CType["STRING"] = 0] = "STRING";
-    FieldOptions_CType[FieldOptions_CType["CORD"] = 1] = "CORD";
-    FieldOptions_CType[FieldOptions_CType["STRING_PIECE"] = 2] = "STRING_PIECE";
-    FieldOptions_CType[FieldOptions_CType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    FieldOptions_CType["STRING"] = "STRING";
+    FieldOptions_CType["CORD"] = "CORD";
+    FieldOptions_CType["STRING_PIECE"] = "STRING_PIECE";
+    FieldOptions_CType["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(FieldOptions_CType || (exports.FieldOptions_CType = FieldOptions_CType = {}));
 function fieldOptions_CTypeFromJSON(object) {
     switch (object) {
@@ -282,15 +354,29 @@ function fieldOptions_CTypeToJSON(object) {
     }
 }
 exports.fieldOptions_CTypeToJSON = fieldOptions_CTypeToJSON;
+function fieldOptions_CTypeToNumber(object) {
+    switch (object) {
+        case FieldOptions_CType.STRING:
+            return 0;
+        case FieldOptions_CType.CORD:
+            return 1;
+        case FieldOptions_CType.STRING_PIECE:
+            return 2;
+        case FieldOptions_CType.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.fieldOptions_CTypeToNumber = fieldOptions_CTypeToNumber;
 var FieldOptions_JSType;
 (function (FieldOptions_JSType) {
     /** JS_NORMAL - Use the default type. */
-    FieldOptions_JSType[FieldOptions_JSType["JS_NORMAL"] = 0] = "JS_NORMAL";
+    FieldOptions_JSType["JS_NORMAL"] = "JS_NORMAL";
     /** JS_STRING - Use JavaScript strings. */
-    FieldOptions_JSType[FieldOptions_JSType["JS_STRING"] = 1] = "JS_STRING";
+    FieldOptions_JSType["JS_STRING"] = "JS_STRING";
     /** JS_NUMBER - Use JavaScript numbers. */
-    FieldOptions_JSType[FieldOptions_JSType["JS_NUMBER"] = 2] = "JS_NUMBER";
-    FieldOptions_JSType[FieldOptions_JSType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    FieldOptions_JSType["JS_NUMBER"] = "JS_NUMBER";
+    FieldOptions_JSType["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(FieldOptions_JSType || (exports.FieldOptions_JSType = FieldOptions_JSType = {}));
 function fieldOptions_JSTypeFromJSON(object) {
     switch (object) {
@@ -324,6 +410,20 @@ function fieldOptions_JSTypeToJSON(object) {
     }
 }
 exports.fieldOptions_JSTypeToJSON = fieldOptions_JSTypeToJSON;
+function fieldOptions_JSTypeToNumber(object) {
+    switch (object) {
+        case FieldOptions_JSType.JS_NORMAL:
+            return 0;
+        case FieldOptions_JSType.JS_STRING:
+            return 1;
+        case FieldOptions_JSType.JS_NUMBER:
+            return 2;
+        case FieldOptions_JSType.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.fieldOptions_JSTypeToNumber = fieldOptions_JSTypeToNumber;
 /**
  * If set to RETENTION_SOURCE, the option will be omitted from the binary.
  * Note: as of January 2023, support for this is in progress and does not yet
@@ -331,10 +431,10 @@ exports.fieldOptions_JSTypeToJSON = fieldOptions_JSTypeToJSON;
  */
 var FieldOptions_OptionRetention;
 (function (FieldOptions_OptionRetention) {
-    FieldOptions_OptionRetention[FieldOptions_OptionRetention["RETENTION_UNKNOWN"] = 0] = "RETENTION_UNKNOWN";
-    FieldOptions_OptionRetention[FieldOptions_OptionRetention["RETENTION_RUNTIME"] = 1] = "RETENTION_RUNTIME";
-    FieldOptions_OptionRetention[FieldOptions_OptionRetention["RETENTION_SOURCE"] = 2] = "RETENTION_SOURCE";
-    FieldOptions_OptionRetention[FieldOptions_OptionRetention["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    FieldOptions_OptionRetention["RETENTION_UNKNOWN"] = "RETENTION_UNKNOWN";
+    FieldOptions_OptionRetention["RETENTION_RUNTIME"] = "RETENTION_RUNTIME";
+    FieldOptions_OptionRetention["RETENTION_SOURCE"] = "RETENTION_SOURCE";
+    FieldOptions_OptionRetention["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(FieldOptions_OptionRetention || (exports.FieldOptions_OptionRetention = FieldOptions_OptionRetention = {}));
 function fieldOptions_OptionRetentionFromJSON(object) {
     switch (object) {
@@ -368,6 +468,20 @@ function fieldOptions_OptionRetentionToJSON(object) {
     }
 }
 exports.fieldOptions_OptionRetentionToJSON = fieldOptions_OptionRetentionToJSON;
+function fieldOptions_OptionRetentionToNumber(object) {
+    switch (object) {
+        case FieldOptions_OptionRetention.RETENTION_UNKNOWN:
+            return 0;
+        case FieldOptions_OptionRetention.RETENTION_RUNTIME:
+            return 1;
+        case FieldOptions_OptionRetention.RETENTION_SOURCE:
+            return 2;
+        case FieldOptions_OptionRetention.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.fieldOptions_OptionRetentionToNumber = fieldOptions_OptionRetentionToNumber;
 /**
  * This indicates the types of entities that the field may apply to when used
  * as an option. If it is unset, then the field may be freely used as an
@@ -376,17 +490,17 @@ exports.fieldOptions_OptionRetentionToJSON = fieldOptions_OptionRetentionToJSON;
  */
 var FieldOptions_OptionTargetType;
 (function (FieldOptions_OptionTargetType) {
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_UNKNOWN"] = 0] = "TARGET_TYPE_UNKNOWN";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_FILE"] = 1] = "TARGET_TYPE_FILE";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_EXTENSION_RANGE"] = 2] = "TARGET_TYPE_EXTENSION_RANGE";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_MESSAGE"] = 3] = "TARGET_TYPE_MESSAGE";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_FIELD"] = 4] = "TARGET_TYPE_FIELD";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_ONEOF"] = 5] = "TARGET_TYPE_ONEOF";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_ENUM"] = 6] = "TARGET_TYPE_ENUM";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_ENUM_ENTRY"] = 7] = "TARGET_TYPE_ENUM_ENTRY";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_SERVICE"] = 8] = "TARGET_TYPE_SERVICE";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_METHOD"] = 9] = "TARGET_TYPE_METHOD";
-    FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    FieldOptions_OptionTargetType["TARGET_TYPE_UNKNOWN"] = "TARGET_TYPE_UNKNOWN";
+    FieldOptions_OptionTargetType["TARGET_TYPE_FILE"] = "TARGET_TYPE_FILE";
+    FieldOptions_OptionTargetType["TARGET_TYPE_EXTENSION_RANGE"] = "TARGET_TYPE_EXTENSION_RANGE";
+    FieldOptions_OptionTargetType["TARGET_TYPE_MESSAGE"] = "TARGET_TYPE_MESSAGE";
+    FieldOptions_OptionTargetType["TARGET_TYPE_FIELD"] = "TARGET_TYPE_FIELD";
+    FieldOptions_OptionTargetType["TARGET_TYPE_ONEOF"] = "TARGET_TYPE_ONEOF";
+    FieldOptions_OptionTargetType["TARGET_TYPE_ENUM"] = "TARGET_TYPE_ENUM";
+    FieldOptions_OptionTargetType["TARGET_TYPE_ENUM_ENTRY"] = "TARGET_TYPE_ENUM_ENTRY";
+    FieldOptions_OptionTargetType["TARGET_TYPE_SERVICE"] = "TARGET_TYPE_SERVICE";
+    FieldOptions_OptionTargetType["TARGET_TYPE_METHOD"] = "TARGET_TYPE_METHOD";
+    FieldOptions_OptionTargetType["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(FieldOptions_OptionTargetType || (exports.FieldOptions_OptionTargetType = FieldOptions_OptionTargetType = {}));
 function fieldOptions_OptionTargetTypeFromJSON(object) {
     switch (object) {
@@ -455,6 +569,34 @@ function fieldOptions_OptionTargetTypeToJSON(object) {
     }
 }
 exports.fieldOptions_OptionTargetTypeToJSON = fieldOptions_OptionTargetTypeToJSON;
+function fieldOptions_OptionTargetTypeToNumber(object) {
+    switch (object) {
+        case FieldOptions_OptionTargetType.TARGET_TYPE_UNKNOWN:
+            return 0;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_FILE:
+            return 1;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_EXTENSION_RANGE:
+            return 2;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_MESSAGE:
+            return 3;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_FIELD:
+            return 4;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_ONEOF:
+            return 5;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_ENUM:
+            return 6;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_ENUM_ENTRY:
+            return 7;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_SERVICE:
+            return 8;
+        case FieldOptions_OptionTargetType.TARGET_TYPE_METHOD:
+            return 9;
+        case FieldOptions_OptionTargetType.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.fieldOptions_OptionTargetTypeToNumber = fieldOptions_OptionTargetTypeToNumber;
 /**
  * Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
  * or neither? HTTP based RPC implementation may choose GET verb for safe
@@ -462,12 +604,12 @@ exports.fieldOptions_OptionTargetTypeToJSON = fieldOptions_OptionTargetTypeToJSO
  */
 var MethodOptions_IdempotencyLevel;
 (function (MethodOptions_IdempotencyLevel) {
-    MethodOptions_IdempotencyLevel[MethodOptions_IdempotencyLevel["IDEMPOTENCY_UNKNOWN"] = 0] = "IDEMPOTENCY_UNKNOWN";
+    MethodOptions_IdempotencyLevel["IDEMPOTENCY_UNKNOWN"] = "IDEMPOTENCY_UNKNOWN";
     /** NO_SIDE_EFFECTS - implies idempotent */
-    MethodOptions_IdempotencyLevel[MethodOptions_IdempotencyLevel["NO_SIDE_EFFECTS"] = 1] = "NO_SIDE_EFFECTS";
+    MethodOptions_IdempotencyLevel["NO_SIDE_EFFECTS"] = "NO_SIDE_EFFECTS";
     /** IDEMPOTENT - idempotent, but may have side effects */
-    MethodOptions_IdempotencyLevel[MethodOptions_IdempotencyLevel["IDEMPOTENT"] = 2] = "IDEMPOTENT";
-    MethodOptions_IdempotencyLevel[MethodOptions_IdempotencyLevel["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    MethodOptions_IdempotencyLevel["IDEMPOTENT"] = "IDEMPOTENT";
+    MethodOptions_IdempotencyLevel["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(MethodOptions_IdempotencyLevel || (exports.MethodOptions_IdempotencyLevel = MethodOptions_IdempotencyLevel = {}));
 function methodOptions_IdempotencyLevelFromJSON(object) {
     switch (object) {
@@ -501,6 +643,20 @@ function methodOptions_IdempotencyLevelToJSON(object) {
     }
 }
 exports.methodOptions_IdempotencyLevelToJSON = methodOptions_IdempotencyLevelToJSON;
+function methodOptions_IdempotencyLevelToNumber(object) {
+    switch (object) {
+        case MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN:
+            return 0;
+        case MethodOptions_IdempotencyLevel.NO_SIDE_EFFECTS:
+            return 1;
+        case MethodOptions_IdempotencyLevel.IDEMPOTENT:
+            return 2;
+        case MethodOptions_IdempotencyLevel.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.methodOptions_IdempotencyLevelToNumber = methodOptions_IdempotencyLevelToNumber;
 /**
  * Represents the identified object's effect on the element in the original
  * .proto file.
@@ -508,12 +664,12 @@ exports.methodOptions_IdempotencyLevelToJSON = methodOptions_IdempotencyLevelToJ
 var GeneratedCodeInfo_Annotation_Semantic;
 (function (GeneratedCodeInfo_Annotation_Semantic) {
     /** NONE - There is no effect or the effect is indescribable. */
-    GeneratedCodeInfo_Annotation_Semantic[GeneratedCodeInfo_Annotation_Semantic["NONE"] = 0] = "NONE";
+    GeneratedCodeInfo_Annotation_Semantic["NONE"] = "NONE";
     /** SET - The element is set or otherwise mutated. */
-    GeneratedCodeInfo_Annotation_Semantic[GeneratedCodeInfo_Annotation_Semantic["SET"] = 1] = "SET";
+    GeneratedCodeInfo_Annotation_Semantic["SET"] = "SET";
     /** ALIAS - An alias to the element is returned. */
-    GeneratedCodeInfo_Annotation_Semantic[GeneratedCodeInfo_Annotation_Semantic["ALIAS"] = 2] = "ALIAS";
-    GeneratedCodeInfo_Annotation_Semantic[GeneratedCodeInfo_Annotation_Semantic["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    GeneratedCodeInfo_Annotation_Semantic["ALIAS"] = "ALIAS";
+    GeneratedCodeInfo_Annotation_Semantic["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(GeneratedCodeInfo_Annotation_Semantic || (exports.GeneratedCodeInfo_Annotation_Semantic = GeneratedCodeInfo_Annotation_Semantic = {}));
 function generatedCodeInfo_Annotation_SemanticFromJSON(object) {
     switch (object) {
@@ -547,6 +703,20 @@ function generatedCodeInfo_Annotation_SemanticToJSON(object) {
     }
 }
 exports.generatedCodeInfo_Annotation_SemanticToJSON = generatedCodeInfo_Annotation_SemanticToJSON;
+function generatedCodeInfo_Annotation_SemanticToNumber(object) {
+    switch (object) {
+        case GeneratedCodeInfo_Annotation_Semantic.NONE:
+            return 0;
+        case GeneratedCodeInfo_Annotation_Semantic.SET:
+            return 1;
+        case GeneratedCodeInfo_Annotation_Semantic.ALIAS:
+            return 2;
+        case GeneratedCodeInfo_Annotation_Semantic.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.generatedCodeInfo_Annotation_SemanticToNumber = generatedCodeInfo_Annotation_SemanticToNumber;
 function createBaseFileDescriptorSet() {
     return {};
 }
@@ -1434,11 +1604,11 @@ exports.FieldDescriptorProto = {
         if (message.number !== undefined && message.number !== 0) {
             writer.uint32(24).int32(message.number);
         }
-        if (message.label !== undefined && message.label !== 1) {
-            writer.uint32(32).int32(message.label);
+        if (message.label !== undefined && message.label !== FieldDescriptorProto_Label.LABEL_OPTIONAL) {
+            writer.uint32(32).int32(fieldDescriptorProto_LabelToNumber(message.label));
         }
-        if (message.type !== undefined && message.type !== 1) {
-            writer.uint32(40).int32(message.type);
+        if (message.type !== undefined && message.type !== FieldDescriptorProto_Type.TYPE_DOUBLE) {
+            writer.uint32(40).int32(fieldDescriptorProto_TypeToNumber(message.type));
         }
         if (message.type_name !== undefined && message.type_name !== "") {
             writer.uint32(50).string(message.type_name);
@@ -1495,13 +1665,13 @@ exports.FieldDescriptorProto = {
                     if (tag !== 32) {
                         break;
                     }
-                    message.label = reader.int32();
+                    message.label = fieldDescriptorProto_LabelFromJSON(reader.int32());
                     continue;
                 case 5:
                     if (tag !== 40) {
                         break;
                     }
-                    message.type = reader.int32();
+                    message.type = fieldDescriptorProto_TypeFromJSON(reader.int32());
                     continue;
                 case 6:
                     if (tag !== 50) {
@@ -1588,10 +1758,10 @@ exports.FieldDescriptorProto = {
         if (message.number !== undefined && message.number !== 0) {
             obj.number = Math.round(message.number);
         }
-        if (message.label !== undefined && message.label !== 1) {
+        if (message.label !== undefined && message.label !== FieldDescriptorProto_Label.LABEL_OPTIONAL) {
             obj.label = fieldDescriptorProto_LabelToJSON(message.label);
         }
-        if (message.type !== undefined && message.type !== 1) {
+        if (message.type !== undefined && message.type !== FieldDescriptorProto_Type.TYPE_DOUBLE) {
             obj.type = fieldDescriptorProto_TypeToJSON(message.type);
         }
         if (message.type_name !== undefined && message.type_name !== "") {
@@ -2249,8 +2419,8 @@ exports.FileOptions = {
         if (message.java_string_check_utf8 === true) {
             writer.uint32(216).bool(message.java_string_check_utf8);
         }
-        if (message.optimize_for !== undefined && message.optimize_for !== 1) {
-            writer.uint32(72).int32(message.optimize_for);
+        if (message.optimize_for !== undefined && message.optimize_for !== FileOptions_OptimizeMode.SPEED) {
+            writer.uint32(72).int32(fileOptions_OptimizeModeToNumber(message.optimize_for));
         }
         if (message.go_package !== undefined && message.go_package !== "") {
             writer.uint32(90).string(message.go_package);
@@ -2366,7 +2536,7 @@ exports.FileOptions = {
                     if (tag !== 72) {
                         break;
                     }
-                    message.optimize_for = reader.int32();
+                    message.optimize_for = fileOptions_OptimizeModeFromJSON(reader.int32());
                     continue;
                 case 11:
                     if (tag !== 90) {
@@ -2551,7 +2721,7 @@ exports.FileOptions = {
         if (message.java_string_check_utf8 === true) {
             obj.java_string_check_utf8 = message.java_string_check_utf8;
         }
-        if (message.optimize_for !== undefined && message.optimize_for !== 1) {
+        if (message.optimize_for !== undefined && message.optimize_for !== FileOptions_OptimizeMode.SPEED) {
             obj.optimize_for = fileOptions_OptimizeModeToJSON(message.optimize_for);
         }
         if (message.go_package !== undefined && message.go_package !== "") {
@@ -2789,14 +2959,14 @@ function createBaseFieldOptions() {
 }
 exports.FieldOptions = {
     encode(message, writer = minimal_1.default.Writer.create()) {
-        if (message.ctype !== undefined && message.ctype !== 0) {
-            writer.uint32(8).int32(message.ctype);
+        if (message.ctype !== undefined && message.ctype !== FieldOptions_CType.STRING) {
+            writer.uint32(8).int32(fieldOptions_CTypeToNumber(message.ctype));
         }
         if (message.packed === true) {
             writer.uint32(16).bool(message.packed);
         }
-        if (message.jstype !== undefined && message.jstype !== 0) {
-            writer.uint32(48).int32(message.jstype);
+        if (message.jstype !== undefined && message.jstype !== FieldOptions_JSType.JS_NORMAL) {
+            writer.uint32(48).int32(fieldOptions_JSTypeToNumber(message.jstype));
         }
         if (message.lazy === true) {
             writer.uint32(40).bool(message.lazy);
@@ -2813,11 +2983,11 @@ exports.FieldOptions = {
         if (message.debug_redact === true) {
             writer.uint32(128).bool(message.debug_redact);
         }
-        if (message.retention !== undefined && message.retention !== 0) {
-            writer.uint32(136).int32(message.retention);
+        if (message.retention !== undefined && message.retention !== FieldOptions_OptionRetention.RETENTION_UNKNOWN) {
+            writer.uint32(136).int32(fieldOptions_OptionRetentionToNumber(message.retention));
         }
-        if (message.target !== undefined && message.target !== 0) {
-            writer.uint32(144).int32(message.target);
+        if (message.target !== undefined && message.target !== FieldOptions_OptionTargetType.TARGET_TYPE_UNKNOWN) {
+            writer.uint32(144).int32(fieldOptions_OptionTargetTypeToNumber(message.target));
         }
         if (message.uninterpreted_option !== undefined && message.uninterpreted_option.length !== 0) {
             for (const v of message.uninterpreted_option) {
@@ -2861,7 +3031,7 @@ exports.FieldOptions = {
                     if (tag !== 8) {
                         break;
                     }
-                    message.ctype = reader.int32();
+                    message.ctype = fieldOptions_CTypeFromJSON(reader.int32());
                     continue;
                 case 2:
                     if (tag !== 16) {
@@ -2873,7 +3043,7 @@ exports.FieldOptions = {
                     if (tag !== 48) {
                         break;
                     }
-                    message.jstype = reader.int32();
+                    message.jstype = fieldOptions_JSTypeFromJSON(reader.int32());
                     continue;
                 case 5:
                     if (tag !== 40) {
@@ -2909,13 +3079,13 @@ exports.FieldOptions = {
                     if (tag !== 136) {
                         break;
                     }
-                    message.retention = reader.int32();
+                    message.retention = fieldOptions_OptionRetentionFromJSON(reader.int32());
                     continue;
                 case 18:
                     if (tag !== 144) {
                         break;
                     }
-                    message.target = reader.int32();
+                    message.target = fieldOptions_OptionTargetTypeFromJSON(reader.int32());
                     continue;
                 case 999:
                     if (tag !== 7994) {
@@ -2989,13 +3159,13 @@ exports.FieldOptions = {
     },
     toJSON(message) {
         const obj = {};
-        if (message.ctype !== undefined && message.ctype !== 0) {
+        if (message.ctype !== undefined && message.ctype !== FieldOptions_CType.STRING) {
             obj.ctype = fieldOptions_CTypeToJSON(message.ctype);
         }
         if (message.packed === true) {
             obj.packed = message.packed;
         }
-        if (message.jstype !== undefined && message.jstype !== 0) {
+        if (message.jstype !== undefined && message.jstype !== FieldOptions_JSType.JS_NORMAL) {
             obj.jstype = fieldOptions_JSTypeToJSON(message.jstype);
         }
         if (message.lazy === true) {
@@ -3013,10 +3183,10 @@ exports.FieldOptions = {
         if (message.debug_redact === true) {
             obj.debug_redact = message.debug_redact;
         }
-        if (message.retention !== undefined && message.retention !== 0) {
+        if (message.retention !== undefined && message.retention !== FieldOptions_OptionRetention.RETENTION_UNKNOWN) {
             obj.retention = fieldOptions_OptionRetentionToJSON(message.retention);
         }
-        if (message.target !== undefined && message.target !== 0) {
+        if (message.target !== undefined && message.target !== FieldOptions_OptionTargetType.TARGET_TYPE_UNKNOWN) {
             obj.target = fieldOptions_OptionTargetTypeToJSON(message.target);
         }
         if (message.uninterpreted_option?.length) {
@@ -3544,8 +3714,9 @@ exports.MethodOptions = {
         if (message.deprecated === true) {
             writer.uint32(264).bool(message.deprecated);
         }
-        if (message.idempotency_level !== undefined && message.idempotency_level !== 0) {
-            writer.uint32(272).int32(message.idempotency_level);
+        if (message.idempotency_level !== undefined &&
+            message.idempotency_level !== MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN) {
+            writer.uint32(272).int32(methodOptions_IdempotencyLevelToNumber(message.idempotency_level));
         }
         if (message.uninterpreted_option !== undefined && message.uninterpreted_option.length !== 0) {
             for (const v of message.uninterpreted_option) {
@@ -3595,7 +3766,7 @@ exports.MethodOptions = {
                     if (tag !== 272) {
                         break;
                     }
-                    message.idempotency_level = reader.int32();
+                    message.idempotency_level = methodOptions_IdempotencyLevelFromJSON(reader.int32());
                     continue;
                 case 999:
                     if (tag !== 7994) {
@@ -3666,7 +3837,8 @@ exports.MethodOptions = {
         if (message.deprecated === true) {
             obj.deprecated = message.deprecated;
         }
-        if (message.idempotency_level !== undefined && message.idempotency_level !== 0) {
+        if (message.idempotency_level !== undefined &&
+            message.idempotency_level !== MethodOptions_IdempotencyLevel.IDEMPOTENCY_UNKNOWN) {
             obj.idempotency_level = methodOptions_IdempotencyLevelToJSON(message.idempotency_level);
         }
         if (message.uninterpreted_option?.length) {
@@ -4226,8 +4398,8 @@ exports.GeneratedCodeInfo_Annotation = {
         if (message.end !== undefined && message.end !== 0) {
             writer.uint32(32).int32(message.end);
         }
-        if (message.semantic !== undefined && message.semantic !== 0) {
-            writer.uint32(40).int32(message.semantic);
+        if (message.semantic !== undefined && message.semantic !== GeneratedCodeInfo_Annotation_Semantic.NONE) {
+            writer.uint32(40).int32(generatedCodeInfo_Annotation_SemanticToNumber(message.semantic));
         }
         if (message._unknownFields !== undefined) {
             for (const [key, values] of Object.entries(message._unknownFields)) {
@@ -4288,7 +4460,7 @@ exports.GeneratedCodeInfo_Annotation = {
                     if (tag !== 40) {
                         break;
                     }
-                    message.semantic = reader.int32();
+                    message.semantic = generatedCodeInfo_Annotation_SemanticFromJSON(reader.int32());
                     continue;
             }
             if ((tag & 7) === 4 || tag === 0) {
@@ -4333,7 +4505,7 @@ exports.GeneratedCodeInfo_Annotation = {
         if (message.end !== undefined && message.end !== 0) {
             obj.end = Math.round(message.end);
         }
-        if (message.semantic !== undefined && message.semantic !== 0) {
+        if (message.semantic !== undefined && message.semantic !== GeneratedCodeInfo_Annotation_Semantic.NONE) {
             obj.semantic = generatedCodeInfo_Annotation_SemanticToJSON(message.semantic);
         }
         return obj;

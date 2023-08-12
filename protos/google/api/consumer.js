@@ -3,23 +3,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Property = exports.ProjectProperties = exports.property_PropertyTypeToJSON = exports.property_PropertyTypeFromJSON = exports.Property_PropertyType = void 0;
+exports.Property = exports.ProjectProperties = exports.property_PropertyTypeToNumber = exports.property_PropertyTypeToJSON = exports.property_PropertyTypeFromJSON = exports.Property_PropertyType = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 /** Supported data type of the property values */
 var Property_PropertyType;
 (function (Property_PropertyType) {
     /** UNSPECIFIED - The type is unspecified, and will result in an error. */
-    Property_PropertyType[Property_PropertyType["UNSPECIFIED"] = 0] = "UNSPECIFIED";
+    Property_PropertyType["UNSPECIFIED"] = "UNSPECIFIED";
     /** INT64 - The type is `int64`. */
-    Property_PropertyType[Property_PropertyType["INT64"] = 1] = "INT64";
+    Property_PropertyType["INT64"] = "INT64";
     /** BOOL - The type is `bool`. */
-    Property_PropertyType[Property_PropertyType["BOOL"] = 2] = "BOOL";
+    Property_PropertyType["BOOL"] = "BOOL";
     /** STRING - The type is `string`. */
-    Property_PropertyType[Property_PropertyType["STRING"] = 3] = "STRING";
+    Property_PropertyType["STRING"] = "STRING";
     /** DOUBLE - The type is 'double'. */
-    Property_PropertyType[Property_PropertyType["DOUBLE"] = 4] = "DOUBLE";
-    Property_PropertyType[Property_PropertyType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    Property_PropertyType["DOUBLE"] = "DOUBLE";
+    Property_PropertyType["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(Property_PropertyType || (exports.Property_PropertyType = Property_PropertyType = {}));
 function property_PropertyTypeFromJSON(object) {
     switch (object) {
@@ -63,6 +63,24 @@ function property_PropertyTypeToJSON(object) {
     }
 }
 exports.property_PropertyTypeToJSON = property_PropertyTypeToJSON;
+function property_PropertyTypeToNumber(object) {
+    switch (object) {
+        case Property_PropertyType.UNSPECIFIED:
+            return 0;
+        case Property_PropertyType.INT64:
+            return 1;
+        case Property_PropertyType.BOOL:
+            return 2;
+        case Property_PropertyType.STRING:
+            return 3;
+        case Property_PropertyType.DOUBLE:
+            return 4;
+        case Property_PropertyType.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.property_PropertyTypeToNumber = property_PropertyTypeToNumber;
 function createBaseProjectProperties() {
     return {};
 }
@@ -143,8 +161,8 @@ exports.Property = {
         if (message.name !== undefined && message.name !== "") {
             writer.uint32(10).string(message.name);
         }
-        if (message.type !== undefined && message.type !== 0) {
-            writer.uint32(16).int32(message.type);
+        if (message.type !== undefined && message.type !== Property_PropertyType.UNSPECIFIED) {
+            writer.uint32(16).int32(property_PropertyTypeToNumber(message.type));
         }
         if (message.description !== undefined && message.description !== "") {
             writer.uint32(26).string(message.description);
@@ -177,7 +195,7 @@ exports.Property = {
                     if (tag !== 16) {
                         break;
                     }
-                    message.type = reader.int32();
+                    message.type = property_PropertyTypeFromJSON(reader.int32());
                     continue;
                 case 3:
                     if (tag !== 26) {
@@ -217,7 +235,7 @@ exports.Property = {
         if (message.name !== undefined && message.name !== "") {
             obj.name = message.name;
         }
-        if (message.type !== undefined && message.type !== 0) {
+        if (message.type !== undefined && message.type !== Property_PropertyType.UNSPECIFIED) {
             obj.type = property_PropertyTypeToJSON(message.type);
         }
         if (message.description !== undefined && message.description !== "") {

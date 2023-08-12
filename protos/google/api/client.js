@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.oauth_scopes = exports.default_host = exports.method_signature = exports.MethodSettings_LongRunning = exports.MethodSettings = exports.GoSettings = exports.RubySettings = exports.DotnetSettings = exports.NodeSettings = exports.PythonSettings = exports.PhpSettings = exports.CppSettings = exports.JavaSettings_ServiceClassNamesEntry = exports.JavaSettings = exports.Publishing = exports.ClientLibrarySettings = exports.CommonLanguageSettings = exports.clientLibraryDestinationToJSON = exports.clientLibraryDestinationFromJSON = exports.ClientLibraryDestination = exports.clientLibraryOrganizationToJSON = exports.clientLibraryOrganizationFromJSON = exports.ClientLibraryOrganization = void 0;
+exports.oauth_scopes = exports.default_host = exports.method_signature = exports.MethodSettings_LongRunning = exports.MethodSettings = exports.GoSettings = exports.RubySettings = exports.DotnetSettings = exports.NodeSettings = exports.PythonSettings = exports.PhpSettings = exports.CppSettings = exports.JavaSettings_ServiceClassNamesEntry = exports.JavaSettings = exports.Publishing = exports.ClientLibrarySettings = exports.CommonLanguageSettings = exports.clientLibraryDestinationToNumber = exports.clientLibraryDestinationToJSON = exports.clientLibraryDestinationFromJSON = exports.ClientLibraryDestination = exports.clientLibraryOrganizationToNumber = exports.clientLibraryOrganizationToJSON = exports.clientLibraryOrganizationFromJSON = exports.ClientLibraryOrganization = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 const duration_1 = require("../protobuf/duration");
@@ -15,16 +15,16 @@ const launch_stage_1 = require("./launch_stage");
 var ClientLibraryOrganization;
 (function (ClientLibraryOrganization) {
     /** CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED - Not useful. */
-    ClientLibraryOrganization[ClientLibraryOrganization["CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED"] = 0] = "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
+    ClientLibraryOrganization["CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED"] = "CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED";
     /** CLOUD - Google Cloud Platform Org. */
-    ClientLibraryOrganization[ClientLibraryOrganization["CLOUD"] = 1] = "CLOUD";
+    ClientLibraryOrganization["CLOUD"] = "CLOUD";
     /** ADS - Ads (Advertising) Org. */
-    ClientLibraryOrganization[ClientLibraryOrganization["ADS"] = 2] = "ADS";
+    ClientLibraryOrganization["ADS"] = "ADS";
     /** PHOTOS - Photos Org. */
-    ClientLibraryOrganization[ClientLibraryOrganization["PHOTOS"] = 3] = "PHOTOS";
+    ClientLibraryOrganization["PHOTOS"] = "PHOTOS";
     /** STREET_VIEW - Street View Org. */
-    ClientLibraryOrganization[ClientLibraryOrganization["STREET_VIEW"] = 4] = "STREET_VIEW";
-    ClientLibraryOrganization[ClientLibraryOrganization["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    ClientLibraryOrganization["STREET_VIEW"] = "STREET_VIEW";
+    ClientLibraryOrganization["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(ClientLibraryOrganization || (exports.ClientLibraryOrganization = ClientLibraryOrganization = {}));
 function clientLibraryOrganizationFromJSON(object) {
     switch (object) {
@@ -68,6 +68,24 @@ function clientLibraryOrganizationToJSON(object) {
     }
 }
 exports.clientLibraryOrganizationToJSON = clientLibraryOrganizationToJSON;
+function clientLibraryOrganizationToNumber(object) {
+    switch (object) {
+        case ClientLibraryOrganization.CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED:
+            return 0;
+        case ClientLibraryOrganization.CLOUD:
+            return 1;
+        case ClientLibraryOrganization.ADS:
+            return 2;
+        case ClientLibraryOrganization.PHOTOS:
+            return 3;
+        case ClientLibraryOrganization.STREET_VIEW:
+            return 4;
+        case ClientLibraryOrganization.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.clientLibraryOrganizationToNumber = clientLibraryOrganizationToNumber;
 /** To where should client libraries be published? */
 var ClientLibraryDestination;
 (function (ClientLibraryDestination) {
@@ -75,15 +93,15 @@ var ClientLibraryDestination;
      * CLIENT_LIBRARY_DESTINATION_UNSPECIFIED - Client libraries will neither be generated nor published to package
      * managers.
      */
-    ClientLibraryDestination[ClientLibraryDestination["CLIENT_LIBRARY_DESTINATION_UNSPECIFIED"] = 0] = "CLIENT_LIBRARY_DESTINATION_UNSPECIFIED";
+    ClientLibraryDestination["CLIENT_LIBRARY_DESTINATION_UNSPECIFIED"] = "CLIENT_LIBRARY_DESTINATION_UNSPECIFIED";
     /**
      * GITHUB - Generate the client library in a repo under github.com/googleapis,
      * but don't publish it to package managers.
      */
-    ClientLibraryDestination[ClientLibraryDestination["GITHUB"] = 10] = "GITHUB";
+    ClientLibraryDestination["GITHUB"] = "GITHUB";
     /** PACKAGE_MANAGER - Publish the library to package managers like nuget.org and npmjs.com. */
-    ClientLibraryDestination[ClientLibraryDestination["PACKAGE_MANAGER"] = 20] = "PACKAGE_MANAGER";
-    ClientLibraryDestination[ClientLibraryDestination["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    ClientLibraryDestination["PACKAGE_MANAGER"] = "PACKAGE_MANAGER";
+    ClientLibraryDestination["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(ClientLibraryDestination || (exports.ClientLibraryDestination = ClientLibraryDestination = {}));
 function clientLibraryDestinationFromJSON(object) {
     switch (object) {
@@ -117,6 +135,20 @@ function clientLibraryDestinationToJSON(object) {
     }
 }
 exports.clientLibraryDestinationToJSON = clientLibraryDestinationToJSON;
+function clientLibraryDestinationToNumber(object) {
+    switch (object) {
+        case ClientLibraryDestination.CLIENT_LIBRARY_DESTINATION_UNSPECIFIED:
+            return 0;
+        case ClientLibraryDestination.GITHUB:
+            return 10;
+        case ClientLibraryDestination.PACKAGE_MANAGER:
+            return 20;
+        case ClientLibraryDestination.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.clientLibraryDestinationToNumber = clientLibraryDestinationToNumber;
 function createBaseCommonLanguageSettings() {
     return {};
 }
@@ -128,7 +160,7 @@ exports.CommonLanguageSettings = {
         if (message.destinations !== undefined && message.destinations.length !== 0) {
             writer.uint32(18).fork();
             for (const v of message.destinations) {
-                writer.int32(v);
+                writer.int32(clientLibraryDestinationToNumber(v));
             }
             writer.ldelim();
         }
@@ -161,7 +193,7 @@ exports.CommonLanguageSettings = {
                         if (message.destinations === undefined) {
                             message.destinations = [];
                         }
-                        message.destinations.push(reader.int32());
+                        message.destinations.push(clientLibraryDestinationFromJSON(reader.int32()));
                         continue;
                     }
                     if (tag === 18) {
@@ -170,7 +202,7 @@ exports.CommonLanguageSettings = {
                         }
                         const end2 = reader.uint32() + reader.pos;
                         while (reader.pos < end2) {
-                            message.destinations.push(reader.int32());
+                            message.destinations.push(clientLibraryDestinationFromJSON(reader.int32()));
                         }
                         continue;
                     }
@@ -222,8 +254,8 @@ exports.ClientLibrarySettings = {
         if (message.version !== undefined && message.version !== "") {
             writer.uint32(10).string(message.version);
         }
-        if (message.launch_stage !== undefined && message.launch_stage !== 0) {
-            writer.uint32(16).int32(message.launch_stage);
+        if (message.launch_stage !== undefined && message.launch_stage !== launch_stage_1.LaunchStage.LAUNCH_STAGE_UNSPECIFIED) {
+            writer.uint32(16).int32((0, launch_stage_1.launchStageToNumber)(message.launch_stage));
         }
         if (message.rest_numeric_enums === true) {
             writer.uint32(24).bool(message.rest_numeric_enums);
@@ -280,7 +312,7 @@ exports.ClientLibrarySettings = {
                     if (tag !== 16) {
                         break;
                     }
-                    message.launch_stage = reader.int32();
+                    message.launch_stage = (0, launch_stage_1.launchStageFromJSON)(reader.int32());
                     continue;
                 case 3:
                     if (tag !== 24) {
@@ -376,7 +408,7 @@ exports.ClientLibrarySettings = {
         if (message.version !== undefined && message.version !== "") {
             obj.version = message.version;
         }
-        if (message.launch_stage !== undefined && message.launch_stage !== 0) {
+        if (message.launch_stage !== undefined && message.launch_stage !== launch_stage_1.LaunchStage.LAUNCH_STAGE_UNSPECIFIED) {
             obj.launch_stage = (0, launch_stage_1.launchStageToJSON)(message.launch_stage);
         }
         if (message.rest_numeric_enums === true) {
@@ -439,8 +471,9 @@ exports.Publishing = {
         if (message.doc_tag_prefix !== undefined && message.doc_tag_prefix !== "") {
             writer.uint32(850).string(message.doc_tag_prefix);
         }
-        if (message.organization !== undefined && message.organization !== 0) {
-            writer.uint32(856).int32(message.organization);
+        if (message.organization !== undefined &&
+            message.organization !== ClientLibraryOrganization.CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED) {
+            writer.uint32(856).int32(clientLibraryOrganizationToNumber(message.organization));
         }
         if (message.library_settings !== undefined && message.library_settings.length !== 0) {
             for (const v of message.library_settings) {
@@ -517,7 +550,7 @@ exports.Publishing = {
                     if (tag !== 856) {
                         break;
                     }
-                    message.organization = reader.int32();
+                    message.organization = clientLibraryOrganizationFromJSON(reader.int32());
                     continue;
                 case 109:
                     if (tag !== 874) {
@@ -590,7 +623,8 @@ exports.Publishing = {
         if (message.doc_tag_prefix !== undefined && message.doc_tag_prefix !== "") {
             obj.doc_tag_prefix = message.doc_tag_prefix;
         }
-        if (message.organization !== undefined && message.organization !== 0) {
+        if (message.organization !== undefined &&
+            message.organization !== ClientLibraryOrganization.CLIENT_LIBRARY_ORGANIZATION_UNSPECIFIED) {
             obj.organization = clientLibraryOrganizationToJSON(message.organization);
         }
         if (message.library_settings?.length) {

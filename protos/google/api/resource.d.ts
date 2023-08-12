@@ -140,26 +140,27 @@ export interface ResourceDescriptor {
  */
 export declare enum ResourceDescriptor_History {
     /** HISTORY_UNSPECIFIED - The "unset" value. */
-    HISTORY_UNSPECIFIED = 0,
+    HISTORY_UNSPECIFIED = "HISTORY_UNSPECIFIED",
     /**
      * ORIGINALLY_SINGLE_PATTERN - The resource originally had one pattern and launched as such, and
      * additional patterns were added later.
      */
-    ORIGINALLY_SINGLE_PATTERN = 1,
+    ORIGINALLY_SINGLE_PATTERN = "ORIGINALLY_SINGLE_PATTERN",
     /**
      * FUTURE_MULTI_PATTERN - The resource has one pattern, but the API owner expects to add more
      * later. (This is the inverse of ORIGINALLY_SINGLE_PATTERN, and prevents
      * that from being necessary once there are multiple patterns.)
      */
-    FUTURE_MULTI_PATTERN = 2,
-    UNRECOGNIZED = -1
+    FUTURE_MULTI_PATTERN = "FUTURE_MULTI_PATTERN",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function resourceDescriptor_HistoryFromJSON(object: any): ResourceDescriptor_History;
 export declare function resourceDescriptor_HistoryToJSON(object: ResourceDescriptor_History): string;
+export declare function resourceDescriptor_HistoryToNumber(object: ResourceDescriptor_History): number;
 /** A flag representing a specific style that a resource claims to conform to. */
 export declare enum ResourceDescriptor_Style {
     /** STYLE_UNSPECIFIED - The unspecified value. Do not use. */
-    STYLE_UNSPECIFIED = 0,
+    STYLE_UNSPECIFIED = "STYLE_UNSPECIFIED",
     /**
      * DECLARATIVE_FRIENDLY - This resource is intended to be "declarative-friendly".
      *
@@ -170,11 +171,12 @@ export declare enum ResourceDescriptor_Style {
      * Note: This is used by the API linter (linter.aip.dev) to enable
      * additional checks.
      */
-    DECLARATIVE_FRIENDLY = 1,
-    UNRECOGNIZED = -1
+    DECLARATIVE_FRIENDLY = "DECLARATIVE_FRIENDLY",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function resourceDescriptor_StyleFromJSON(object: any): ResourceDescriptor_Style;
 export declare function resourceDescriptor_StyleToJSON(object: ResourceDescriptor_Style): string;
+export declare function resourceDescriptor_StyleToNumber(object: ResourceDescriptor_Style): number;
 /**
  * Defines a proto annotation that describes a string field that refers to
  * an API resource.

@@ -1,27 +1,27 @@
 "use strict";
 /* eslint-disable */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.dayOfWeekToJSON = exports.dayOfWeekFromJSON = exports.DayOfWeek = void 0;
+exports.dayOfWeekToNumber = exports.dayOfWeekToJSON = exports.dayOfWeekFromJSON = exports.DayOfWeek = void 0;
 /** Represents a day of the week. */
 var DayOfWeek;
 (function (DayOfWeek) {
     /** DAY_OF_WEEK_UNSPECIFIED - The day of the week is unspecified. */
-    DayOfWeek[DayOfWeek["DAY_OF_WEEK_UNSPECIFIED"] = 0] = "DAY_OF_WEEK_UNSPECIFIED";
+    DayOfWeek["DAY_OF_WEEK_UNSPECIFIED"] = "DAY_OF_WEEK_UNSPECIFIED";
     /** MONDAY - Monday */
-    DayOfWeek[DayOfWeek["MONDAY"] = 1] = "MONDAY";
+    DayOfWeek["MONDAY"] = "MONDAY";
     /** TUESDAY - Tuesday */
-    DayOfWeek[DayOfWeek["TUESDAY"] = 2] = "TUESDAY";
+    DayOfWeek["TUESDAY"] = "TUESDAY";
     /** WEDNESDAY - Wednesday */
-    DayOfWeek[DayOfWeek["WEDNESDAY"] = 3] = "WEDNESDAY";
+    DayOfWeek["WEDNESDAY"] = "WEDNESDAY";
     /** THURSDAY - Thursday */
-    DayOfWeek[DayOfWeek["THURSDAY"] = 4] = "THURSDAY";
+    DayOfWeek["THURSDAY"] = "THURSDAY";
     /** FRIDAY - Friday */
-    DayOfWeek[DayOfWeek["FRIDAY"] = 5] = "FRIDAY";
+    DayOfWeek["FRIDAY"] = "FRIDAY";
     /** SATURDAY - Saturday */
-    DayOfWeek[DayOfWeek["SATURDAY"] = 6] = "SATURDAY";
+    DayOfWeek["SATURDAY"] = "SATURDAY";
     /** SUNDAY - Sunday */
-    DayOfWeek[DayOfWeek["SUNDAY"] = 7] = "SUNDAY";
-    DayOfWeek[DayOfWeek["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    DayOfWeek["SUNDAY"] = "SUNDAY";
+    DayOfWeek["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(DayOfWeek || (exports.DayOfWeek = DayOfWeek = {}));
 function dayOfWeekFromJSON(object) {
     switch (object) {
@@ -80,3 +80,27 @@ function dayOfWeekToJSON(object) {
     }
 }
 exports.dayOfWeekToJSON = dayOfWeekToJSON;
+function dayOfWeekToNumber(object) {
+    switch (object) {
+        case DayOfWeek.DAY_OF_WEEK_UNSPECIFIED:
+            return 0;
+        case DayOfWeek.MONDAY:
+            return 1;
+        case DayOfWeek.TUESDAY:
+            return 2;
+        case DayOfWeek.WEDNESDAY:
+            return 3;
+        case DayOfWeek.THURSDAY:
+            return 4;
+        case DayOfWeek.FRIDAY:
+            return 5;
+        case DayOfWeek.SATURDAY:
+            return 6;
+        case DayOfWeek.SUNDAY:
+            return 7;
+        case DayOfWeek.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.dayOfWeekToNumber = dayOfWeekToNumber;

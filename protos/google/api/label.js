@@ -3,19 +3,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LabelDescriptor = exports.labelDescriptor_ValueTypeToJSON = exports.labelDescriptor_ValueTypeFromJSON = exports.LabelDescriptor_ValueType = void 0;
+exports.LabelDescriptor = exports.labelDescriptor_ValueTypeToNumber = exports.labelDescriptor_ValueTypeToJSON = exports.labelDescriptor_ValueTypeFromJSON = exports.LabelDescriptor_ValueType = void 0;
 /* eslint-disable */
 const minimal_1 = __importDefault(require("protobufjs/minimal"));
 /** Value types that can be used as label values. */
 var LabelDescriptor_ValueType;
 (function (LabelDescriptor_ValueType) {
     /** STRING - A variable-length string. This is the default. */
-    LabelDescriptor_ValueType[LabelDescriptor_ValueType["STRING"] = 0] = "STRING";
+    LabelDescriptor_ValueType["STRING"] = "STRING";
     /** BOOL - Boolean; true or false. */
-    LabelDescriptor_ValueType[LabelDescriptor_ValueType["BOOL"] = 1] = "BOOL";
+    LabelDescriptor_ValueType["BOOL"] = "BOOL";
     /** INT64 - A 64-bit signed integer. */
-    LabelDescriptor_ValueType[LabelDescriptor_ValueType["INT64"] = 2] = "INT64";
-    LabelDescriptor_ValueType[LabelDescriptor_ValueType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
+    LabelDescriptor_ValueType["INT64"] = "INT64";
+    LabelDescriptor_ValueType["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(LabelDescriptor_ValueType || (exports.LabelDescriptor_ValueType = LabelDescriptor_ValueType = {}));
 function labelDescriptor_ValueTypeFromJSON(object) {
     switch (object) {
@@ -49,6 +49,20 @@ function labelDescriptor_ValueTypeToJSON(object) {
     }
 }
 exports.labelDescriptor_ValueTypeToJSON = labelDescriptor_ValueTypeToJSON;
+function labelDescriptor_ValueTypeToNumber(object) {
+    switch (object) {
+        case LabelDescriptor_ValueType.STRING:
+            return 0;
+        case LabelDescriptor_ValueType.BOOL:
+            return 1;
+        case LabelDescriptor_ValueType.INT64:
+            return 2;
+        case LabelDescriptor_ValueType.UNRECOGNIZED:
+        default:
+            return -1;
+    }
+}
+exports.labelDescriptor_ValueTypeToNumber = labelDescriptor_ValueTypeToNumber;
 function createBaseLabelDescriptor() {
     return {};
 }
@@ -57,8 +71,8 @@ exports.LabelDescriptor = {
         if (message.key !== undefined && message.key !== "") {
             writer.uint32(10).string(message.key);
         }
-        if (message.value_type !== undefined && message.value_type !== 0) {
-            writer.uint32(16).int32(message.value_type);
+        if (message.value_type !== undefined && message.value_type !== LabelDescriptor_ValueType.STRING) {
+            writer.uint32(16).int32(labelDescriptor_ValueTypeToNumber(message.value_type));
         }
         if (message.description !== undefined && message.description !== "") {
             writer.uint32(26).string(message.description);
@@ -91,7 +105,7 @@ exports.LabelDescriptor = {
                     if (tag !== 16) {
                         break;
                     }
-                    message.value_type = reader.int32();
+                    message.value_type = labelDescriptor_ValueTypeFromJSON(reader.int32());
                     continue;
                 case 3:
                     if (tag !== 26) {
@@ -131,7 +145,7 @@ exports.LabelDescriptor = {
         if (message.key !== undefined && message.key !== "") {
             obj.key = message.key;
         }
-        if (message.value_type !== undefined && message.value_type !== 0) {
+        if (message.value_type !== undefined && message.value_type !== LabelDescriptor_ValueType.STRING) {
             obj.value_type = labelDescriptor_ValueTypeToJSON(message.value_type);
         }
         if (message.description !== undefined && message.description !== "") {

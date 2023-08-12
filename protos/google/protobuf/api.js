@@ -37,8 +37,8 @@ exports.Api = {
                 exports.Mixin.encode(v, writer.uint32(50).fork()).ldelim();
             }
         }
-        if (message.syntax !== undefined && message.syntax !== 0) {
-            writer.uint32(56).int32(message.syntax);
+        if (message.syntax !== undefined && message.syntax !== type_1.Syntax.SYNTAX_PROTO2) {
+            writer.uint32(56).int32((0, type_1.syntaxToNumber)(message.syntax));
         }
         if (message._unknownFields !== undefined) {
             for (const [key, values] of Object.entries(message._unknownFields)) {
@@ -107,7 +107,7 @@ exports.Api = {
                     if (tag !== 56) {
                         break;
                     }
-                    message.syntax = reader.int32();
+                    message.syntax = (0, type_1.syntaxFromJSON)(reader.int32());
                     continue;
             }
             if ((tag & 7) === 4 || tag === 0) {
@@ -160,7 +160,7 @@ exports.Api = {
         if (message.mixins?.length) {
             obj.mixins = message.mixins.map((e) => exports.Mixin.toJSON(e));
         }
-        if (message.syntax !== undefined && message.syntax !== 0) {
+        if (message.syntax !== undefined && message.syntax !== type_1.Syntax.SYNTAX_PROTO2) {
             obj.syntax = (0, type_1.syntaxToJSON)(message.syntax);
         }
         return obj;
@@ -191,8 +191,8 @@ exports.Method = {
                 type_1.Option.encode(v, writer.uint32(50).fork()).ldelim();
             }
         }
-        if (message.syntax !== undefined && message.syntax !== 0) {
-            writer.uint32(56).int32(message.syntax);
+        if (message.syntax !== undefined && message.syntax !== type_1.Syntax.SYNTAX_PROTO2) {
+            writer.uint32(56).int32((0, type_1.syntaxToNumber)(message.syntax));
         }
         if (message._unknownFields !== undefined) {
             for (const [key, values] of Object.entries(message._unknownFields)) {
@@ -255,7 +255,7 @@ exports.Method = {
                     if (tag !== 56) {
                         break;
                     }
-                    message.syntax = reader.int32();
+                    message.syntax = (0, type_1.syntaxFromJSON)(reader.int32());
                     continue;
             }
             if ((tag & 7) === 4 || tag === 0) {
@@ -308,7 +308,7 @@ exports.Method = {
         if (message.options?.length) {
             obj.options = message.options.map((e) => type_1.Option.toJSON(e));
         }
-        if (message.syntax !== undefined && message.syntax !== 0) {
+        if (message.syntax !== undefined && message.syntax !== type_1.Syntax.SYNTAX_PROTO2) {
             obj.syntax = (0, type_1.syntaxToJSON)(message.syntax);
         }
         return obj;

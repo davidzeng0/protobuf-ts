@@ -110,7 +110,7 @@ export interface BackendRule {
  * unspecified.
  */
 export declare enum BackendRule_PathTranslation {
-    PATH_TRANSLATION_UNSPECIFIED = 0,
+    PATH_TRANSLATION_UNSPECIFIED = "PATH_TRANSLATION_UNSPECIFIED",
     /**
      * CONSTANT_ADDRESS - Use the backend address as-is, with no modification to the path. If the
      * URL pattern contains variables, the variable names and values will be
@@ -136,7 +136,7 @@ export declare enum BackendRule_PathTranslation {
      *     Translated:
      *     https://example.cloudfunctions.net/getUser?timezone=EST&cid=widgetworks&uid=johndoe
      */
-    CONSTANT_ADDRESS = 1,
+    CONSTANT_ADDRESS = "CONSTANT_ADDRESS",
     /**
      * APPEND_PATH_TO_ADDRESS - The request path will be appended to the backend address.
      *
@@ -158,11 +158,12 @@ export declare enum BackendRule_PathTranslation {
      *     Translated:
      *     https://example.appspot.com/api/company/widgetworks/user/johndoe?timezone=EST
      */
-    APPEND_PATH_TO_ADDRESS = 2,
-    UNRECOGNIZED = -1
+    APPEND_PATH_TO_ADDRESS = "APPEND_PATH_TO_ADDRESS",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function backendRule_PathTranslationFromJSON(object: any): BackendRule_PathTranslation;
 export declare function backendRule_PathTranslationToJSON(object: BackendRule_PathTranslation): string;
+export declare function backendRule_PathTranslationToNumber(object: BackendRule_PathTranslation): number;
 export declare const Backend: {
     encode(message: Backend, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Backend;

@@ -5,26 +5,27 @@ import _m0 from "protobufjs/minimal";
  */
 export declare enum ChangeType {
     /** CHANGE_TYPE_UNSPECIFIED - No value was provided. */
-    CHANGE_TYPE_UNSPECIFIED = 0,
+    CHANGE_TYPE_UNSPECIFIED = "CHANGE_TYPE_UNSPECIFIED",
     /**
      * ADDED - The changed object exists in the 'new' service configuration, but not
      * in the 'old' service configuration.
      */
-    ADDED = 1,
+    ADDED = "ADDED",
     /**
      * REMOVED - The changed object exists in the 'old' service configuration, but not
      * in the 'new' service configuration.
      */
-    REMOVED = 2,
+    REMOVED = "REMOVED",
     /**
      * MODIFIED - The changed object exists in both service configurations, but its value
      * is different.
      */
-    MODIFIED = 3,
-    UNRECOGNIZED = -1
+    MODIFIED = "MODIFIED",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function changeTypeFromJSON(object: any): ChangeType;
 export declare function changeTypeToJSON(object: ChangeType): string;
+export declare function changeTypeToNumber(object: ChangeType): number;
 /**
  * Output generated from semantically comparing two versions of a service
  * configuration.

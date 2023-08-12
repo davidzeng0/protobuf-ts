@@ -7,11 +7,12 @@ import _m0 from "protobufjs/minimal";
  */
 export declare enum NullValue {
     /** NULL_VALUE - Null value. */
-    NULL_VALUE = 0,
-    UNRECOGNIZED = -1
+    NULL_VALUE = "NULL_VALUE",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function nullValueFromJSON(object: any): NullValue;
 export declare function nullValueToJSON(object: NullValue): string;
+export declare function nullValueToNumber(object: NullValue): number;
 /**
  * `Struct` represents a structured data value, consisting of fields
  * which map to dynamically typed values. In some languages, `Struct`

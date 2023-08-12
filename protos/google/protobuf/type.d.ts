@@ -4,15 +4,16 @@ import { SourceContext } from "./source_context";
 /** The syntax in which a protocol buffer element is defined. */
 export declare enum Syntax {
     /** SYNTAX_PROTO2 - Syntax `proto2`. */
-    SYNTAX_PROTO2 = 0,
+    SYNTAX_PROTO2 = "SYNTAX_PROTO2",
     /** SYNTAX_PROTO3 - Syntax `proto3`. */
-    SYNTAX_PROTO3 = 1,
+    SYNTAX_PROTO3 = "SYNTAX_PROTO3",
     /** SYNTAX_EDITIONS - Syntax `editions`. */
-    SYNTAX_EDITIONS = 2,
-    UNRECOGNIZED = -1
+    SYNTAX_EDITIONS = "SYNTAX_EDITIONS",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function syntaxFromJSON(object: any): Syntax;
 export declare function syntaxToJSON(object: Syntax): string;
+export declare function syntaxToNumber(object: Syntax): number;
 /** A protocol buffer message type. */
 export interface Type {
     /** The fully qualified message name. */
@@ -68,61 +69,63 @@ export interface Field {
 /** Basic field types. */
 export declare enum Field_Kind {
     /** TYPE_UNKNOWN - Field type unknown. */
-    TYPE_UNKNOWN = 0,
+    TYPE_UNKNOWN = "TYPE_UNKNOWN",
     /** TYPE_DOUBLE - Field type double. */
-    TYPE_DOUBLE = 1,
+    TYPE_DOUBLE = "TYPE_DOUBLE",
     /** TYPE_FLOAT - Field type float. */
-    TYPE_FLOAT = 2,
+    TYPE_FLOAT = "TYPE_FLOAT",
     /** TYPE_INT64 - Field type int64. */
-    TYPE_INT64 = 3,
+    TYPE_INT64 = "TYPE_INT64",
     /** TYPE_UINT64 - Field type uint64. */
-    TYPE_UINT64 = 4,
+    TYPE_UINT64 = "TYPE_UINT64",
     /** TYPE_INT32 - Field type int32. */
-    TYPE_INT32 = 5,
+    TYPE_INT32 = "TYPE_INT32",
     /** TYPE_FIXED64 - Field type fixed64. */
-    TYPE_FIXED64 = 6,
+    TYPE_FIXED64 = "TYPE_FIXED64",
     /** TYPE_FIXED32 - Field type fixed32. */
-    TYPE_FIXED32 = 7,
+    TYPE_FIXED32 = "TYPE_FIXED32",
     /** TYPE_BOOL - Field type bool. */
-    TYPE_BOOL = 8,
+    TYPE_BOOL = "TYPE_BOOL",
     /** TYPE_STRING - Field type string. */
-    TYPE_STRING = 9,
+    TYPE_STRING = "TYPE_STRING",
     /** TYPE_GROUP - Field type group. Proto2 syntax only, and deprecated. */
-    TYPE_GROUP = 10,
+    TYPE_GROUP = "TYPE_GROUP",
     /** TYPE_MESSAGE - Field type message. */
-    TYPE_MESSAGE = 11,
+    TYPE_MESSAGE = "TYPE_MESSAGE",
     /** TYPE_BYTES - Field type bytes. */
-    TYPE_BYTES = 12,
+    TYPE_BYTES = "TYPE_BYTES",
     /** TYPE_UINT32 - Field type uint32. */
-    TYPE_UINT32 = 13,
+    TYPE_UINT32 = "TYPE_UINT32",
     /** TYPE_ENUM - Field type enum. */
-    TYPE_ENUM = 14,
+    TYPE_ENUM = "TYPE_ENUM",
     /** TYPE_SFIXED32 - Field type sfixed32. */
-    TYPE_SFIXED32 = 15,
+    TYPE_SFIXED32 = "TYPE_SFIXED32",
     /** TYPE_SFIXED64 - Field type sfixed64. */
-    TYPE_SFIXED64 = 16,
+    TYPE_SFIXED64 = "TYPE_SFIXED64",
     /** TYPE_SINT32 - Field type sint32. */
-    TYPE_SINT32 = 17,
+    TYPE_SINT32 = "TYPE_SINT32",
     /** TYPE_SINT64 - Field type sint64. */
-    TYPE_SINT64 = 18,
-    UNRECOGNIZED = -1
+    TYPE_SINT64 = "TYPE_SINT64",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function field_KindFromJSON(object: any): Field_Kind;
 export declare function field_KindToJSON(object: Field_Kind): string;
+export declare function field_KindToNumber(object: Field_Kind): number;
 /** Whether a field is optional, required, or repeated. */
 export declare enum Field_Cardinality {
     /** CARDINALITY_UNKNOWN - For fields with unknown cardinality. */
-    CARDINALITY_UNKNOWN = 0,
+    CARDINALITY_UNKNOWN = "CARDINALITY_UNKNOWN",
     /** CARDINALITY_OPTIONAL - For optional fields. */
-    CARDINALITY_OPTIONAL = 1,
+    CARDINALITY_OPTIONAL = "CARDINALITY_OPTIONAL",
     /** CARDINALITY_REQUIRED - For required fields. Proto2 syntax only. */
-    CARDINALITY_REQUIRED = 2,
+    CARDINALITY_REQUIRED = "CARDINALITY_REQUIRED",
     /** CARDINALITY_REPEATED - For repeated fields. */
-    CARDINALITY_REPEATED = 3,
-    UNRECOGNIZED = -1
+    CARDINALITY_REPEATED = "CARDINALITY_REPEATED",
+    UNRECOGNIZED = "UNRECOGNIZED"
 }
 export declare function field_CardinalityFromJSON(object: any): Field_Cardinality;
 export declare function field_CardinalityToJSON(object: Field_Cardinality): string;
+export declare function field_CardinalityToNumber(object: Field_Cardinality): number;
 /** Enum type definition. */
 export interface Enum {
     /** Enum type name. */
