@@ -16,7 +16,7 @@ var LabelDescriptor_ValueType;
     /** INT64 - A 64-bit signed integer. */
     LabelDescriptor_ValueType[LabelDescriptor_ValueType["INT64"] = 2] = "INT64";
     LabelDescriptor_ValueType[LabelDescriptor_ValueType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(LabelDescriptor_ValueType = exports.LabelDescriptor_ValueType || (exports.LabelDescriptor_ValueType = {}));
+})(LabelDescriptor_ValueType || (exports.LabelDescriptor_ValueType = LabelDescriptor_ValueType = {}));
 function labelDescriptor_ValueTypeFromJSON(object) {
     switch (object) {
         case 0:

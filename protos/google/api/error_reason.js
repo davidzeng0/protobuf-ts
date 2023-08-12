@@ -543,7 +543,7 @@ var ErrorReason;
      */
     ErrorReason[ErrorReason["ORG_RESTRICTION_HEADER_INVALID"] = 28] = "ORG_RESTRICTION_HEADER_INVALID";
     ErrorReason[ErrorReason["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(ErrorReason = exports.ErrorReason || (exports.ErrorReason = {}));
+})(ErrorReason || (exports.ErrorReason = ErrorReason = {}));
 function errorReasonFromJSON(object) {
     switch (object) {
         case 0:

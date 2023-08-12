@@ -36,7 +36,7 @@ var CalendarPeriod;
     /** YEAR - A year. */
     CalendarPeriod[CalendarPeriod["YEAR"] = 7] = "YEAR";
     CalendarPeriod[CalendarPeriod["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(CalendarPeriod = exports.CalendarPeriod || (exports.CalendarPeriod = {}));
+})(CalendarPeriod || (exports.CalendarPeriod = CalendarPeriod = {}));
 function calendarPeriodFromJSON(object) {
     switch (object) {
         case 0:

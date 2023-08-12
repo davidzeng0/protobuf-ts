@@ -184,7 +184,7 @@ var Code;
      */
     Code[Code["DATA_LOSS"] = 15] = "DATA_LOSS";
     Code[Code["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(Code = exports.Code || (exports.Code = {}));
+})(Code || (exports.Code = Code = {}));
 function codeFromJSON(object) {
     switch (object) {
         case 0:

@@ -26,7 +26,7 @@ var ResourceDescriptor_History;
      */
     ResourceDescriptor_History[ResourceDescriptor_History["FUTURE_MULTI_PATTERN"] = 2] = "FUTURE_MULTI_PATTERN";
     ResourceDescriptor_History[ResourceDescriptor_History["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(ResourceDescriptor_History = exports.ResourceDescriptor_History || (exports.ResourceDescriptor_History = {}));
+})(ResourceDescriptor_History || (exports.ResourceDescriptor_History = ResourceDescriptor_History = {}));
 function resourceDescriptor_HistoryFromJSON(object) {
     switch (object) {
         case 0:
@@ -76,7 +76,7 @@ var ResourceDescriptor_Style;
      */
     ResourceDescriptor_Style[ResourceDescriptor_Style["DECLARATIVE_FRIENDLY"] = 1] = "DECLARATIVE_FRIENDLY";
     ResourceDescriptor_Style[ResourceDescriptor_Style["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(ResourceDescriptor_Style = exports.ResourceDescriptor_Style || (exports.ResourceDescriptor_Style = {}));
+})(ResourceDescriptor_Style || (exports.ResourceDescriptor_Style = ResourceDescriptor_Style = {}));
 function resourceDescriptor_StyleFromJSON(object) {
     switch (object) {
         case 0:

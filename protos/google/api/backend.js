@@ -67,7 +67,7 @@ var BackendRule_PathTranslation;
      */
     BackendRule_PathTranslation[BackendRule_PathTranslation["APPEND_PATH_TO_ADDRESS"] = 2] = "APPEND_PATH_TO_ADDRESS";
     BackendRule_PathTranslation[BackendRule_PathTranslation["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(BackendRule_PathTranslation = exports.BackendRule_PathTranslation || (exports.BackendRule_PathTranslation = {}));
+})(BackendRule_PathTranslation || (exports.BackendRule_PathTranslation = BackendRule_PathTranslation = {}));
 function backendRule_PathTranslationFromJSON(object) {
     switch (object) {
         case 0:

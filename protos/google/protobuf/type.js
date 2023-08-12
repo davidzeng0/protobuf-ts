@@ -18,7 +18,7 @@ var Syntax;
     /** SYNTAX_EDITIONS - Syntax `editions`. */
     Syntax[Syntax["SYNTAX_EDITIONS"] = 2] = "SYNTAX_EDITIONS";
     Syntax[Syntax["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(Syntax = exports.Syntax || (exports.Syntax = {}));
+})(Syntax || (exports.Syntax = Syntax = {}));
 function syntaxFromJSON(object) {
     switch (object) {
         case 0:
@@ -93,7 +93,7 @@ var Field_Kind;
     /** TYPE_SINT64 - Field type sint64. */
     Field_Kind[Field_Kind["TYPE_SINT64"] = 18] = "TYPE_SINT64";
     Field_Kind[Field_Kind["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(Field_Kind = exports.Field_Kind || (exports.Field_Kind = {}));
+})(Field_Kind || (exports.Field_Kind = Field_Kind = {}));
 function field_KindFromJSON(object) {
     switch (object) {
         case 0:
@@ -218,7 +218,7 @@ var Field_Cardinality;
     /** CARDINALITY_REPEATED - For repeated fields. */
     Field_Cardinality[Field_Cardinality["CARDINALITY_REPEATED"] = 3] = "CARDINALITY_REPEATED";
     Field_Cardinality[Field_Cardinality["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(Field_Cardinality = exports.Field_Cardinality || (exports.Field_Cardinality = {}));
+})(Field_Cardinality || (exports.Field_Cardinality = Field_Cardinality = {}));
 function field_CardinalityFromJSON(object) {
     switch (object) {
         case 0:

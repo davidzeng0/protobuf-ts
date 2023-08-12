@@ -31,7 +31,7 @@ var MetricDescriptor_MetricKind;
      */
     MetricDescriptor_MetricKind[MetricDescriptor_MetricKind["CUMULATIVE"] = 3] = "CUMULATIVE";
     MetricDescriptor_MetricKind[MetricDescriptor_MetricKind["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(MetricDescriptor_MetricKind = exports.MetricDescriptor_MetricKind || (exports.MetricDescriptor_MetricKind = {}));
+})(MetricDescriptor_MetricKind || (exports.MetricDescriptor_MetricKind = MetricDescriptor_MetricKind = {}));
 function metricDescriptor_MetricKindFromJSON(object) {
     switch (object) {
         case 0:
@@ -93,7 +93,7 @@ var MetricDescriptor_ValueType;
     /** MONEY - The value is money. */
     MetricDescriptor_ValueType[MetricDescriptor_ValueType["MONEY"] = 6] = "MONEY";
     MetricDescriptor_ValueType[MetricDescriptor_ValueType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(MetricDescriptor_ValueType = exports.MetricDescriptor_ValueType || (exports.MetricDescriptor_ValueType = {}));
+})(MetricDescriptor_ValueType || (exports.MetricDescriptor_ValueType = MetricDescriptor_ValueType = {}));
 function metricDescriptor_ValueTypeFromJSON(object) {
     switch (object) {
         case 0:

@@ -25,7 +25,7 @@ var ClientLibraryOrganization;
     /** STREET_VIEW - Street View Org. */
     ClientLibraryOrganization[ClientLibraryOrganization["STREET_VIEW"] = 4] = "STREET_VIEW";
     ClientLibraryOrganization[ClientLibraryOrganization["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(ClientLibraryOrganization = exports.ClientLibraryOrganization || (exports.ClientLibraryOrganization = {}));
+})(ClientLibraryOrganization || (exports.ClientLibraryOrganization = ClientLibraryOrganization = {}));
 function clientLibraryOrganizationFromJSON(object) {
     switch (object) {
         case 0:
@@ -84,7 +84,7 @@ var ClientLibraryDestination;
     /** PACKAGE_MANAGER - Publish the library to package managers like nuget.org and npmjs.com. */
     ClientLibraryDestination[ClientLibraryDestination["PACKAGE_MANAGER"] = 20] = "PACKAGE_MANAGER";
     ClientLibraryDestination[ClientLibraryDestination["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(ClientLibraryDestination = exports.ClientLibraryDestination || (exports.ClientLibraryDestination = {}));
+})(ClientLibraryDestination || (exports.ClientLibraryDestination = ClientLibraryDestination = {}));
 function clientLibraryDestinationFromJSON(object) {
     switch (object) {
         case 0:

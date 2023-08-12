@@ -22,7 +22,7 @@ var DayOfWeek;
     /** SUNDAY - Sunday */
     DayOfWeek[DayOfWeek["SUNDAY"] = 7] = "SUNDAY";
     DayOfWeek[DayOfWeek["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(DayOfWeek = exports.DayOfWeek || (exports.DayOfWeek = {}));
+})(DayOfWeek || (exports.DayOfWeek = DayOfWeek = {}));
 function dayOfWeekFromJSON(object) {
     switch (object) {
         case 0:

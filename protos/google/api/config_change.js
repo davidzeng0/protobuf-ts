@@ -30,7 +30,7 @@ var ChangeType;
      */
     ChangeType[ChangeType["MODIFIED"] = 3] = "MODIFIED";
     ChangeType[ChangeType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(ChangeType = exports.ChangeType || (exports.ChangeType = {}));
+})(ChangeType || (exports.ChangeType = ChangeType = {}));
 function changeTypeFromJSON(object) {
     switch (object) {
         case 0:

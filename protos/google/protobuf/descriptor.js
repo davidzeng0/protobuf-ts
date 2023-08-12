@@ -51,7 +51,7 @@ var FieldDescriptorProto_Type;
     /** TYPE_SINT64 - Uses ZigZag encoding. */
     FieldDescriptorProto_Type[FieldDescriptorProto_Type["TYPE_SINT64"] = 18] = "TYPE_SINT64";
     FieldDescriptorProto_Type[FieldDescriptorProto_Type["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(FieldDescriptorProto_Type = exports.FieldDescriptorProto_Type || (exports.FieldDescriptorProto_Type = {}));
+})(FieldDescriptorProto_Type || (exports.FieldDescriptorProto_Type = FieldDescriptorProto_Type = {}));
 function fieldDescriptorProto_TypeFromJSON(object) {
     switch (object) {
         case 1:
@@ -166,7 +166,7 @@ var FieldDescriptorProto_Label;
     FieldDescriptorProto_Label[FieldDescriptorProto_Label["LABEL_REQUIRED"] = 2] = "LABEL_REQUIRED";
     FieldDescriptorProto_Label[FieldDescriptorProto_Label["LABEL_REPEATED"] = 3] = "LABEL_REPEATED";
     FieldDescriptorProto_Label[FieldDescriptorProto_Label["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(FieldDescriptorProto_Label = exports.FieldDescriptorProto_Label || (exports.FieldDescriptorProto_Label = {}));
+})(FieldDescriptorProto_Label || (exports.FieldDescriptorProto_Label = FieldDescriptorProto_Label = {}));
 function fieldDescriptorProto_LabelFromJSON(object) {
     switch (object) {
         case 1:
@@ -209,7 +209,7 @@ var FileOptions_OptimizeMode;
     /** LITE_RUNTIME - Generate code using MessageLite and the lite runtime. */
     FileOptions_OptimizeMode[FileOptions_OptimizeMode["LITE_RUNTIME"] = 3] = "LITE_RUNTIME";
     FileOptions_OptimizeMode[FileOptions_OptimizeMode["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(FileOptions_OptimizeMode = exports.FileOptions_OptimizeMode || (exports.FileOptions_OptimizeMode = {}));
+})(FileOptions_OptimizeMode || (exports.FileOptions_OptimizeMode = FileOptions_OptimizeMode = {}));
 function fileOptions_OptimizeModeFromJSON(object) {
     switch (object) {
         case 1:
@@ -249,7 +249,7 @@ var FieldOptions_CType;
     FieldOptions_CType[FieldOptions_CType["CORD"] = 1] = "CORD";
     FieldOptions_CType[FieldOptions_CType["STRING_PIECE"] = 2] = "STRING_PIECE";
     FieldOptions_CType[FieldOptions_CType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(FieldOptions_CType = exports.FieldOptions_CType || (exports.FieldOptions_CType = {}));
+})(FieldOptions_CType || (exports.FieldOptions_CType = FieldOptions_CType = {}));
 function fieldOptions_CTypeFromJSON(object) {
     switch (object) {
         case 0:
@@ -291,7 +291,7 @@ var FieldOptions_JSType;
     /** JS_NUMBER - Use JavaScript numbers. */
     FieldOptions_JSType[FieldOptions_JSType["JS_NUMBER"] = 2] = "JS_NUMBER";
     FieldOptions_JSType[FieldOptions_JSType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(FieldOptions_JSType = exports.FieldOptions_JSType || (exports.FieldOptions_JSType = {}));
+})(FieldOptions_JSType || (exports.FieldOptions_JSType = FieldOptions_JSType = {}));
 function fieldOptions_JSTypeFromJSON(object) {
     switch (object) {
         case 0:
@@ -335,7 +335,7 @@ var FieldOptions_OptionRetention;
     FieldOptions_OptionRetention[FieldOptions_OptionRetention["RETENTION_RUNTIME"] = 1] = "RETENTION_RUNTIME";
     FieldOptions_OptionRetention[FieldOptions_OptionRetention["RETENTION_SOURCE"] = 2] = "RETENTION_SOURCE";
     FieldOptions_OptionRetention[FieldOptions_OptionRetention["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(FieldOptions_OptionRetention = exports.FieldOptions_OptionRetention || (exports.FieldOptions_OptionRetention = {}));
+})(FieldOptions_OptionRetention || (exports.FieldOptions_OptionRetention = FieldOptions_OptionRetention = {}));
 function fieldOptions_OptionRetentionFromJSON(object) {
     switch (object) {
         case 0:
@@ -387,7 +387,7 @@ var FieldOptions_OptionTargetType;
     FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_SERVICE"] = 8] = "TARGET_TYPE_SERVICE";
     FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["TARGET_TYPE_METHOD"] = 9] = "TARGET_TYPE_METHOD";
     FieldOptions_OptionTargetType[FieldOptions_OptionTargetType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(FieldOptions_OptionTargetType = exports.FieldOptions_OptionTargetType || (exports.FieldOptions_OptionTargetType = {}));
+})(FieldOptions_OptionTargetType || (exports.FieldOptions_OptionTargetType = FieldOptions_OptionTargetType = {}));
 function fieldOptions_OptionTargetTypeFromJSON(object) {
     switch (object) {
         case 0:
@@ -468,7 +468,7 @@ var MethodOptions_IdempotencyLevel;
     /** IDEMPOTENT - idempotent, but may have side effects */
     MethodOptions_IdempotencyLevel[MethodOptions_IdempotencyLevel["IDEMPOTENT"] = 2] = "IDEMPOTENT";
     MethodOptions_IdempotencyLevel[MethodOptions_IdempotencyLevel["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(MethodOptions_IdempotencyLevel = exports.MethodOptions_IdempotencyLevel || (exports.MethodOptions_IdempotencyLevel = {}));
+})(MethodOptions_IdempotencyLevel || (exports.MethodOptions_IdempotencyLevel = MethodOptions_IdempotencyLevel = {}));
 function methodOptions_IdempotencyLevelFromJSON(object) {
     switch (object) {
         case 0:
@@ -514,7 +514,7 @@ var GeneratedCodeInfo_Annotation_Semantic;
     /** ALIAS - An alias to the element is returned. */
     GeneratedCodeInfo_Annotation_Semantic[GeneratedCodeInfo_Annotation_Semantic["ALIAS"] = 2] = "ALIAS";
     GeneratedCodeInfo_Annotation_Semantic[GeneratedCodeInfo_Annotation_Semantic["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(GeneratedCodeInfo_Annotation_Semantic = exports.GeneratedCodeInfo_Annotation_Semantic || (exports.GeneratedCodeInfo_Annotation_Semantic = {}));
+})(GeneratedCodeInfo_Annotation_Semantic || (exports.GeneratedCodeInfo_Annotation_Semantic = GeneratedCodeInfo_Annotation_Semantic = {}));
 function generatedCodeInfo_Annotation_SemanticFromJSON(object) {
     switch (object) {
         case 0:

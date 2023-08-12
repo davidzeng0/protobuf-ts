@@ -32,7 +32,7 @@ var Month;
     /** DECEMBER - The month of December. */
     Month[Month["DECEMBER"] = 12] = "DECEMBER";
     Month[Month["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(Month = exports.Month || (exports.Month = {}));
+})(Month || (exports.Month = Month = {}));
 function monthFromJSON(object) {
     switch (object) {
         case 0:

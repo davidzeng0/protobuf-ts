@@ -56,7 +56,7 @@ var LaunchStage;
      */
     LaunchStage[LaunchStage["DEPRECATED"] = 5] = "DEPRECATED";
     LaunchStage[LaunchStage["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(LaunchStage = exports.LaunchStage || (exports.LaunchStage = {}));
+})(LaunchStage || (exports.LaunchStage = LaunchStage = {}));
 function launchStageFromJSON(object) {
     switch (object) {
         case 0:

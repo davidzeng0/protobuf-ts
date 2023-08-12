@@ -20,7 +20,7 @@ var Property_PropertyType;
     /** DOUBLE - The type is 'double'. */
     Property_PropertyType[Property_PropertyType["DOUBLE"] = 4] = "DOUBLE";
     Property_PropertyType[Property_PropertyType["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(Property_PropertyType = exports.Property_PropertyType || (exports.Property_PropertyType = {}));
+})(Property_PropertyType || (exports.Property_PropertyType = Property_PropertyType = {}));
 function property_PropertyTypeFromJSON(object) {
     switch (object) {
         case 0:

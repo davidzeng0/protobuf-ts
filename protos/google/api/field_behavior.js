@@ -64,7 +64,7 @@ var FieldBehavior;
      */
     FieldBehavior[FieldBehavior["NON_EMPTY_DEFAULT"] = 7] = "NON_EMPTY_DEFAULT";
     FieldBehavior[FieldBehavior["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
-})(FieldBehavior = exports.FieldBehavior || (exports.FieldBehavior = {}));
+})(FieldBehavior || (exports.FieldBehavior = FieldBehavior = {}));
 function fieldBehaviorFromJSON(object) {
     switch (object) {
         case 0:
