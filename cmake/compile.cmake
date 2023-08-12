@@ -49,7 +49,6 @@ list(APPEND PROTOC_ARGS
 	--ts_proto_opt "outputExtensions=true"
 	--ts_proto_opt "useMapType=true"
 	--ts_proto_opt "exportCommonSymbols=false"
-	--ts_proto_opt "emitImportedFiles=false"
 )
 
 foreach(PROTO_DIR ${PROTO_DIRS})
