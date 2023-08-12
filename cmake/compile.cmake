@@ -110,9 +110,9 @@ foreach(FILE ${BUNDLE_SOURCES})
 
 	add_custom_command(
 		OUTPUT ${OUTPUT}
-		COMMAND npx
+		COMMAND yarn
 		ARGS
-			tsup
+			tsup-node
 			--entry.${OUTPATH} src/${RELATIVE}
 			--minify
 			--keep-names
