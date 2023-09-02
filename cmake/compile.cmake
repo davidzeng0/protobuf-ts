@@ -93,10 +93,9 @@ file(MAKE_DIRECTORY ${DIST_DIR})
 file(GLOB_RECURSE TS_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.ts)
 list(APPEND TS_SOURCES ${CONFIG_OUTPUTS} ${PROTO_OUTPUTS})
 
-file(GLOB_RECURSE BUNDLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.process.ts)
-list(APPEND BUNDLE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/index.ts)
+set(BUNDLE_OUTPUTS "")
 
-foreach(FILE ${BUNDLE_SOURCES})
+function(bundle FILE DTS)
 	file(RELATIVE_PATH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/src ${FILE})
 	get_filename_component(FILENAME ${RELATIVE} NAME_WE)
 	get_filename_component(FILEPATH ${RELATIVE} DIRECTORY)
@@ -109,23 +108,43 @@ foreach(FILE ${BUNDLE_SOURCES})
 		set(OUTPATH ${FILENAME})
 	endif()
 
+	set(
+		TSUP_ARGS
+		tsup-node
+		--entry.${OUTPATH} src/${RELATIVE}
+		--minify-whitespace
+		--minify-identifiers
+		--target esnext
+		--treeshake
+		--silent
+	)
+
+	if(${DTS})
+		list(APPEND TSUP_ARGS --dts)
+	endif()
+
 	add_custom_command(
 		OUTPUT ${OUTPUT}
 		COMMAND yarn
-		ARGS
-			tsup-node
-			--entry.${OUTPATH} src/${RELATIVE}
-			--minify
-			--keep-names
-			--target esnext
-			--dts
-			--treeshake
-			--silent
+		ARGS ${TSUP_ARGS}
 		DEPENDS ${TS_SOURCES}
 		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 	)
 
-	list(APPEND BUNDLE_OUTPUTS ${OUTPUT})
+	set(BUNDLE_OUTPUTS ${BUNDLE_OUTPUTS} ${OUTPUT} PARENT_SCOPE)
+endfunction()
+
+file(GLOB_RECURSE BUNDLE_LIBS ${CMAKE_CURRENT_SOURCE_DIR}/src/*.library.ts)
+file(GLOB_RECURSE BUNDLE_EXES ${CMAKE_CURRENT_SOURCE_DIR}/src/*.process.ts)
+
+foreach(FILE ${BUNDLE_LIBS})
+	bundle(${FILE} TRUE)
 endforeach()
+
+foreach(FILE ${BUNDLE_EXES})
+	bundle(${FILE} FALSE)
+endforeach()
+
+message(${BUNDLE_OUTPUTS})
 
 add_custom_target(bundle ALL DEPENDS config proto ${BUNDLE_OUTPUTS})

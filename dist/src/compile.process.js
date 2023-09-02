@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const js_common_1 = require("js-common");
-const _1 = require(".");
 const promises_1 = require("fs/promises");
 const path_1 = require("path");
 const helpers_1 = require("yargs/helpers");
@@ -35,7 +34,7 @@ function resolveImport(imp) {
     return `!impl:${type[type.length - 1]}`;
 }
 (async function () {
-    let config = await _1.Config.read(input);
+    let config = await js_common_1.Yaml.decode(await (0, promises_1.readFile)(input, 'utf8'));
     let data = JSON.stringify(config, (key, value) => {
         if (key != 'implementation')
             return value;
