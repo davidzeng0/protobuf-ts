@@ -2,6 +2,8 @@
 
 var path = require('path');
 
-var e=path.resolve(`${__dirname}/..`);
+var PROTOBUF_TS_ROOT=path.resolve(`${__dirname}/..`);
 
-exports.PROTOBUF_TS_ROOT = e;
+exports.PROTOBUF_TS_ROOT = PROTOBUF_TS_ROOT;
+//# sourceMappingURL=out.js.map
+//# sourceMappingURL=index.js.map

@@ -115,10 +115,11 @@ function(bundle FILE DTS)
 		tsup-node
 		--entry.${OUTPATH} src/${RELATIVE}
 		--minify-whitespace
-		--minify-identifiers
+		--minify-syntax
 		--target esnext
 		--treeshake
 		--silent
+		--sourcemap
 	)
 
 	if(${DTS})
