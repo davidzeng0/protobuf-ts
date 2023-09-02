@@ -1,6 +1,5 @@
-import { InvalidArgumentError } from 'js-common';
-import { Config } from '.';
-import { writeFile } from 'fs/promises';
+import { InvalidArgumentError, Yaml } from 'js-common';
+import { readFile, writeFile } from 'fs/promises';
 import { basename, dirname, join, relative, resolve } from 'path';
 
 import { hideBin } from 'yargs/helpers';
@@ -41,7 +40,7 @@ function resolveImport(imp: string){
 }
 
 (async function(){
-	let config = await Config.read(input);
+	let config = await Yaml.decode(await readFile(input, 'utf8'));
 
 	let data = JSON.stringify(config, (key, value) => {
 		if(key != 'implementation')
