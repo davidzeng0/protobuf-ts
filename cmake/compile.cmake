@@ -147,6 +147,4 @@ foreach(FILE ${BUNDLE_EXES})
 	bundle(${FILE} FALSE)
 endforeach()
 
-message(${BUNDLE_OUTPUTS})
-
 add_custom_target(bundle ALL DEPENDS config proto ${BUNDLE_OUTPUTS})
