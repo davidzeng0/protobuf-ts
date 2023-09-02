@@ -38,7 +38,11 @@ function resolveImport(imp) {
     let data = JSON.stringify(config, (key, value) => {
         if (key != 'implementation')
             return value;
-        return resolveImport(value);
+        if (typeof value == 'string')
+            return resolveImport(value);
+        for (let [key, val] of js_common_1.KV.entries(value))
+            value[key] = resolveImport(val);
+        return value;
     }, '\t');
     data = data.replaceAll(/"\!impl:([^"]+)"/g, (arg0, arg1) => {
         return arg1;
