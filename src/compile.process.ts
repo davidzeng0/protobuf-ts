@@ -1,4 +1,4 @@
-import { InvalidArgumentError, Yaml } from 'js-common';
+import { InvalidArgumentError, KV, Yaml } from 'js-common';
 import { readFile, writeFile } from 'fs/promises';
 import { basename, dirname, join, relative, resolve } from 'path';
 
@@ -45,7 +45,11 @@ function resolveImport(imp: string){
 	let data = JSON.stringify(config, (key, value) => {
 		if(key != 'implementation')
 			return value;
-		return resolveImport(value);
+		if(typeof value == 'string')
+			return resolveImport(value);
+		for(let [key, val] of KV.entries(value))
+			value[key] = resolveImport(val as string);
+		return value;
 	}, '\t');
 
 	data = data.replaceAll(/"\!impl:([^"]+)"/g, (arg0, arg1) => {
