@@ -27,63 +27,65 @@ add_custom_target(config ALL DEPENDS ${CONFIG_OUTPUTS})
 set(PROTO_SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/protos)
 set(PROTO_OUTPUT_DIR ${CMAKE_CURRENT_BINARY_DIR}/protos)
 
-file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
-file(GLOB PROTO_DIRS ${PROTO_SRC_DIR}/*)
+if(EXISTS ${PROTO_SRC_DIR})
+	file(MAKE_DIRECTORY ${PROTO_OUTPUT_DIR})
+	file(GLOB PROTO_DIRS ${PROTO_SRC_DIR}/*)
 
-list(APPEND PROTOC_ARGS
-	--plugin "${CMAKE_CURRENT_SOURCE_DIR}/node_modules/.bin/protoc-gen-ts_proto"
-	--ts_proto_out "${PROTO_OUTPUT_DIR}"
-	--ts_proto_opt "useOptionals=all"
-	--ts_proto_opt "env=node"
-	--ts_proto_opt "forceLong=bigint"
-	--ts_proto_opt "esModuleInterop=true"
-	--ts_proto_opt "unknownFields=true"
-	--ts_proto_opt "initializeFieldsAsUndefined=false"
-	--ts_proto_opt "useDate=false"
-	--ts_proto_opt "outputServices=generic-definitions"
-	--ts_proto_opt "outputServices=default"
-	--ts_proto_opt "outputClientImpl=false"
-	--ts_proto_opt "outputPartialMethods=false"
-	--ts_proto_opt "snakeToCamel=false"
-	--ts_proto_opt "lowerCaseServiceMethods=true"
-	--ts_proto_opt "outputExtensions=true"
-	--ts_proto_opt "useMapType=true"
-	--ts_proto_opt "exportCommonSymbols=false"
-	--ts_proto_opt "stringEnums=true"
-)
+	list(APPEND PROTOC_ARGS
+		--plugin "${CMAKE_CURRENT_SOURCE_DIR}/node_modules/.bin/protoc-gen-ts_proto"
+		--ts_proto_out "${PROTO_OUTPUT_DIR}"
+		--ts_proto_opt "useOptionals=all"
+		--ts_proto_opt "env=node"
+		--ts_proto_opt "forceLong=bigint"
+		--ts_proto_opt "esModuleInterop=true"
+		--ts_proto_opt "unknownFields=true"
+		--ts_proto_opt "initializeFieldsAsUndefined=false"
+		--ts_proto_opt "useDate=false"
+		--ts_proto_opt "outputServices=generic-definitions"
+		--ts_proto_opt "outputServices=default"
+		--ts_proto_opt "outputClientImpl=false"
+		--ts_proto_opt "outputPartialMethods=false"
+		--ts_proto_opt "snakeToCamel=false"
+		--ts_proto_opt "lowerCaseServiceMethods=true"
+		--ts_proto_opt "outputExtensions=true"
+		--ts_proto_opt "useMapType=true"
+		--ts_proto_opt "exportCommonSymbols=false"
+		--ts_proto_opt "stringEnums=true"
+	)
 
-foreach(PROTO_DIR ${PROTO_DIRS})
-	if(NOT IS_DIRECTORY ${PROTO_DIR})
-		continue()
-	endif()
+	foreach(PROTO_DIR ${PROTO_DIRS})
+		if(NOT IS_DIRECTORY ${PROTO_DIR})
+			continue()
+		endif()
 
-	list(APPEND PROTOC_ARGS -I "${PROTO_DIR}")
-endforeach()
-
-foreach(PROTO_DIR ${PROTO_DIRS})
-	if(NOT IS_DIRECTORY ${PROTO_DIR})
-		continue()
-	endif()
-
-	file(GLOB_RECURSE PROTO_SOURCES ${PROTO_DIR}/*.proto)
-	foreach(FILE ${PROTO_SOURCES})
-		file(RELATIVE_PATH RELATIVE ${PROTO_DIR} ${FILE})
-		get_filename_component(FILENAME ${RELATIVE} NAME_WE)
-		get_filename_component(FILEPATH ${RELATIVE} DIRECTORY)
-		set(SOURCE ${PROTO_OUTPUT_DIR}/${FILEPATH}/${FILENAME}.ts)
-
-		list(APPEND PROTO_INPUTS ${FILE})
-		list(APPEND PROTO_OUTPUTS ${SOURCE})
+		list(APPEND PROTOC_ARGS -I "${PROTO_DIR}")
 	endforeach()
-endforeach()
 
-add_custom_command(
-	OUTPUT ${PROTO_OUTPUTS}
-	COMMAND protoc
-	ARGS ${PROTOC_ARGS}
-	${PROTO_INPUTS}
-	DEPENDS ${PROTO_INPUTS}
-)
+	foreach(PROTO_DIR ${PROTO_DIRS})
+		if(NOT IS_DIRECTORY ${PROTO_DIR})
+			continue()
+		endif()
+
+		file(GLOB_RECURSE PROTO_SOURCES ${PROTO_DIR}/*.proto)
+		foreach(FILE ${PROTO_SOURCES})
+			file(RELATIVE_PATH RELATIVE ${PROTO_DIR} ${FILE})
+			get_filename_component(FILENAME ${RELATIVE} NAME_WE)
+			get_filename_component(FILEPATH ${RELATIVE} DIRECTORY)
+			set(SOURCE ${PROTO_OUTPUT_DIR}/${FILEPATH}/${FILENAME}.ts)
+
+			list(APPEND PROTO_INPUTS ${FILE})
+			list(APPEND PROTO_OUTPUTS ${SOURCE})
+		endforeach()
+	endforeach()
+
+	add_custom_command(
+		OUTPUT ${PROTO_OUTPUTS}
+		COMMAND protoc
+		ARGS ${PROTOC_ARGS}
+		${PROTO_INPUTS}
+		DEPENDS ${PROTO_INPUTS}
+	)
+endif()
 
 add_custom_target(proto ALL DEPENDS ${PROTO_OUTPUTS})
 
